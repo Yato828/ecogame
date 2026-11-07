@@ -1,0 +1,8 @@
+PASS: four ZIP CRC and path-safety checks
+PASS: four bundled CC0 licenses and hashes
+PASS: 213 model names / 639 format files inventoried
+PASS: OBJ MTL/texture and GLB image reference existence checks
+PASS: 32 selected FBX candidates with source/license/hash and unverified import state
+PASS: four original pack previews visually inspected
+G0 PASS: preflight/source inspection only
+NOT RUN: Unity imports/render/screenshots/builds; FBX runtime metrics

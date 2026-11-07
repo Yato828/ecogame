@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eee1fb906cd94e4085c944fd806fd67, type: 3}
+  m_Name: after-hours
+  m_EditorClassIdentifier: Wattshift.Runtime::Wattshift.MissionDefinition
+  Id: after-hours-v1
+  Title: "\u041F\u043E\u0441\u043B\u0435 \u0437\u0430\u043D\u044F\u0442\u0438\u0439"
+  Description: "\u0421\u043D\u0438\u0437\u044C\u0442\u0435 \u0432\u0435\u0447\u0435\u0440\u043D\u0435\u0435
+    \u043F\u043E\u0442\u0440\u0435\u0431\u043B\u0435\u043D\u0438\u0435 \u0448\u043A\u043E\u043B\u044B,
+    \u0441\u043E\u0445\u0440\u0430\u043D\u0438\u0432 \u043F\u0438\u0442\u0430\u043D\u0438\u0435
+    \u043F\u043E\u043B\u0438\u043A\u043B\u0438\u043D\u0438\u043A\u0438 \u0438 \u043A\u043E\u043C\u0444\u043E\u0440\u0442
+    \u043A\u0432\u0430\u0440\u0442\u0430\u043B\u0430."
+  Assumptions: "\u0423\u0447\u0435\u0431\u043D\u044B\u0435 \u043F\u0440\u0438\u043C\u0435\u0440\u043D\u044B\u0435
+    \u043D\u0430\u0433\u0440\u0443\u0437\u043A\u0438; \u0440\u0430\u0441\u0445\u043E\u0434\u044B
+    \u2014 \u0443\u0441\u043B\u043E\u0432\u043D\u044B\u0435 \u0435\u0434\u0438\u043D\u0438\u0446\u044B.
+    \u043A\u0412\u0442: \u043C\u043E\u0449\u043D\u043E\u0441\u0442\u044C \u0432 20:00;
+    \u043A\u0412\u0442\xB7\u0447: \u044D\u043D\u0435\u0440\u0433\u0438\u044F \u043F\u043E
+    \u0440\u0430\u0441\u043F\u0438\u0441\u0430\u043D\u0438\u044F\u043C \u0437\u0430
+    17:00\u201323:00."
+  StartHour: 17
+  EndHour: 23
+  EvaluationHour: 20
+  InitialBudget: 650
+  TargetSavingPercent: 30
+  MinComfort: 80
+  Buildings:
+  - {fileID: 11400000, guid: ebc543788f11b43ce946606f371b7dbb, type: 2}
+  - {fileID: 11400000, guid: 96ab54e8115dc4a2cb39cda073178d42, type: 2}
+  - {fileID: 11400000, guid: 66743027a903c4fafa451f5a8bcd0f2f, type: 2}
+  - {fileID: 11400000, guid: 3fb8dccd97a4949b09d18de757bab199, type: 2}
+  - {fileID: 11400000, guid: 1099216b159ca4780abea93f67603c97, type: 2}
+  - {fileID: 11400000, guid: 717af627f1e93420ca36f9e4d9a962b6, type: 2}
+  - {fileID: 11400000, guid: 60e318996c34647f68bfe0695066aae2, type: 2}
+  - {fileID: 11400000, guid: 5b0517c356b4447a9af7d638eea34d4c, type: 2}

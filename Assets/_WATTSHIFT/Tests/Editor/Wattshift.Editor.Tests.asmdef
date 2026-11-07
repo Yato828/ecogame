@@ -1,0 +1,13 @@
+{
+  "name": "Wattshift.Editor.Tests",
+  "references": [
+    "Wattshift.Runtime",
+    "Unity.InputSystem"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

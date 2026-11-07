@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-07 Europe/Minsk",
+  "unity": "6000.3.27f1",
+  "test_project": "/private/tmp/WATTSHIFT_Validation",
+  "reason_for_copy": "User Editor kept original project open; no user Editor was closed",
+  "tested_assets_and_packages_match_workspace": true,
+  "comparison_file_count": 682,
+  "project_settings_copy_differences": [],
+  "approved_art_and_urp_original_files_unchanged": 523,
+  "original_scene_transform_validation": "5 ordinary transforms and 50 prefab pose overrides unchanged",
+  "unique_project_guids": 342,
+  "test_results": {
+    "editmode-final.xml": {
+      "passed": 22,
+      "failed": 0
+    },
+    "playmode-acceptance.xml": {
+      "passed": 7,
+      "failed": 0
+    }
+  },
+  "screenshots": {
+    "04-mission-4x3.png": {
+      "pixels": [
+        1200,
+        900
+      ],
+      "sha256": "13d4e713d6fad6a608fa392eac9743ab866a89188dd477e41861243aa4d5de22"
+    },
+    "02-mission-complete.png": {
+      "pixels": [
+        1920,
+        1080
+      ],
+      "sha256": "40ee6fb5382555e408cde18bb4d82aa02157b1a60693983002dd31ef374fbb73"
+    },
+    "03-mission-portrait.png": {
+      "pixels": [
+        900,
+        1200
+      ],
+      "sha256": "9ec14d62aa6e32d217823424ef5dfe3f84f0c2ff41fa7ea65e22800dc6c4d06e"
+    },
+    "01-mission-school-before.png": {
+      "pixels": [
+        1920,
+        1080
+      ],
+      "sha256": "fa56e56f860264538d590be642c0d97003719ca259f03dcd668bb20818897c7c"
+    }
+  },
+  "manual_physical_devices_tested": [],
+  "browser_and_native_builds_run": [],
+  "g2_fps_measured": false,
+  "g3_g4": "NOT STARTED"
+}

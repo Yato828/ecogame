@@ -1,0 +1,6 @@
+Actual Editor Play mode sample on Mac16,12 / Apple M4
+Viewport: 1920x1080
+Samples: 2048
+Median frame ms: 1.894126
+P95 frame ms: 2.796287
+Includes Editor overhead; not browser/device performance acceptance.

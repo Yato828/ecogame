@@ -1,0 +1,43 @@
+{
+  "recorded_at": "2026-11-07T17:10:59.484933+00:00",
+  "user_facing_date": "2026-11-07 Europe/Minsk",
+  "workspace": "/Users/yato/Downloads/WATTSHIFT_Codex_Starter_Kit",
+  "host_architecture": "arm64",
+  "unity_editor": "/Applications/Unity/Hub/Editor/6000.3.27f1/Unity.app/Contents/MacOS/Unity",
+  "editor_executable_exists": true,
+  "unity_bundle_version": "6000.3.27f1",
+  "hub_metadata": {
+    "productName": "Unity 6.3 LTS",
+    "entitlements": [],
+    "architecture": "arm64",
+    "revisionHash": null,
+    "releaseStream": "",
+    "isLTS": null
+  },
+  "playback_engine_directories": {
+    "/Applications/Unity/Hub/Editor/6000.3.27f1/PlaybackEngines": null,
+    "/Applications/Unity/Hub/Editor/6000.3.27f1/Unity.app/Contents/PlaybackEngines": [
+      "MacStandaloneSupport"
+    ]
+  },
+  "bundled_package_versions": {
+    "com.unity.render-pipelines.universal": "17.3.0",
+    "com.unity.render-pipelines.core": "17.3.0",
+    "com.unity.shadergraph": "17.3.0",
+    "com.unity.render-pipelines.universal-config": "17.0.3"
+  },
+  "disk_free_bytes": 58572800000,
+  "git_repository_present": false,
+  "unity_project_present": false,
+  "unity_executed": false,
+  "license_activation_tested": false,
+  "package_resolution_tested": false,
+  "builds_run": [],
+  "screenshots": [],
+  "tools_found": {
+    "python3": "/usr/bin/python3",
+    "unzip": "/usr/bin/unzip",
+    "blender": null,
+    "assimp": null
+  }
+}

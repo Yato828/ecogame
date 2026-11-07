@@ -1,0 +1,7 @@
+PASS: recorded Unity and bundled URP versions match observed package metadata
+PASS: four required source entries honestly record blocked retrieval and unverified licenses/imports
+PASS: four saved HTTP header logs contain redirect and HTTP 403 evidence
+PASS: pack register has four blocked entries; model register and downloads are empty
+PASS: no Unity project created past the blocked G0
+NOT RUN: Unity launch/import/render/tests/build/profile; no screenshots
+GATE RESULT: G0 BLOCKED on official asset downloads; G1–G4 NOT STARTED

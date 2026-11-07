@@ -1,0 +1,5 @@
+pipeline=PC_RPAsset shadowSupport=True shadowDistance=60
+ShadowMap=UnityBlack (UnityEngine.Texture2D)
+MainLightPosition=(0.60, 0.62, 0.51, 0.00)
+MainLightColor=(2.40, 1.94, 1.33, 1.00)
+casters=50

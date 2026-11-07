@@ -1,0 +1,42 @@
+{
+  "g0": "PASS",
+  "g1": "READY_FOR_HUMAN_VISUAL_APPROVAL",
+  "g2_to_g4": "NOT_STARTED",
+  "actual_imported_fbx_count": 213,
+  "unique_scene_source_meshes": 18,
+  "scene_verified_register_rows": 18,
+  "project_meta_guid_count": 292,
+  "screenshots": {
+    "02-clinic-selection-1920x1080.png": {
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "002be4111f4af77294cc70ee1e2b3ff43091a8bc33bfda7a1113d98275f3fe2a"
+    },
+    "03-portrait-900x1200.png": {
+      "size": [
+        900,
+        1200
+      ],
+      "sha256": "bad6108838ae365a2af3cdd3f6edaaa65c9792eab1deb68aee5a62c149a7306c"
+    },
+    "01-city-1920x1080.png": {
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "802baa39bd308f02801d0bdba43ad787c2d22ff1195a267f3ee6f1800f108fca"
+    }
+  },
+  "checks": [
+    "PASS: all213 imported FBX files, associated palette files and four licenses match supplied originals byte-for-byte",
+    "PASS: all Assets files/folders have Unity-generated meta files; no duplicate project GUIDs",
+    "PASS: final PNG dimensions and hashes recorded; actual images were visually inspected by integrator and QA",
+    "PASS: 18 registered mesh candidates verified in scene; 14 unused candidates retain false",
+    "PASS: final Play mode checks have no FAIL rows"
+  ],
+  "no_builds_run": true,
+  "physical_devices_tested": [],
+  "web_module_installed": false
+}

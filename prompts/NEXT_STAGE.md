@@ -1,0 +1,1 @@
+Continue WATTSHIFT from `docs/STATUS.md`. Implement only the next accepted gate in `docs/QUALITY_GATES.md`. Check current files, preserve existing assets, and assign non-overlapping tasks. Provide before/after screenshots only when actually captured in Unity. Run available tests and update STATUS with evidence. Stop on blockers instead of silently using placeholders.

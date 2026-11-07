@@ -1,0 +1,17 @@
+PASS: eight selectable buildings
+PASS: all building colliders valid
+PASS: all scene materials use supported shaders and palette textures
+PASS: URP active
+PASS: directional shadows enabled
+INFO: runtime viewport 1920x1080 camera aspect=1.777778 ortho=11.5
+PASS: clinic click point outside UI
+PASS: raycast mouse click selects protected clinic
+PASS: keyboard camera pan moves camera
+PASS: Escape closes selection
+INFO: portrait runtime viewport 900x1200 camera aspect=0.75 ortho=15.33332
+PASS: simulated touch tap selects protected clinic
+PASS: landscape PNG is 1920x1080
+PASS: selection PNG is 1920x1080
+PASS: portrait PNG is 900x1200
+PASS: no runtime errors or exceptions
+PASS: no Editor startup indexing errors

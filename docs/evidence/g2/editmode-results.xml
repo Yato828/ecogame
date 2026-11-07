@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="21" result="Passed" total="21" passed="21" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.0358328">
+  <test-suite type="TestSuite" id="1000" name="WATTSHIFT" fullname="WATTSHIFT" runstate="Runnable" testcasecount="21" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.035833" total="21" passed="21" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1030" name="Wattshift.Editor.Tests.dll" fullname="/private/tmp/WATTSHIFT_Validation/Library/ScriptAssemblies/Wattshift.Editor.Tests.dll" runstate="Runnable" testcasecount="21" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.031997" total="21" passed="21" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="2627" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1031" name="Wattshift" fullname="Wattshift" runstate="Runnable" testcasecount="21" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.031804" total="21" passed="21" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1032" name="Tests" fullname="Wattshift.Tests" runstate="Runnable" testcasecount="21" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.031689" total="21" passed="21" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1006" name="G2SimulationTests" fullname="Wattshift.Tests.G2SimulationTests" classname="Wattshift.Tests.G2SimulationTests" runstate="Runnable" testcasecount="15" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.021845" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1015" name="ComfortIsAHardPurchaseConstraint" fullname="Wattshift.Tests.G2SimulationTests.ComfortIsAHardPurchaseConstraint" methodname="ComfortIsAHardPurchaseConstraint" classname="Wattshift.Tests.G2SimulationTests" runstate="Runnable" seed="862135170" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.011068" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1012" name="DuplicatePurchaseDoesNotSpendOrEmitAnotherChange" fullname="Wattshift.Tests.G2SimulationTests.DuplicatePurchaseDoesNotSpendOrEmitAnotherChange" methodname="DuplicatePurchaseDoesNotSpendOrEmitAnotherChange" classname="Wattshift.Tests.G2SimulationTests" runstate="Runnable" seed="1390422910" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.000490" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1014" name="EssentialShutdownIsRejectedBeforeSpending" fullname="Wattshift.Tests.G2SimulationTests.EssentialShutdownIsRejectedBeforeSpending" methodname="EssentialShutdownIsRejectedBeforeSpending" classname="Wattshift.Tests.G2SimulationTests" runstate="Runnable" seed="2027936031" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.000312" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1009" name="FractionalWindowUsesExactHoursRatherThanIntegerTicks" fullname="Wattshift.Tests.G2SimulationTests.FractionalWindowUsesExactHoursRatherThanIntegerTicks" methodname="FractionalWindowUsesExactHoursRatherThanIntegerTicks" classname="Wattshift.Tests.G2SimulationTests" runstate="Runnable" seed="204359651" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.000148" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1010" name="FullDayAndEmptySchedulesHaveDistinctMeanings" fullname="Wattshift.Tests.G2SimulationTests.FullDayAndEmptySchedulesHaveDistinctMeanings" methodname="FullDayAndEmptySchedulesHaveDistinctMeanings" classname="Wattshift.Tests.G2SimulationTests" runstate="Runnable" seed="1514361890" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.000105" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1013" name="InsufficientBudgetRejectsAtomically" fullname="Wattshift.Tests.G2SimulationTests.InsufficientBudgetRejectsAtomically" methodname="InsufficientBudgetRejectsAtomically" classname="Wattshift.Tests.G2SimulationTests" runstate="Runnable" seed="1084405549" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.000118" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1008" name="MidnightScheduleIntegratesBothSidesOfMidnight" fullname="Wattshift.Tests.G2SimulationTests.MidnightScheduleIntegratesBothSidesOfMidnight" methodname="MidnightScheduleIntegratesBothSidesOfMidnight" classname="Wattshift.Tests.G2SimulationTests" runstate="Runnable" seed="562756313" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.000108" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1016" name="MissionRejectsPrematureCompletionThenAcceptsCalculatedSavings" fullname="Wattshift.Tests.G2SimulationTests.MissionRejectsPrematureCompletionThenAcceptsCalculatedSavings" methodname="MissionRejectsPrematureCompletionThenAcceptsCalculatedSavings" classname="Wattshift.Tests.G2SimulationTests" runstate="Runnable" seed="1375143151" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.000440" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1017" name="RestoreReplaysPurchasesAndRecalculatesBudgetAndEnergy" fullname="Wattshift.Tests.G2SimulationTests.RestoreReplaysPurchasesAndRecalculatesBudgetAndEnergy" methodname="RestoreReplaysPurchasesAndRecalculatesBudgetAndEnergy" classname="Wattshift.Tests.G2SimulationTests" runstate="Runnable" seed="1815151922" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.000442" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1020" name="SaveCannotForgeCompletedMissionWithoutMeetingRequirements" fullname="Wattshift.Tests.G2SimulationTests.SaveCannotForgeCompletedMissionWithoutMeetingRequirements" methodname="SaveCannotForgeCompletedMissionWithoutMeetingRequirements" classname="Wattshift.Tests.G2SimulationTests" runstate="Runnable" seed="393694082" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.000321" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1011" name="ScheduleUpgradeRecomputesEnergyAndKeepsEssentialLoad" fullname="Wattshift.Tests.G2SimulationTests.ScheduleUpgradeRecomputesEnergyAndKeepsEssentialLoad" methodname="ScheduleUpgradeRecomputesEnergyAndKeepsEssentialLoad" classname="Wattshift.Tests.G2SimulationTests" runstate="Runnable" seed="1161862202" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.000190" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1021" name="SimulationSnapshotsConfigurationInsteadOfReadingMutableAssetNumbers" fullname="Wattshift.Tests.G2SimulationTests.SimulationSnapshotsConfigurationInsteadOfReadingMutableAssetNumbers" methodname="SimulationSnapshotsConfigurationInsteadOfReadingMutableAssetNumbers" classname="Wattshift.Tests.G2SimulationTests" runstate="Runnable" seed="1601339322" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.000139" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1007" name="SixKilowattsForThreeHoursIsEighteenKilowattHoursAndEndIsExclusive" fullname="Wattshift.Tests.G2SimulationTests.SixKilowattsForThreeHoursIsEighteenKilowattHoursAndEndIsExclusive" methodname="SixKilowattsForThreeHoursIsEighteenKilowattHoursAndEndIsExclusive" classname="Wattshift.Tests.G2SimulationTests" runstate="Runnable" seed="1421931394" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.000154" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1019" name="UnknownOrDuplicateSaveIdsAreRejectedTransactionally" fullname="Wattshift.Tests.G2SimulationTests.UnknownOrDuplicateSaveIdsAreRejectedTransactionally" methodname="UnknownOrDuplicateSaveIdsAreRejectedTransactionally" classname="Wattshift.Tests.G2SimulationTests" runstate="Runnable" seed="2046499877" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.000429" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1018" name="UnsupportedSaveVersionsAreRejectedWithoutChangingLiveState" fullname="Wattshift.Tests.G2SimulationTests.UnsupportedSaveVersionsAreRejectedWithoutChangingLiveState" methodname="UnsupportedSaveVersionsAreRejectedWithoutChangingLiveState" classname="Wattshift.Tests.G2SimulationTests" runstate="Runnable" seed="1515673323" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.000136" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1022" name="SaveServiceTests" fullname="Wattshift.Tests.SaveServiceTests" classname="Wattshift.Tests.SaveServiceTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.008880" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="ParameterizedMethod" id="1028" name="InvalidFilesProduceExplicitFailureAndRemainAvailableForDiagnosis" fullname="Wattshift.Tests.SaveServiceTests.InvalidFilesProduceExplicitFailureAndRemainAvailableForDiagnosis" classname="Wattshift.Tests.SaveServiceTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.006444" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1024" name="InvalidFilesProduceExplicitFailureAndRemainAvailableForDiagnosis(&quot;not-json&quot;)" fullname="Wattshift.Tests.SaveServiceTests.InvalidFilesProduceExplicitFailureAndRemainAvailableForDiagnosis(&quot;not-json&quot;)" methodname="InvalidFilesProduceExplicitFailureAndRemainAvailableForDiagnosis" classname="Wattshift.Tests.SaveServiceTests" runstate="Runnable" seed="538009333" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.004864" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1025" name="InvalidFilesProduceExplicitFailureAndRemainAvailableForDiagnosis(&quot;{broken&quot;)" fullname="Wattshift.Tests.SaveServiceTests.InvalidFilesProduceExplicitFailureAndRemainAvailableForDiagnosis(&quot;{broken&quot;)" methodname="InvalidFilesProduceExplicitFailureAndRemainAvailableForDiagnosis" classname="Wattshift.Tests.SaveServiceTests" runstate="Runnable" seed="267667437" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.000541" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1026" name="InvalidFilesProduceExplicitFailureAndRemainAvailableForDiagnosis(&quot;{\&quot;Version\&quot;:99,\&quot;MissionId\&quot;:\&quot;test\&quot;}&quot;)" fullname="Wattshift.Tests.SaveServiceTests.InvalidFilesProduceExplicitFailureAndRemainAvailableForDiagnosis(&quot;{\&quot;Version\&quot;:99,\&quot;MissionId\&quot;:\&quot;test\&quot;}&quot;)" methodname="InvalidFilesProduceExplicitFailureAndRemainAvailableForDiagnosis" classname="Wattshift.Tests.SaveServiceTests" runstate="Runnable" seed="283509008" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.000386" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1027" name="InvalidFilesProduceExplicitFailureAndRemainAvailableForDiagnosis(&quot;{\&quot;MissionId\&quot;:\&quot;test\&quot;}&quot;)" fullname="Wattshift.Tests.SaveServiceTests.InvalidFilesProduceExplicitFailureAndRemainAvailableForDiagnosis(&quot;{\&quot;MissionId\&quot;:\&quot;test\&quot;}&quot;)" methodname="InvalidFilesProduceExplicitFailureAndRemainAvailableForDiagnosis" classname="Wattshift.Tests.SaveServiceTests" runstate="Runnable" seed="305554818" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.000351" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1029" name="MissingSaveReturnsExplicitFailure" fullname="Wattshift.Tests.SaveServiceTests.MissingSaveReturnsExplicitFailure" methodname="MissingSaveReturnsExplicitFailure" classname="Wattshift.Tests.SaveServiceTests" runstate="Runnable" seed="571197287" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.000081" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1023" name="SaveReadAndAtomicOverwriteKeepVersionedStateAndBackup" fullname="Wattshift.Tests.SaveServiceTests.SaveReadAndAtomicOverwriteKeepVersionedStateAndBackup" methodname="SaveReadAndAtomicOverwriteKeepVersionedStateAndBackup" classname="Wattshift.Tests.SaveServiceTests" runstate="Runnable" seed="709238100" result="Passed" start-time="2026-11-07 18:06:23Z" end-time="2026-11-07 18:06:23Z" duration="0.001817" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: /Users/yato/Library/Application Support/WATTSHIFT/WATTSHIFT/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

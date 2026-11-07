@@ -1,0 +1,11 @@
+{
+  "name": "Wattshift.PlayMode.Tests",
+  "references": [
+    "Wattshift.Runtime",
+    "Unity.InputSystem"
+  ],
+  "includePlatforms": [],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

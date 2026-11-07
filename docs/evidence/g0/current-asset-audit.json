@@ -1,0 +1,256 @@
+{
+  "date": "2026-11-07",
+  "provenance": "User-supplied original official archives; no independent remote checksum authentication",
+  "packs": [
+    {
+      "source_pack": "City Kit Suburban",
+      "source_url": "https://kenney.nl/assets/city-kit-suburban",
+      "archive": "assets_staging/downloads/kenney_city-kit-suburban_20.zip",
+      "archive_bytes": 3038740,
+      "archive_sha256": "5869c35cf30b1c87bdb2d197b6d325eebadd2ef08ea27f04797e8e08d77a9a39",
+      "license_file": "assets_staging/unpacked/kenney_city-kit-suburban_20/License.txt",
+      "license_sha256": "d778fa769a89a7d9f167bc337fdf8fc2144e47d9abb0c35eb6ad897c0ee24d0a",
+      "license": "CC0-1.0",
+      "zip_crc": "PASS",
+      "path_safety": "PASS",
+      "formats": {
+        ".fbx": 40,
+        ".glb": 40,
+        ".obj": 40
+      },
+      "distinct_models": 40,
+      "texture_files": [
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-suburban_20/Models/FBX format/Textures/colormap.png",
+          "sha256": "9b5de86078c25ef02351a80d35ff3c978693a1044565b73eedd9ae9b5b80665d",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-suburban_20/Models/GLB format/Textures/colormap.png",
+          "sha256": "9b5de86078c25ef02351a80d35ff3c978693a1044565b73eedd9ae9b5b80665d",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-suburban_20/Models/OBJ format/Textures/colormap.png",
+          "sha256": "9b5de86078c25ef02351a80d35ff3c978693a1044565b73eedd9ae9b5b80665d",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-suburban_20/Models/Textures/variation-a.png",
+          "sha256": "7d49db8b291751640ace09430d37da5b00ce35d00f71ea03979a0f47656abd5e",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-suburban_20/Models/Textures/variation-b.png",
+          "sha256": "476b218961c0485bc4c32f80368db7cfdd5d3f1aba2573ad941069996c89bc5f",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-suburban_20/Models/Textures/variation-c.png",
+          "sha256": "f11cf0a7b0a110da56602851b2fc65fd3ce10065f9359691da8a5689732c5903",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "selected_models": [
+        "building-type-a",
+        "building-type-b",
+        "building-type-c",
+        "building-type-d",
+        "building-type-e",
+        "building-type-f",
+        "tree-large",
+        "tree-small",
+        "path-long",
+        "path-short",
+        "path-stones-long",
+        "planter",
+        "fence-low"
+      ]
+    },
+    {
+      "source_pack": "City Kit Roads",
+      "source_url": "https://kenney.nl/assets/city-kit-roads",
+      "archive": "assets_staging/downloads/kenney_city-kit-roads.zip",
+      "archive_bytes": 2852289,
+      "archive_sha256": "374a4552115cbd11b4ec5c930ee31a533562dc78a09af249a655d03f7ea3b959",
+      "license_file": "assets_staging/unpacked/kenney_city-kit-roads/License.txt",
+      "license_sha256": "d23f51360ca2cd81711bc5b09ddfb28ac94da96d7ca2dbdef12c50f33f35c353",
+      "license": "CC0-1.0",
+      "zip_crc": "PASS",
+      "path_safety": "PASS",
+      "formats": {
+        ".fbx": 95,
+        ".glb": 95,
+        ".obj": 95
+      },
+      "distinct_models": 95,
+      "texture_files": [
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-roads/Models/FBX format/Textures/colormap.png",
+          "sha256": "a48e2962661ae44368ffddf3054f80ed8491d082b757dcc3011184cd9a98b185",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-roads/Models/GLB format/Textures/colormap.png",
+          "sha256": "a48e2962661ae44368ffddf3054f80ed8491d082b757dcc3011184cd9a98b185",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-roads/Models/OBJ format/Textures/colormap.png",
+          "sha256": "a48e2962661ae44368ffddf3054f80ed8491d082b757dcc3011184cd9a98b185",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-roads/Models/Textures/variation-a.png",
+          "sha256": "e872d12fb1adcdda87e12598d00661da0abce8a24b51a0ce3d18b50f53a3635c",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "selected_models": [
+        "road-straight",
+        "road-crossing",
+        "road-crossroad",
+        "road-bend",
+        "road-end",
+        "road-bend-square",
+        "road-square",
+        "road-curve",
+        "road-intersection",
+        "tile-low",
+        "tile-high",
+        "light-curved"
+      ]
+    },
+    {
+      "source_pack": "City Kit Commercial",
+      "source_url": "https://kenney.nl/assets/city-kit-commercial",
+      "archive": "assets_staging/downloads/kenney_city-kit-commercial_2.1.zip",
+      "archive_bytes": 4096974,
+      "archive_sha256": "f8b09b081c2bb88bcc126e2dec1cb40fd0dad7e7e591b6c26aaefe96fb35276b",
+      "license_file": "assets_staging/unpacked/kenney_city-kit-commercial_2.1/License.txt",
+      "license_sha256": "c38cee408d022e57e44e49f1cd655c2fe0dc881a07b881276b795215cdc0de69",
+      "license": "CC0-1.0",
+      "zip_crc": "PASS",
+      "path_safety": "PASS",
+      "formats": {
+        ".fbx": 41,
+        ".glb": 41,
+        ".obj": 41
+      },
+      "distinct_models": 41,
+      "texture_files": [
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-commercial_2.1/Models/FBX format/Textures/colormap.png",
+          "sha256": "191bec3889aaaca5018380038fecc129ebb5c2182879a099b7b538b3fa050b5d",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-commercial_2.1/Models/GLB format/Textures/colormap.png",
+          "sha256": "191bec3889aaaca5018380038fecc129ebb5c2182879a099b7b538b3fa050b5d",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-commercial_2.1/Models/OBJ format/Textures/colormap.png",
+          "sha256": "191bec3889aaaca5018380038fecc129ebb5c2182879a099b7b538b3fa050b5d",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-commercial_2.1/Models/Textures/variation-a.png",
+          "sha256": "22be5afbdf78f8158ebd568667779e73ebc16f887481d3add35df59bf820b118",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-commercial_2.1/Models/Textures/variation-b.png",
+          "sha256": "d7fa3fb6243fdb8cbcbbe8b61c4ff10ceb29aed23be806171f58cef13a8690e6",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "selected_models": [
+        "building-e",
+        "building-c",
+        "building-a",
+        "building-b"
+      ]
+    },
+    {
+      "source_pack": "City Kit Industrial",
+      "source_url": "https://kenney.nl/assets/city-kit-industrial",
+      "archive": "assets_staging/downloads/kenney_city-kit-industrial_2.0.zip",
+      "archive_bytes": 5045077,
+      "archive_sha256": "5b381164e5760f3830a2dbee43b972deee38b2a695d091b56e238ab2910c96d2",
+      "license_file": "assets_staging/unpacked/kenney_city-kit-industrial_2.0/License.txt",
+      "license_sha256": "60a8c5c31191256ec9779dc18745dea6d69c46f4b29703459ce064c1765a59ea",
+      "license": "CC0-1.0",
+      "zip_crc": "PASS",
+      "path_safety": "PASS",
+      "formats": {
+        ".fbx": 37,
+        ".glb": 37,
+        ".obj": 37
+      },
+      "distinct_models": 37,
+      "texture_files": [
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-industrial_2.0/Models/FBX format/Textures/colormap.png",
+          "sha256": "950f4f891ebd05a2affac810e6eeb0fea1511bc39039b65a3cbf2e17d17bc6a2",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-industrial_2.0/Models/GLB format/Textures/colormap.png",
+          "sha256": "950f4f891ebd05a2affac810e6eeb0fea1511bc39039b65a3cbf2e17d17bc6a2",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-industrial_2.0/Models/OBJ format/Textures/colormap.png",
+          "sha256": "950f4f891ebd05a2affac810e6eeb0fea1511bc39039b65a3cbf2e17d17bc6a2",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-industrial_2.0/Models/Textures/variation-a.png",
+          "sha256": "eb8c1f4d904d3337ee14deb0b66f19b7da17d77d8217d896199caee43e3eadd1",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-industrial_2.0/Models/Textures/variation-b.png",
+          "sha256": "8f6e7998bc075f176c2395a100c43344ed21f052587325c62402704d2b38d1ff",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "path": "assets_staging/unpacked/kenney_city-kit-industrial_2.0/Models/Textures/variation-c.png",
+          "sha256": "7234a1ca5cb7a2de90ef8ebc760abb98fb269b6364235343175249824a4689b4",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "selected_models": [
+        "building-a",
+        "solar-panel-flat",
+        "solar-panel-landscape-group"
+      ]
+    }
+  ],
+  "model_files": 639,
+  "distinct_models": 213,
+  "g1_selected_fbx_files": 32,
+  "unity_import_verified": false
+}
