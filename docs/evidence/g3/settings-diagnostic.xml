@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-08 19:13:12Z" end-time="2026-11-08 19:13:21Z" duration="8.4272608">
+  <test-suite type="TestSuite" id="1022" name="WATTSHIFT" fullname="WATTSHIFT" runstate="Runnable" testcasecount="13" result="Passed" start-time="2026-11-08 19:13:12Z" end-time="2026-11-08 19:13:21Z" duration="8.427261" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1019" name="Wattshift.PlayMode.Tests.dll" fullname="/private/tmp/WATTSHIFT_Validation/Library/ScriptAssemblies/Wattshift.PlayMode.Tests.dll" runstate="Runnable" testcasecount="13" result="Passed" start-time="2026-11-08 19:13:12Z" end-time="2026-11-08 19:13:21Z" duration="8.418777" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="45507" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1020" name="Wattshift" fullname="Wattshift" runstate="Runnable" testcasecount="13" result="Passed" start-time="2026-11-08 19:13:12Z" end-time="2026-11-08 19:13:21Z" duration="8.417939" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1021" name="Tests" fullname="Wattshift.Tests" runstate="Runnable" testcasecount="13" result="Passed" start-time="2026-11-08 19:13:12Z" end-time="2026-11-08 19:13:21Z" duration="8.417233" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1010" name="GameplayIntegrationTests" fullname="Wattshift.Tests.GameplayIntegrationTests" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-11-08 19:13:12Z" end-time="2026-11-08 19:13:21Z" duration="8.415829" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1015" name="SettingsPersistWithoutEditingPipelineAndBlockWorldInput" fullname="Wattshift.Tests.GameplayIntegrationTests.SettingsPersistWithoutEditingPipelineAndBlockWorldInput" methodname="SettingsPersistWithoutEditingPipelineAndBlockWorldInput" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" seed="49903400" result="Passed" start-time="2026-11-08 19:13:12Z" end-time="2026-11-08 19:13:21Z" duration="8.405700" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[G3_UI_CLICK settings-menu bound=(x:563.33, y:675.00, width:468.33, height:44.17) scale=1.2 picked=settings-menu
+G3_UI_CLICK quality-0 bound=(x:578.33, y:530.00, width:438.33, height:44.17) scale=1.2 picked=quality-0
+G3_UI_CLICK audio-mute bound=(x:578.33, y:375.83, width:438.33, height:44.17) scale=1.2 picked=audio-mute
+Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+G3_UI_CLICK settings-close bound=(x:578.33, y:700.83, width:438.33, height:43.33) scale=1.2 picked=settings-close
+G3_UI_CLICK start-mission-0 bound=(x:563.33, y:336.67, width:468.33, height:43.33) scale=1.2 picked=start-mission-0
+G3_UI_CLICK settings-playing bound=(x:175.83, y:600.83, width:126.67, height:44.17) scale=1.2 picked=settings-playing
+G3_UI_CLICK quality-1 bound=(x:578.33, y:580.83, width:438.33, height:44.17) scale=1.2 picked=quality-1
+G3_UI_CLICK quality-2 bound=(x:578.33, y:631.67, width:438.33, height:44.17) scale=1.2 picked=quality-2
+G3_UI_CLICK settings-close bound=(x:578.33, y:700.83, width:438.33, height:43.33) scale=1.2 picked=settings-close
+Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+Saving results to: /Users/yato/Library/Application Support/WATTSHIFT/WATTSHIFT/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-08 19:15:28Z" end-time="2026-11-08 19:15:30Z" duration="1.3421687">
+  <test-suite type="TestSuite" id="1022" name="WATTSHIFT" fullname="WATTSHIFT" runstate="Runnable" testcasecount="13" result="Failed" site="Child" start-time="2026-11-08 19:15:28Z" end-time="2026-11-08 19:15:30Z" duration="1.342169" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1019" name="Wattshift.PlayMode.Tests.dll" fullname="/private/tmp/WATTSHIFT_Validation/Library/ScriptAssemblies/Wattshift.PlayMode.Tests.dll" runstate="Runnable" testcasecount="13" result="Failed" site="Child" start-time="2026-11-08 19:15:28Z" end-time="2026-11-08 19:15:30Z" duration="1.337889" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="46050" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1020" name="Wattshift" fullname="Wattshift" runstate="Runnable" testcasecount="13" result="Failed" site="Child" start-time="2026-11-08 19:15:28Z" end-time="2026-11-08 19:15:30Z" duration="1.337471" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1021" name="Tests" fullname="Wattshift.Tests" runstate="Runnable" testcasecount="13" result="Failed" site="Child" start-time="2026-11-08 19:15:28Z" end-time="2026-11-08 19:15:30Z" duration="1.337145" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="1010" name="GameplayIntegrationTests" fullname="Wattshift.Tests.GameplayIntegrationTests" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-11-08 19:15:28Z" end-time="2026-11-08 19:15:30Z" duration="1.336452" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1016" name="FreshEditorRestoresActualCompletedCampaign" fullname="Wattshift.Tests.GameplayIntegrationTests.FreshEditorRestoresActualCompletedCampaign" methodname="FreshEditorRestoresActualCompletedCampaign" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Explicit" seed="1871320812" result="Failed" label="Error" start-time="2026-11-08 19:15:28Z" end-time="2026-11-08 19:15:30Z" duration="1.330591" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="_SKIPREASON" value="Run in a fresh Editor after the campaign walkthrough writes its actual save." />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[System.IO.DirectoryNotFoundException : Could not find a part of the path "/var/folders/vs/wzcm3s1j4bj4xk3wft7lhbvr0000gn/T/WattshiftG3-8d536cf3a9b84a76abea257dd59fa09a/wattshift-campaign-v3.json".]]></message>
+                <stack-trace><![CDATA[  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) [0x00164] in <2a006e6a126e4f7e85a63629ee4f3912>:0 
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.IO.FileOptions options) [0x00000] in <2a006e6a126e4f7e85a63629ee4f3912>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,int,System.IO.FileOptions)
+  at System.IO.FileSystem.CopyFile (System.String sourceFullPath, System.String destFullPath, System.Boolean overwrite) [0x00038] in <2a006e6a126e4f7e85a63629ee4f3912>:0 
+  at System.IO.File.Copy (System.String sourceFileName, System.String destFileName, System.Boolean overwrite) [0x00062] in <2a006e6a126e4f7e85a63629ee4f3912>:0 
+  at Wattshift.Tests.GameplayIntegrationTests+<FreshEditorRestoresActualCompletedCampaign>d__18.MoveNext () [0x00043] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Tests/PlayMode/GameplayIntegrationTests.cs:308 
+  at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestEnumerator.cs:44 ]]></stack-trace>
+              </failure>
+              <output><![CDATA[Saving results to: /Users/yato/Library/Application Support/WATTSHIFT/WATTSHIFT/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

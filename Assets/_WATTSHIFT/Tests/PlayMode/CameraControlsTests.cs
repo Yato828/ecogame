@@ -16,16 +16,20 @@ namespace Wattshift.Tests
         Mouse mouse;
         Keyboard keyboard;
         Touchscreen touch;
+        string saveDirectory;
         InputSettings.EditorInputBehaviorInPlayMode previousInputMode;
 
         [UnitySetUp]
         public IEnumerator SetUp()
         {
             SetViewport();
+            saveDirectory=System.IO.Path.Combine(System.IO.Path.GetTempPath(),"WattshiftControls-"+System.Guid.NewGuid().ToString("N"));
+            GameSession.EditorTestSaveDirectory=saveDirectory;
             previousInputMode = InputSystem.settings.editorInputBehaviorInPlayMode;
             InputSystem.settings.editorInputBehaviorInPlayMode = InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
             SceneManager.LoadScene("CitySlice");
             yield return null;
+            if (GameSession.Instance != null) GameSession.Instance.BeginMission(0);
             mouse = InputSystem.AddDevice<Mouse>("G11 test mouse");
             keyboard = InputSystem.AddDevice<Keyboard>("G11 test keyboard");
             touch = InputSystem.AddDevice<Touchscreen>("G11 test touch");
@@ -54,8 +58,11 @@ namespace Wattshift.Tests
         [UnityTearDown]
         public IEnumerator TearDown()
         {
-            InputSystem.RemoveDevice(mouse); InputSystem.RemoveDevice(keyboard); InputSystem.RemoveDevice(touch);
+            if(mouse!=null)InputSystem.RemoveDevice(mouse);if(keyboard!=null)InputSystem.RemoveDevice(keyboard);if(touch!=null)InputSystem.RemoveDevice(touch);
             InputSystem.settings.editorInputBehaviorInPlayMode = previousInputMode;
+            if(GameSession.Instance!=null)GameSession.Instance.enabled=false;
+            GameSession.EditorTestSaveDirectory=null;
+            if(System.IO.Directory.Exists(saveDirectory))System.IO.Directory.Delete(saveDirectory,true);
             yield return null;
         }
 
@@ -116,7 +123,7 @@ namespace Wattshift.Tests
         [UnityTest]
         public IEnumerator LeftClickSelectsButUIAndDragDoNotSelect()
         {
-            CityBuilding clinic = System.Array.Find(Object.FindObjectsByType<CityBuilding>(FindObjectsSortMode.None), b => b.Essential);
+            CityBuilding clinic = System.Array.Find(Object.FindObjectsByType<CityBuilding>(FindObjectsSortMode.None), b => b.SimulationId=="clinic");
             Vector2 point = camera.WorldToScreenPoint(clinic.GetComponent<Collider>().bounds.center);
             Assert.IsFalse(ui.IsPointerOverPanel(point));
             yield return MouseEvent(point, 1); yield return MouseEvent(point);
@@ -124,10 +131,33 @@ namespace Wattshift.Tests
             yield return MouseEvent(Panel, 1); yield return MouseEvent(Panel);
             Assert.AreEqual(clinic, ui.SelectedBuilding, "UI click must not clear/select world");
             ui.Select(null);
+            Vector3 beforeDrag = rig.TargetFocusPoint;
             yield return MouseEvent(point, 1);
             yield return MouseEvent(point + new Vector2(70, 0), 1);
+            Assert.Greater(Vector3.Distance(beforeDrag, rig.TargetFocusPoint), .02f, "Trackpad primary drag pans the world");
             yield return MouseEvent(point, 1); yield return MouseEvent(point);
             Assert.IsNull(ui.SelectedBuilding, "Drag out and return is not a click");
+        }
+
+        [UnityTest]
+        public IEnumerator KeyboardZoomAndHomeRestoreInitialView()
+        {
+            float initial = rig.TargetOrthographicSize;
+            Vector3 initialFocus = rig.TargetFocusPoint;
+            InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.Equals, Key.D));
+            yield return new WaitForSecondsRealtime(.3f);
+            InputSystem.QueueStateEvent(keyboard, new KeyboardState()); yield return null;
+            Assert.Less(rig.TargetOrthographicSize, initial);
+            Assert.Greater(Vector3.Distance(initialFocus, rig.TargetFocusPoint), .01f);
+            float zoomed = rig.TargetOrthographicSize;
+            InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.Minus));
+            yield return new WaitForSecondsRealtime(.15f);
+            InputSystem.QueueStateEvent(keyboard, new KeyboardState()); yield return null;
+            Assert.Greater(rig.TargetOrthographicSize, zoomed);
+            InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.Home)); yield return null; yield return null;
+            InputSystem.QueueStateEvent(keyboard, new KeyboardState()); yield return null;
+            Assert.That(rig.TargetOrthographicSize, Is.EqualTo(initial).Within(.001f));
+            Assert.That(Vector3.Distance(initialFocus, rig.TargetFocusPoint), Is.LessThan(.001f));
         }
 
         [UnityTest]

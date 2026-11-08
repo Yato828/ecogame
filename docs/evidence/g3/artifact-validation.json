@@ -1,0 +1,149 @@
+{
+  "unity": "6000.3.27f1",
+  "test_project": "/private/tmp/WATTSHIFT_Validation",
+  "compared_files": 810,
+  "source_mismatches": [],
+  "extra_test_project_files": [],
+  "screenshots": {
+    "live-01-scanner.png": {
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "e6894e7e80a08381531124faa87323696d906eac0413375f0339a1e335c81e29"
+    },
+    "a-04-shift-results.png": {
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "f5fb13dc22a2be6377020f4a0c1da42cb01f5eddf4033200cbab1442370f0b60"
+    },
+    "live-mission-3-results.png": {
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "88f1b2c50b26ab3300b59864bc444157b9e6c31d8719eceb93784c86e666f4af"
+    },
+    "live-mission-3-night.png": {
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "2fa826083e28b8e759deb0c82cd1c4acbfac78dae8f09ac0455ef31c33e1fcdf"
+    },
+    "a-03-observed-night.png": {
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "0c5725577c49f3218bda2f934f4d55b327b6c69d2adc9fbf4b7d03065a0c5787"
+    },
+    "b-03-campaign-results.png": {
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "ade77cc18f035e1140b2466971ca83208966a2206d96ff96ef57c3880d5ba67d"
+    },
+    "live-02-night-operation.png": {
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "1e65f3615ab1e0f15d83aaf08255ff5574a51aef6645eba2cb72dd7e192937e2"
+    },
+    "live-03-results.png": {
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "79224c4a2cccb6b29b486f4563780a9be93970c3a13b718ff07dd34dad289c3a"
+    },
+    "live-mission-2-night.png": {
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "50606d083b3a7ce9ee8123a117f20798e1544684c76d21eae0a850416d093b15"
+    },
+    "b-02-clinic-priorities.png": {
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "791ec29f284a52ab71a13540a6549ae0a577eba3d692d264f716ceac3d0660cb"
+    },
+    "b-01-safe-streetlighting.png": {
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "8a2c34ba03394586470680a4254f45b813cb5bc6512b444dd5be642ac5abb219"
+    },
+    "a-01-main-menu.png": {
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "a2584536b5a628deb5e918745d2a231711c5d703a2f873ff588718ad617b63fc"
+    },
+    "b-04-mission-progress.png": {
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "253cce149ebd11c04f15351592e383a18b9b968ff88cfbaaba44e7ef719e4959"
+    },
+    "live-mission-2-results.png": {
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "01fa46204d59c4873fdca118637a5652f82d7e35a5ae2739a9433c71973d75fc"
+    },
+    "c-02-portrait-error.png": {
+      "dimensions": [
+        900,
+        1200
+      ],
+      "sha256": "e279f7937bbced149c1597b33a9017e3fd7048697287d74f8e62a8a404f86bac"
+    },
+    "c-03-portrait-load-error.png": {
+      "dimensions": [
+        900,
+        1200
+      ],
+      "sha256": "fd0cf095079423f50db7cd2b3ecdf9c58c29626fa4460cdc6b0ae0c8d2c2b574"
+    },
+    "a-02-scanner-investigation.png": {
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "1f71c1f80f00b4a0ea67a592f9fb901455debdf3287ac3d75021ffd6956e6ad5"
+    },
+    "d-01-fresh-editor-restored.png": {
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "8f86e09c960534a1e774e0be9057b671117e735f213468a5b83ac38fe47cb365"
+    },
+    "a-05-portrait-inspection.png": {
+      "dimensions": [
+        900,
+        1200
+      ],
+      "sha256": "b6bf85d6d68ed9e27e8249e7cd63344ab1bb074c368084b9a8b8fdafedcfd499"
+    },
+    "c-01-settings.png": {
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "c23af55eeaa512afac870594c5fe8b4ce6f4be6edbd1f0477bb6d26cee5172cb"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-08 17:47:17Z" end-time="2026-11-08 17:50:17Z" duration="180.0354767">
+  <test-suite type="TestSuite" id="1017" name="WATTSHIFT" fullname="WATTSHIFT" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-11-08 17:47:17Z" end-time="2026-11-08 17:50:17Z" duration="180.035477" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1014" name="Wattshift.PlayMode.Tests.dll" fullname="/private/tmp/WATTSHIFT_Validation/Library/ScriptAssemblies/Wattshift.PlayMode.Tests.dll" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-11-08 17:47:17Z" end-time="2026-11-08 17:50:17Z" duration="180.029962" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="35948" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1015" name="Wattshift" fullname="Wattshift" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-11-08 17:47:17Z" end-time="2026-11-08 17:50:17Z" duration="180.029436" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1016" name="Tests" fullname="Wattshift.Tests" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-11-08 17:47:17Z" end-time="2026-11-08 17:50:17Z" duration="180.029012" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="1009" name="GameplayIntegrationTests" fullname="Wattshift.Tests.GameplayIntegrationTests" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" testcasecount="4" result="Failed" site="Child" start-time="2026-11-08 17:47:17Z" end-time="2026-11-08 17:50:17Z" duration="180.028084" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1013" name="RealTimeFirstShiftWalkthrough" fullname="Wattshift.Tests.GameplayIntegrationTests.RealTimeFirstShiftWalkthrough" methodname="RealTimeFirstShiftWalkthrough" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Explicit" seed="1073179796" result="Failed" start-time="2026-11-08 17:47:17Z" end-time="2026-11-08 17:50:17Z" duration="180.020467" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="_SKIPREASON" value="Six-minute real-clock Game View walkthrough; run by exact test name." />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[Timeout value of 180000 ms was exceeded. If this is intended, increase the timeout value using a TimeoutAttribute.]]></message>
+                <stack-trace><![CDATA[]]></stack-trace>
+              </failure>
+              <output><![CDATA[Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+Saving results to: /Users/yato/Library/Application Support/WATTSHIFT/WATTSHIFT/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

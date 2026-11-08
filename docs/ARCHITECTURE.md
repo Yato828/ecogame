@@ -22,3 +22,9 @@ Composition over inheritance. Events fire on state changes, not continuous Updat
 
 ## Content pipeline
 Download source pack -> checksum -> license file -> unpack staging -> identify desired FBX/OBJ/glTF (do not assume format) -> import with materials -> prefab -> scene -> screenshot review. Store provenance in `assets_manifest/asset_register.csv` after import.
+
+## G3 campaign adapters
+
+`CitySimulationService` retains the original deterministic model and adds chronological advancement and purchase history. A snapshot carries both instantaneous power and observed energy; presentation never integrates its own kWh. `GameSession` owns the active monotonic clock, pause, investigation and event orchestration; it publishes scene/UI updates at 5 Hz. `CampaignProgress` reconstructs best runs through the same simulation before awarding/unlocking; `CampaignSaveService` wraps active city state plus verified records in schema 3 and writes atomically with backup. Saves contain IDs/data, never scene objects.
+
+`CityAtmosphere`, `StreetlightView`, source-derived window meshes and scanner hulls present the snapshot. `CampaignAudio` caches original short signals; `QualityController` changes a runtime copy of the approved URP asset and restores the source references when destroyed. Their PlayerPrefs are isolated during Editor tests. Settings disable background UI and world input and leave game time paused on close. Independent mission scenario configurations live under `Assets/_WATTSHIFT/Data/Campaign`; the legacy G2 assets/save remain separate.

@@ -17,5 +17,23 @@ namespace Wattshift
         [Range(0, 100)] public float TargetSavingPercent = 30;
         [Range(0, 100)] public float MinComfort = 80;
         public BuildingDefinition[] Buildings = Array.Empty<BuildingDefinition>();
+        public bool UseTimeline;
+        [Min(1)] public float RealDurationSeconds = 360;
+        public bool RequireEndOfShift = true;
+        [Min(0)] public int MinimumUpgradeCount = 2;
+        public string[] RequiredBuildingIds = Array.Empty<string>();
+        public float InvestigationAvailableHour = 18;
+        [Min(0)] public float MinimumObservationHours = .5f;
+        public MissionEventDefinition[] Events = Array.Empty<MissionEventDefinition>();
+        public float[] StarSavingThresholds = { 0, 30, 40 };
+        [Min(0)] public int BaseReward = 100;
+    }
+
+    [Serializable]
+    public sealed class MissionEventDefinition
+    {
+        public string Id;
+        public float Hour;
+        [TextArea] public string Text;
     }
 }

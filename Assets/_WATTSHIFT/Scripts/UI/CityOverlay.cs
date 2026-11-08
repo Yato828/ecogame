@@ -13,6 +13,7 @@ namespace Wattshift
         public event System.Action<CityBuilding> SelectionChanged;
         public VisualElement ContextRoot => context;
         public bool GameplayMode { get; private set; }
+        bool contextCompact;
 
         UIDocument document;
         PanelSettings settings;
@@ -227,7 +228,7 @@ namespace Wattshift
             protection.style.fontSize = portrait ? 10 : 11;
             protection.style.marginTop = portrait ? 8 : 15;
             description.style.fontSize = portrait ? 12 : 14;
-            description.style.display = portrait && GameplayMode ? DisplayStyle.None : DisplayStyle.Flex;
+            description.style.display = GameplayMode || contextCompact ? DisplayStyle.None : DisplayStyle.Flex;
             description.style.marginTop = portrait ? 8 : 14;
             contextFooter.style.display = portrait || GameplayMode ? DisplayStyle.None : DisplayStyle.Flex;
             if (SelectedBuilding != null) description.text = portrait ? CompactDescription(SelectedBuilding.Description) : SelectedBuilding.Description;
@@ -241,6 +242,9 @@ namespace Wattshift
             header.style.paddingLeft = header.style.paddingRight = portrait ? 16 : 23;
             float closeSize = Mathf.Max(44, 44 / scale);
             closeButton.style.width = closeButton.style.height = closeSize;
+            category.style.display = contextCompact ? DisplayStyle.None : DisplayStyle.Flex;
+            protection.style.display = contextCompact ? DisplayStyle.None : DisplayStyle.Flex;
+            contextEyebrow.style.display = portrait || contextCompact ? DisplayStyle.None : DisplayStyle.Flex;
         }
 
         static string CompactDescription(string text)
@@ -283,6 +287,8 @@ namespace Wattshift
         void Update()
         {
             if (previousWidth != Screen.width || previousHeight != Screen.height || previousSafeArea != Screen.safeArea) UpdateLayout();
+            if (GameSession.Instance != null && GameSession.Instance.Phase != GamePhase.Playing) return;
+            if (GameplayHud.Instance != null && GameplayHud.Instance.IsSettingsOpen) { CancelWorldPress(); return; }
             if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame) Select(null);
             if (Keyboard.current != null && Keyboard.current.tabKey.wasPressedThisFrame)
                 CycleSelection(Keyboard.current.leftShiftKey.isPressed || Keyboard.current.rightShiftKey.isPressed ? -1 : 1);
@@ -346,6 +352,13 @@ namespace Wattshift
         public void SetGameplayMode(bool enabled)
         {
             GameplayMode = enabled;
+            if (root != null) UpdateLayout();
+        }
+
+        public void SetContextCompact(bool compact)
+        {
+            if (contextCompact == compact) return;
+            contextCompact = compact;
             if (root != null) UpdateLayout();
         }
 

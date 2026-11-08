@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="8" result="Failed(Child)" total="8" passed="6" failed="1" inconclusive="0" skipped="1" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-08 17:39:06Z" end-time="2026-11-08 17:39:21Z" duration="14.706547">
+  <test-suite type="TestSuite" id="1017" name="WATTSHIFT" fullname="WATTSHIFT" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-11-08 17:39:06Z" end-time="2026-11-08 17:39:21Z" duration="14.706547" total="8" passed="6" failed="1" inconclusive="0" skipped="1" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1014" name="Wattshift.PlayMode.Tests.dll" fullname="/private/tmp/WATTSHIFT_Validation/Library/ScriptAssemblies/Wattshift.PlayMode.Tests.dll" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-11-08 17:39:06Z" end-time="2026-11-08 17:39:21Z" duration="14.702805" total="8" passed="6" failed="1" inconclusive="0" skipped="1" asserts="0">
+      <properties>
+        <property name="_PID" value="34513" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1015" name="Wattshift" fullname="Wattshift" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-11-08 17:39:06Z" end-time="2026-11-08 17:39:21Z" duration="14.702509" total="8" passed="6" failed="1" inconclusive="0" skipped="1" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1016" name="Tests" fullname="Wattshift.Tests" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-11-08 17:39:06Z" end-time="2026-11-08 17:39:21Z" duration="14.702306" total="8" passed="6" failed="1" inconclusive="0" skipped="1" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="1004" name="CameraControlsTests" fullname="Wattshift.Tests.CameraControlsTests" classname="Wattshift.Tests.CameraControlsTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-08 17:39:06Z" end-time="2026-11-08 17:39:12Z" duration="6.567790" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1007" name="LeftClickSelectsButUIAndDragDoNotSelect" fullname="Wattshift.Tests.CameraControlsTests.LeftClickSelectsButUIAndDragDoNotSelect" methodname="LeftClickSelectsButUIAndDragDoNotSelect" classname="Wattshift.Tests.CameraControlsTests" runstate="Runnable" seed="1481519077" result="Passed" start-time="2026-11-08 17:39:06Z" end-time="2026-11-08 17:39:07Z" duration="1.415956" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1006" name="RightDragAndKeyboardRespectGroundBoundsAndUIOwnership" fullname="Wattshift.Tests.CameraControlsTests.RightDragAndKeyboardRespectGroundBoundsAndUIOwnership" methodname="RightDragAndKeyboardRespectGroundBoundsAndUIOwnership" classname="Wattshift.Tests.CameraControlsTests" runstate="Runnable" seed="1550697064" result="Passed" start-time="2026-11-08 17:39:07Z" end-time="2026-11-08 17:39:10Z" duration="2.860712" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1008" name="TouchPanPinchAndTransitionsDoNotJumpOrSelect" fullname="Wattshift.Tests.CameraControlsTests.TouchPanPinchAndTransitionsDoNotJumpOrSelect" methodname="TouchPanPinchAndTransitionsDoNotJumpOrSelect" classname="Wattshift.Tests.CameraControlsTests" runstate="Runnable" seed="115088459" result="Passed" start-time="2026-11-08 17:39:10Z" end-time="2026-11-08 17:39:11Z" duration="0.881884" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1005" name="WheelZoomIsSmoothBoundedAndBlockedByUI" fullname="Wattshift.Tests.CameraControlsTests.WheelZoomIsSmoothBoundedAndBlockedByUI" methodname="WheelZoomIsSmoothBoundedAndBlockedByUI" classname="Wattshift.Tests.CameraControlsTests" runstate="Runnable" seed="457875923" result="Passed" start-time="2026-11-08 17:39:11Z" end-time="2026-11-08 17:39:12Z" duration="1.403018" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1009" name="GameplayIntegrationTests" fullname="Wattshift.Tests.GameplayIntegrationTests" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" testcasecount="4" result="Failed" site="Child" start-time="2026-11-08 17:39:12Z" end-time="2026-11-08 17:39:21Z" duration="8.133653" total="4" passed="2" failed="1" inconclusive="0" skipped="1" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1010" name="FirstShiftRequiresInvestigationRealObservationAndPreservesProgress" fullname="Wattshift.Tests.GameplayIntegrationTests.FirstShiftRequiresInvestigationRealObservationAndPreservesProgress" methodname="FirstShiftRequiresInvestigationRealObservationAndPreservesProgress" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" seed="1924516938" result="Failed" start-time="2026-11-08 17:39:12Z" end-time="2026-11-08 17:39:18Z" duration="5.421497" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  Expected: 21 +/- 0.0001d
+  But was:  21.5d
+]]></message>
+                <stack-trace><![CDATA[at Wattshift.Tests.GameplayIntegrationTests+<FirstShiftRequiresInvestigationRealObservationAndPreservesProgress>d__11.MoveNext () [0x0050a] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Tests/PlayMode/GameplayIntegrationTests.cs:110
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestEnumerator.cs:44
+]]></stack-trace>
+              </failure>
+              <output><![CDATA[Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+]]></output>
+            </test-case>
+            <test-case id="1012" name="MenuAndInspectionRemainReachableAcrossAspects" fullname="Wattshift.Tests.GameplayIntegrationTests.MenuAndInspectionRemainReachableAcrossAspects" methodname="MenuAndInspectionRemainReachableAcrossAspects" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" seed="2042278954" result="Passed" start-time="2026-11-08 17:39:18Z" end-time="2026-11-08 17:39:20Z" duration="2.291060" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+]]></output>
+            </test-case>
+            <test-case id="1011" name="MissedShiftFailsAndLatePurchasesCannotRewriteEnergy" fullname="Wattshift.Tests.GameplayIntegrationTests.MissedShiftFailsAndLatePurchasesCannotRewriteEnergy" methodname="MissedShiftFailsAndLatePurchasesCannotRewriteEnergy" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" seed="1466582957" result="Passed" start-time="2026-11-08 17:39:20Z" end-time="2026-11-08 17:39:21Z" duration="0.417264" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1013" name="RealTimeFirstShiftWalkthrough" fullname="Wattshift.Tests.GameplayIntegrationTests.RealTimeFirstShiftWalkthrough" methodname="RealTimeFirstShiftWalkthrough" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Explicit" seed="2075493558" result="Skipped" label="Explicit" start-time="2026-11-08 17:39:21Z" end-time="2026-11-08 17:39:21Z" duration="0.000195" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="_SKIPREASON" value="Six-minute real-clock Game View walkthrough; run by exact test name." />
+              </properties>
+              <reason>
+                <message><![CDATA[Six-minute real-clock Game View walkthrough; run by exact test name.]]></message>
+              </reason>
+              <output><![CDATA[Saving results to: /Users/yato/Library/Application Support/WATTSHIFT/WATTSHIFT/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

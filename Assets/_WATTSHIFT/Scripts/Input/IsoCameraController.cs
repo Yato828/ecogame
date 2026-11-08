@@ -21,7 +21,8 @@ namespace Wattshift
         Vector3 originalFocus, targetFocus, cameraOffset;
         float desiredSize, initialSize, framingScale = 1, effectiveMinimum, effectiveMaximum, previousAspect;
         bool mouseDragging, mouseBlocked, touchBlocked, touchWasActive;
-        Vector2 previousMouse, previousTouchCenter;
+        bool leftDragCandidate, leftDragging;
+        Vector2 previousMouse, previousTouchCenter, leftPressPosition;
         int previousTouchCount, firstTouchId, secondTouchId;
         float previousPinchDistance;
         readonly Plane ground = new Plane(Vector3.up, Vector3.zero);
@@ -54,9 +55,15 @@ namespace Wattshift
                 mouseDragging = false;
             }
             float dt = Mathf.Min(Time.unscaledDeltaTime, .05f);
+            if ((GameSession.Instance != null && GameSession.Instance.Phase != GamePhase.Playing)
+                || (GameplayHud.Instance != null && GameplayHud.Instance.IsSettingsOpen))
+            {
+                mouseDragging = leftDragging = leftDragCandidate = false;
+                return;
+            }
             bool touchOwnsFrame = HandleTouch();
             if (!touchOwnsFrame) HandleMouse();
-            else mouseDragging = false;
+            else mouseDragging = leftDragging = leftDragCandidate = false;
 
             Keyboard keyboard = Keyboard.current;
             if (keyboard != null && !touchOwnsFrame)
@@ -103,6 +110,32 @@ namespace Wattshift
                 previousMouse = position;
             }
             if (!held) mouseDragging = false;
+            // A trackpad's ordinary click-drag pans after a threshold; a small click still selects.
+            if (mouse.leftButton.wasPressedThisFrame)
+            {
+                leftPressPosition = previousMouse = position;
+                leftDragCandidate = !held && !OverUI(position);
+                leftDragging = false;
+            }
+            if (mouse.leftButton.isPressed && leftDragCandidate && !held)
+            {
+                if (!leftDragging && Vector2.Distance(leftPressPosition, position) > 12)
+                {
+                    leftDragging = true;
+                    // Consume the dead zone, then pan only the movement beyond it.
+                    Vector2 thresholdPoint = leftPressPosition + (position - leftPressPosition).normalized * 12;
+                    PanScreenPoints(thresholdPoint, position);
+                    previousMouse = position;
+                    CityOverlay.Instance?.CancelWorldPress();
+                }
+                else if (leftDragging)
+                {
+                    PanScreenPoints(previousMouse, position);
+                    previousMouse = position;
+                    CityOverlay.Instance?.CancelWorldPress();
+                }
+            }
+            if (!mouse.leftButton.isPressed) leftDragging = leftDragCandidate = false;
         }
 
         bool HandleTouch()
@@ -197,12 +230,14 @@ namespace Wattshift
             desiredSize = initialSize * framingScale;
             sceneCamera.orthographicSize = desiredSize;
             mouseDragging = false;
+            leftDragging = leftDragCandidate = false;
             previousTouchCount = 0;
         }
 
         void OnDisable()
         {
             mouseDragging = false;
+            leftDragging = leftDragCandidate = false;
             previousTouchCount = 0;
             touchWasActive = false;
         }
@@ -211,6 +246,7 @@ namespace Wattshift
         {
             if (focused) return;
             mouseDragging = false;
+            leftDragging = leftDragCandidate = false;
             previousTouchCount = touchWasActive ? -1 : 0;
             touchBlocked = touchWasActive;
             CityOverlay.Instance?.CancelWorldPress();

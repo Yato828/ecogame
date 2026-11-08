@@ -18,6 +18,8 @@ namespace Wattshift
 
         public void SetSelected(bool selected)
         {
+            var composedHighlight = GetComponent<SourceBuildingHighlight>();
+            if (composedHighlight != null) { composedHighlight.SetSelected(selected); return; }
             if (properties == null) properties = new MaterialPropertyBlock();
             if (renderers == null)
             {

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="13" result="Passed" total="13" passed="10" failed="0" inconclusive="0" skipped="3" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-08 19:14:24Z" end-time="2026-11-08 19:15:02Z" duration="37.3334962">
+  <test-suite type="TestSuite" id="1022" name="WATTSHIFT" fullname="WATTSHIFT" runstate="Runnable" testcasecount="13" result="Passed" start-time="2026-11-08 19:14:24Z" end-time="2026-11-08 19:15:02Z" duration="37.333496" total="13" passed="10" failed="0" inconclusive="0" skipped="3" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1019" name="Wattshift.PlayMode.Tests.dll" fullname="/private/tmp/WATTSHIFT_Validation/Library/ScriptAssemblies/Wattshift.PlayMode.Tests.dll" runstate="Runnable" testcasecount="13" result="Passed" start-time="2026-11-08 19:14:24Z" end-time="2026-11-08 19:15:02Z" duration="37.329624" total="13" passed="10" failed="0" inconclusive="0" skipped="3" asserts="0">
+      <properties>
+        <property name="_PID" value="45834" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1020" name="Wattshift" fullname="Wattshift" runstate="Runnable" testcasecount="13" result="Passed" start-time="2026-11-08 19:14:24Z" end-time="2026-11-08 19:15:02Z" duration="37.329432" total="13" passed="10" failed="0" inconclusive="0" skipped="3" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1021" name="Tests" fullname="Wattshift.Tests" runstate="Runnable" testcasecount="13" result="Passed" start-time="2026-11-08 19:14:24Z" end-time="2026-11-08 19:15:02Z" duration="37.329164" total="13" passed="10" failed="0" inconclusive="0" skipped="3" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1004" name="CameraControlsTests" fullname="Wattshift.Tests.CameraControlsTests" classname="Wattshift.Tests.CameraControlsTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-08 19:14:24Z" end-time="2026-11-08 19:14:32Z" duration="7.838557" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1008" name="KeyboardZoomAndHomeRestoreInitialView" fullname="Wattshift.Tests.CameraControlsTests.KeyboardZoomAndHomeRestoreInitialView" methodname="KeyboardZoomAndHomeRestoreInitialView" classname="Wattshift.Tests.CameraControlsTests" runstate="Runnable" seed="1351366999" result="Passed" start-time="2026-11-08 19:14:24Z" end-time="2026-11-08 19:14:26Z" duration="1.869703" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1007" name="LeftClickSelectsButUIAndDragDoNotSelect" fullname="Wattshift.Tests.CameraControlsTests.LeftClickSelectsButUIAndDragDoNotSelect" methodname="LeftClickSelectsButUIAndDragDoNotSelect" classname="Wattshift.Tests.CameraControlsTests" runstate="Runnable" seed="1520133056" result="Passed" start-time="2026-11-08 19:14:26Z" end-time="2026-11-08 19:14:27Z" duration="0.866995" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1006" name="RightDragAndKeyboardRespectGroundBoundsAndUIOwnership" fullname="Wattshift.Tests.CameraControlsTests.RightDragAndKeyboardRespectGroundBoundsAndUIOwnership" methodname="RightDragAndKeyboardRespectGroundBoundsAndUIOwnership" classname="Wattshift.Tests.CameraControlsTests" runstate="Runnable" seed="829232303" result="Passed" start-time="2026-11-08 19:14:27Z" end-time="2026-11-08 19:14:30Z" duration="2.833674" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1009" name="TouchPanPinchAndTransitionsDoNotJumpOrSelect" fullname="Wattshift.Tests.CameraControlsTests.TouchPanPinchAndTransitionsDoNotJumpOrSelect" methodname="TouchPanPinchAndTransitionsDoNotJumpOrSelect" classname="Wattshift.Tests.CameraControlsTests" runstate="Runnable" seed="1363301215" result="Passed" start-time="2026-11-08 19:14:30Z" end-time="2026-11-08 19:14:31Z" duration="0.881008" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1005" name="WheelZoomIsSmoothBoundedAndBlockedByUI" fullname="Wattshift.Tests.CameraControlsTests.WheelZoomIsSmoothBoundedAndBlockedByUI" methodname="WheelZoomIsSmoothBoundedAndBlockedByUI" classname="Wattshift.Tests.CameraControlsTests" runstate="Runnable" seed="1143122058" result="Passed" start-time="2026-11-08 19:14:31Z" end-time="2026-11-08 19:14:32Z" duration="1.380049" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1010" name="GameplayIntegrationTests" fullname="Wattshift.Tests.GameplayIntegrationTests" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-11-08 19:14:32Z" end-time="2026-11-08 19:15:02Z" duration="29.489669" total="8" passed="5" failed="0" inconclusive="0" skipped="3" asserts="0">
+            <properties />
+            <test-case id="1011" name="FirstShiftRequiresInvestigationRealObservationAndPreservesProgress" fullname="Wattshift.Tests.GameplayIntegrationTests.FirstShiftRequiresInvestigationRealObservationAndPreservesProgress" methodname="FirstShiftRequiresInvestigationRealObservationAndPreservesProgress" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" seed="1750225665" result="Passed" start-time="2026-11-08 19:14:32Z" end-time="2026-11-08 19:14:39Z" duration="6.884633" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+G3_UI_CLICK start-mission-0 bound=(x:563.33, y:336.67, width:468.33, height:43.33) scale=1.2 picked=start-mission-0
+G3_UI_CLICK scanner-toggle bound=(x:44.17, y:250.00, width:130.83, height:44.17) scale=1.2 picked=scanner-toggle
+G3_UI_CLICK inspect-building bound=(x:1249.17, y:688.33, width:295.00, height:44.17) scale=1.2 picked=inspect-building
+G3_UI_CLICK pause-toggle bound=(x:194.17, y:250.00, width:108.33, height:44.17) scale=1.2 picked=pause-toggle
+G3_UI_CLICK inspect-building bound=(x:1249.17, y:688.33, width:295.00, height:44.17) scale=1.2 picked=inspect-building
+G3_UI_CLICK upgrade-school-lights bound=(x:1249.17, y:809.17, width:291.67, height:44.17) scale=1.2 picked=upgrade-school-lights
+G3_UI_CLICK upgrade-school-computers bound=(x:1249.17, y:810.00, width:291.67, height:43.33) scale=1.2 picked=upgrade-school-computers
+G3_UI_CLICK pause-toggle bound=(x:176.67, y:250.00, width:125.83, height:44.17) scale=1.2 picked=pause-toggle
+G3_UI_CLICK complete-mission bound=(x:44.17, y:515.00, width:126.67, height:44.17) scale=1.2 picked=complete-mission
+]]></output>
+            </test-case>
+            <test-case id="1016" name="FreshEditorRestoresActualCompletedCampaign" fullname="Wattshift.Tests.GameplayIntegrationTests.FreshEditorRestoresActualCompletedCampaign" methodname="FreshEditorRestoresActualCompletedCampaign" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Explicit" seed="1623522349" result="Skipped" label="Explicit" start-time="2026-11-08 19:14:39Z" end-time="2026-11-08 19:14:39Z" duration="0.000145" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="_SKIPREASON" value="Run in a fresh Editor after the campaign walkthrough writes its actual save." />
+              </properties>
+              <reason>
+                <message><![CDATA[Run in a fresh Editor after the campaign walkthrough writes its actual save.]]></message>
+              </reason>
+            </test-case>
+            <test-case id="1013" name="MenuAndInspectionRemainReachableAcrossAspects" fullname="Wattshift.Tests.GameplayIntegrationTests.MenuAndInspectionRemainReachableAcrossAspects" methodname="MenuAndInspectionRemainReachableAcrossAspects" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" seed="1784165606" result="Passed" start-time="2026-11-08 19:14:39Z" end-time="2026-11-08 19:14:41Z" duration="2.278485" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+]]></output>
+            </test-case>
+            <test-case id="1012" name="MissedShiftFailsAndLatePurchasesCannotRewriteEnergy" fullname="Wattshift.Tests.GameplayIntegrationTests.MissedShiftFailsAndLatePurchasesCannotRewriteEnergy" methodname="MissedShiftFailsAndLatePurchasesCannotRewriteEnergy" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" seed="1509662327" result="Passed" start-time="2026-11-08 19:14:41Z" end-time="2026-11-08 19:14:42Z" duration="0.411899" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1018" name="RealTimeFirstShiftWalkthrough" fullname="Wattshift.Tests.GameplayIntegrationTests.RealTimeFirstShiftWalkthrough" methodname="RealTimeFirstShiftWalkthrough" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Explicit" seed="1316052152" result="Skipped" label="Explicit" start-time="2026-11-08 19:14:42Z" end-time="2026-11-08 19:14:42Z" duration="0.000001" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="Timeout" value="480000" />
+                <property name="_SKIPREASON" value="Six-minute real-clock Game View walkthrough; run by exact test name." />
+              </properties>
+              <reason>
+                <message><![CDATA[Six-minute real-clock Game View walkthrough; run by exact test name.]]></message>
+              </reason>
+            </test-case>
+            <test-case id="1017" name="RealTimeStreetAndClinicWalkthrough" fullname="Wattshift.Tests.GameplayIntegrationTests.RealTimeStreetAndClinicWalkthrough" methodname="RealTimeStreetAndClinicWalkthrough" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Explicit" seed="1256499793" result="Skipped" label="Explicit" start-time="2026-11-08 19:14:42Z" end-time="2026-11-08 19:14:42Z" duration="0.000002" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="Timeout" value="900000" />
+                <property name="_SKIPREASON" value="Two six-minute live shifts, no artificial clock jumps within either shift." />
+              </properties>
+              <reason>
+                <message><![CDATA[Two six-minute live shifts, no artificial clock jumps within either shift.]]></message>
+              </reason>
+            </test-case>
+            <test-case id="1015" name="SettingsPersistWithoutEditingPipelineAndBlockWorldInput" fullname="Wattshift.Tests.GameplayIntegrationTests.SettingsPersistWithoutEditingPipelineAndBlockWorldInput" methodname="SettingsPersistWithoutEditingPipelineAndBlockWorldInput" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" seed="872271511" result="Passed" start-time="2026-11-08 19:14:42Z" end-time="2026-11-08 19:14:51Z" duration="9.390699" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[G3_UI_CLICK settings-menu bound=(x:563.33, y:675.00, width:468.33, height:44.17) scale=1.2 picked=settings-menu
+G3_UI_CLICK quality-0 bound=(x:578.33, y:530.00, width:438.33, height:44.17) scale=1.2 picked=quality-0
+G3_UI_CLICK audio-mute bound=(x:578.33, y:375.83, width:438.33, height:44.17) scale=1.2 picked=audio-mute
+Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+G3_UI_CLICK settings-close bound=(x:578.33, y:700.83, width:438.33, height:43.33) scale=1.2 picked=settings-close
+G3_UI_CLICK start-mission-0 bound=(x:563.33, y:336.67, width:468.33, height:43.33) scale=1.2 picked=start-mission-0
+G3_UI_CLICK settings-playing bound=(x:175.83, y:600.83, width:126.67, height:44.17) scale=1.2 picked=settings-playing
+G3_UI_CLICK quality-1 bound=(x:578.33, y:580.83, width:438.33, height:44.17) scale=1.2 picked=quality-1
+G3_UI_CLICK quality-2 bound=(x:578.33, y:631.67, width:438.33, height:44.17) scale=1.2 picked=quality-2
+G3_UI_CLICK settings-close bound=(x:578.33, y:700.83, width:438.33, height:43.33) scale=1.2 picked=settings-close
+Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+]]></output>
+            </test-case>
+            <test-case id="1014" name="ThreeDistinctMissionsUnlockSafelyAndKeepBestRewards" fullname="Wattshift.Tests.GameplayIntegrationTests.ThreeDistinctMissionsUnlockSafelyAndKeepBestRewards" methodname="ThreeDistinctMissionsUnlockSafelyAndKeepBestRewards" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" seed="427037582" result="Passed" start-time="2026-11-08 19:14:51Z" end-time="2026-11-08 19:15:02Z" duration="10.518787" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[G3_UI_CLICK start-mission-0 bound=(x:563.33, y:320.83, width:468.33, height:43.33) scale=1.2 picked=start-mission-0
+G3_UI_CLICK scanner-toggle bound=(x:44.17, y:250.00, width:113.33, height:44.17) scale=1.2 picked=scanner-toggle
+G3_UI_CLICK inspect-building bound=(x:1249.17, y:688.33, width:295.00, height:44.17) scale=1.2 picked=inspect-building
+G3_UI_CLICK upgrade-school-lights bound=(x:1249.17, y:809.17, width:291.67, height:44.17) scale=1.2 picked=upgrade-school-lights
+G3_UI_CLICK upgrade-school-computers bound=(x:1249.17, y:810.00, width:291.67, height:43.33) scale=1.2 picked=upgrade-school-computers
+G3_UI_CLICK complete-mission bound=(x:44.17, y:515.00, width:126.67, height:44.17) scale=1.2 picked=complete-mission
+G3_UI_CLICK start-mission-1 bound=(x:563.33, y:429.17, width:468.33, height:44.17) scale=1.2 picked=start-mission-1
+G3_UI_CLICK scanner-toggle bound=(x:44.17, y:250.00, width:113.33, height:44.17) scale=1.2 picked=scanner-toggle
+G3_UI_CLICK inspect-building bound=(x:1249.17, y:688.33, width:295.00, height:44.17) scale=1.2 picked=inspect-building
+G3_UI_CLICK upgrade-crossings-off bound=(x:1249.17, y:809.17, width:291.67, height:44.17) scale=1.2 picked=upgrade-crossings-off
+G3_UI_CLICK upgrade-crossings-led bound=(x:1249.17, y:718.33, width:291.67, height:44.17) scale=1.2 picked=upgrade-crossings-led
+G3_UI_CLICK inspect-building bound=(x:1249.17, y:688.33, width:295.00, height:44.17) scale=1.2 picked=inspect-building
+G3_UI_CLICK upgrade-walkways-led bound=(x:1249.17, y:774.17, width:291.67, height:44.17) scale=1.2 picked=upgrade-walkways-led
+Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+G3_UI_CLICK complete-mission bound=(x:44.17, y:515.00, width:126.67, height:44.17) scale=1.2 picked=complete-mission
+G3_UI_CLICK start-mission-2 bound=(x:563.33, y:522.50, width:468.33, height:44.17) scale=1.2 picked=start-mission-2
+G3_UI_CLICK scanner-toggle bound=(x:44.17, y:250.00, width:113.33, height:44.17) scale=1.2 picked=scanner-toggle
+G3_UI_CLICK inspect-building bound=(x:1249.17, y:688.33, width:295.00, height:44.17) scale=1.2 picked=inspect-building
+G3_UI_CLICK upgrade-clinic-off bound=(x:1249.17, y:809.17, width:291.67, height:44.17) scale=1.2 picked=upgrade-clinic-off
+G3_UI_CLICK upgrade-clinic-task-off bound=(x:1249.17, y:809.17, width:291.67, height:44.17) scale=1.2 picked=upgrade-clinic-task-off
+G3_UI_CLICK upgrade-clinic-aux bound=(x:1249.17, y:643.33, width:291.67, height:44.17) scale=1.2 picked=upgrade-clinic-aux
+G3_UI_CLICK upgrade-clinic-admin bound=(x:1249.17, y:789.17, width:291.67, height:44.17) scale=1.2 picked=upgrade-clinic-admin
+G3_UI_CLICK upgrade-clinic-led bound=(x:1249.17, y:810.00, width:291.67, height:43.33) scale=1.2 picked=upgrade-clinic-led
+G3_UI_CLICK complete-mission bound=(x:44.17, y:501.67, width:126.67, height:44.17) scale=1.2 picked=complete-mission
+Saving results to: /Users/yato/Library/Application Support/WATTSHIFT/WATTSHIFT/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

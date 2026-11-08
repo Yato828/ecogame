@@ -1,0 +1,285 @@
+{
+    "Version": 3,
+    "MissionIndex": 2,
+    "City": {
+        "Version": 2,
+        "MissionId": "energy-of-life-v3",
+        "Completed": true,
+        "Buildings": [
+            {
+                "BuildingId": "home-a",
+                "UpgradeIds": []
+            },
+            {
+                "BuildingId": "home-b",
+                "UpgradeIds": []
+            },
+            {
+                "BuildingId": "home-c",
+                "UpgradeIds": []
+            },
+            {
+                "BuildingId": "home-d",
+                "UpgradeIds": []
+            },
+            {
+                "BuildingId": "home-e",
+                "UpgradeIds": []
+            },
+            {
+                "BuildingId": "home-f",
+                "UpgradeIds": []
+            },
+            {
+                "BuildingId": "school",
+                "UpgradeIds": []
+            },
+            {
+                "BuildingId": "clinic",
+                "UpgradeIds": [
+                    "clinic-aux",
+                    "clinic-admin",
+                    "clinic-led"
+                ]
+            },
+            {
+                "BuildingId": "crossings",
+                "UpgradeIds": []
+            },
+            {
+                "BuildingId": "walkways",
+                "UpgradeIds": []
+            }
+        ],
+        "CurrentHour": 23.0,
+        "History": [
+            {
+                "BuildingId": "clinic",
+                "UpgradeId": "clinic-aux",
+                "Hour": 18.0
+            },
+            {
+                "BuildingId": "clinic",
+                "UpgradeId": "clinic-admin",
+                "Hour": 18.0
+            },
+            {
+                "BuildingId": "clinic",
+                "UpgradeId": "clinic-led",
+                "Hour": 18.0
+            }
+        ]
+    },
+    "Records": [
+        {
+            "MissionId": "evening-peak-v3",
+            "BestRun": {
+                "Version": 2,
+                "MissionId": "evening-peak-v3",
+                "Completed": true,
+                "Buildings": [
+                    {
+                        "BuildingId": "home-a",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "home-b",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "home-c",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "home-d",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "home-e",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "home-f",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "school",
+                        "UpgradeIds": [
+                            "school-lights",
+                            "school-computers"
+                        ]
+                    },
+                    {
+                        "BuildingId": "clinic",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "crossings",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "walkways",
+                        "UpgradeIds": []
+                    }
+                ],
+                "CurrentHour": 23.0,
+                "History": [
+                    {
+                        "BuildingId": "school",
+                        "UpgradeId": "school-lights",
+                        "Hour": 18.0
+                    },
+                    {
+                        "BuildingId": "school",
+                        "UpgradeId": "school-computers",
+                        "Hour": 18.0
+                    }
+                ]
+            }
+        },
+        {
+            "MissionId": "dark-streets-v3",
+            "BestRun": {
+                "Version": 2,
+                "MissionId": "dark-streets-v3",
+                "Completed": true,
+                "Buildings": [
+                    {
+                        "BuildingId": "home-a",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "home-b",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "home-c",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "home-d",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "home-e",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "home-f",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "school",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "clinic",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "crossings",
+                        "UpgradeIds": [
+                            "crossings-led"
+                        ]
+                    },
+                    {
+                        "BuildingId": "walkways",
+                        "UpgradeIds": [
+                            "walkways-led"
+                        ]
+                    }
+                ],
+                "CurrentHour": 23.0,
+                "History": [
+                    {
+                        "BuildingId": "crossings",
+                        "UpgradeId": "crossings-led",
+                        "Hour": 18.0
+                    },
+                    {
+                        "BuildingId": "walkways",
+                        "UpgradeId": "walkways-led",
+                        "Hour": 18.0
+                    }
+                ]
+            }
+        },
+        {
+            "MissionId": "energy-of-life-v3",
+            "BestRun": {
+                "Version": 2,
+                "MissionId": "energy-of-life-v3",
+                "Completed": true,
+                "Buildings": [
+                    {
+                        "BuildingId": "home-a",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "home-b",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "home-c",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "home-d",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "home-e",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "home-f",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "school",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "clinic",
+                        "UpgradeIds": [
+                            "clinic-aux",
+                            "clinic-admin",
+                            "clinic-led"
+                        ]
+                    },
+                    {
+                        "BuildingId": "crossings",
+                        "UpgradeIds": []
+                    },
+                    {
+                        "BuildingId": "walkways",
+                        "UpgradeIds": []
+                    }
+                ],
+                "CurrentHour": 23.0,
+                "History": [
+                    {
+                        "BuildingId": "clinic",
+                        "UpgradeId": "clinic-aux",
+                        "Hour": 18.0
+                    },
+                    {
+                        "BuildingId": "clinic",
+                        "UpgradeId": "clinic-admin",
+                        "Hour": 18.0
+                    },
+                    {
+                        "BuildingId": "clinic",
+                        "UpgradeId": "clinic-led",
+                        "Hour": 18.0
+                    }
+                ]
+            }
+        }
+    ],
+    "InvestigatedIds": [
+        "clinic"
+    ],
+    "ScannerEnabled": false,
+    "Results": true
+}

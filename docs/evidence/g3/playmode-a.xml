@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="8" result="Failed(Child)" total="8" passed="0" failed="7" inconclusive="0" skipped="1" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-08 17:37:23Z" end-time="2026-11-08 17:37:26Z" duration="2.7689221">
+  <test-suite type="TestSuite" id="1017" name="WATTSHIFT" fullname="WATTSHIFT" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-11-08 17:37:23Z" end-time="2026-11-08 17:37:26Z" duration="2.768922" total="8" passed="0" failed="7" inconclusive="0" skipped="1" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1014" name="Wattshift.PlayMode.Tests.dll" fullname="/private/tmp/WATTSHIFT_Validation/Library/ScriptAssemblies/Wattshift.PlayMode.Tests.dll" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-11-08 17:37:23Z" end-time="2026-11-08 17:37:26Z" duration="2.765417" total="8" passed="0" failed="7" inconclusive="0" skipped="1" asserts="0">
+      <properties>
+        <property name="_PID" value="34204" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1015" name="Wattshift" fullname="Wattshift" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-11-08 17:37:23Z" end-time="2026-11-08 17:37:26Z" duration="2.765219" total="8" passed="0" failed="7" inconclusive="0" skipped="1" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1016" name="Tests" fullname="Wattshift.Tests" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-11-08 17:37:23Z" end-time="2026-11-08 17:37:26Z" duration="2.764971" total="8" passed="0" failed="7" inconclusive="0" skipped="1" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="1004" name="CameraControlsTests" fullname="Wattshift.Tests.CameraControlsTests" classname="Wattshift.Tests.CameraControlsTests" runstate="Runnable" testcasecount="4" result="Failed" site="Child" start-time="2026-11-08 17:37:23Z" end-time="2026-11-08 17:37:25Z" duration="1.613269" total="4" passed="0" failed="4" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1007" name="LeftClickSelectsButUIAndDragDoNotSelect" fullname="Wattshift.Tests.CameraControlsTests.LeftClickSelectsButUIAndDragDoNotSelect" methodname="LeftClickSelectsButUIAndDragDoNotSelect" classname="Wattshift.Tests.CameraControlsTests" runstate="Runnable" seed="815234301" result="Failed" label="Error" start-time="2026-11-08 17:37:23Z" end-time="2026-11-08 17:37:24Z" duration="1.084718" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[SetUp : System.ArgumentNullException : Value cannot be null.
+Parameter name: dest
+TearDown : System.ArgumentNullException : Value cannot be null.
+Parameter name: device]]></message>
+                <stack-trace><![CDATA[--SetUp
+  at UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) [0x00018] in /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54 
+  at UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) [0x00003] in <e90e9a08c61e45f68e99816fc035e5bf>:0 
+  at UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) [0x00001] in /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67 
+  at Wattshift.SourceBuildingHighlight.Apply () [0x000dd] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62 
+  at Wattshift.SourceBuildingHighlight.SetScannerState (Wattshift.ScannerHighlightState value) [0x00019] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:43 
+  at Wattshift.CityAtmosphere.Present (System.Double hour, System.Boolean scannerEnabled, Wattshift.SimulationSnapshot snapshot, System.String[] investigatedIds) [0x001cc] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:75 
+  at Wattshift.GameSession.Refresh () [0x000c2] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:218 
+  at Wattshift.GameSession.BeginMission (System.Int32 index) [0x00074] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:102 
+  at Wattshift.Tests.CameraControlsTests+<SetUp>d__8.MoveNext () [0x000bc] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Tests/PlayMode/CameraControlsTests.cs:32 
+  at UnityEngine.TestTools.EnumeratorHelper+<ProgressOnEnumerator>d__5.MoveNext () [0x00017] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Attributes/EnumeratorHelper.cs:35 
+  at UnityEngine.TestTools.BeforeAfterTestCommandBase`1+<ExecuteEnumerable>d__16[T].MoveNext () [0x00132] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Commands/BeforeAfterTestCommandBase.cs:155 
+--TearDown
+  at UnityEngine.InputSystem.InputManager.RemoveDevice (UnityEngine.InputSystem.InputDevice device, System.Boolean keepOnListOfAvailableDevices) [0x001c8] in ./Library/PackageCache/com.unity.inputsystem@7f0f3b77ed69/InputSystem/InputManager.cs:1509 
+  at UnityEngine.InputSystem.InputSystem.RemoveDevice (UnityEngine.InputSystem.InputDevice device) [0x00000] in ./Library/PackageCache/com.unity.inputsystem@7f0f3b77ed69/InputSystem/InputSystem.cs:1560 
+  at Wattshift.Tests.CameraControlsTests+<TearDown>d__10.MoveNext () [0x00021] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Tests/PlayMode/CameraControlsTests.cs:61 
+  at UnityEngine.TestTools.EnumeratorHelper+<ProgressOnEnumerator>d__5.MoveNext () [0x00017] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Attributes/EnumeratorHelper.cs:35 
+  at UnityEngine.TestTools.BeforeAfterTestCommandBase`1+<ExecuteEnumerable>d__16[T].MoveNext () [0x0043e] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Commands/BeforeAfterTestCommandBase.cs:248 ]]></stack-trace>
+              </failure>
+              <output><![CDATA[UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Школа № 1 • building-e'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом на бульваре • building-type-c'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом у лип • building-type-a'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Тихий двор • building-type-e'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Зелёная крыша • building-type-d'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Поликлиника • building-c'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом у парка • building-type-f'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Солнечный дом • building-type-b'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.SetScannerState (Wattshift.ScannerHighlightState value) (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:43)
+Wattshift.CityAtmosphere.Present (System.Double hour, System.Boolean scannerEnabled, Wattshift.SimulationSnapshot snapshot, System.String[] investigatedIds) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:75)
+Wattshift.GameSession.Refresh () (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:218)
+Wattshift.GameSession.Start () (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:81)
+
+]]></output>
+            </test-case>
+            <test-case id="1006" name="RightDragAndKeyboardRespectGroundBoundsAndUIOwnership" fullname="Wattshift.Tests.CameraControlsTests.RightDragAndKeyboardRespectGroundBoundsAndUIOwnership" methodname="RightDragAndKeyboardRespectGroundBoundsAndUIOwnership" classname="Wattshift.Tests.CameraControlsTests" runstate="Runnable" seed="104395840" result="Failed" label="Error" start-time="2026-11-08 17:37:24Z" end-time="2026-11-08 17:37:25Z" duration="0.297810" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[SetUp : System.ArgumentNullException : Value cannot be null.
+Parameter name: dest
+TearDown : System.ArgumentNullException : Value cannot be null.
+Parameter name: device]]></message>
+                <stack-trace><![CDATA[--SetUp
+  at UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) [0x00018] in /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54 
+  at UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) [0x00003] in <e90e9a08c61e45f68e99816fc035e5bf>:0 
+  at UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) [0x00001] in /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67 
+  at Wattshift.SourceBuildingHighlight.Apply () [0x000dd] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62 
+  at Wattshift.SourceBuildingHighlight.SetScannerState (Wattshift.ScannerHighlightState value) [0x00019] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:43 
+  at Wattshift.CityAtmosphere.Present (System.Double hour, System.Boolean scannerEnabled, Wattshift.SimulationSnapshot snapshot, System.String[] investigatedIds) [0x001cc] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:75 
+  at Wattshift.GameSession.Refresh () [0x000c2] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:218 
+  at Wattshift.GameSession.BeginMission (System.Int32 index) [0x00074] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:102 
+  at Wattshift.Tests.CameraControlsTests+<SetUp>d__8.MoveNext () [0x000bc] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Tests/PlayMode/CameraControlsTests.cs:32 
+  at UnityEngine.TestTools.EnumeratorHelper+<ProgressOnEnumerator>d__5.MoveNext () [0x00017] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Attributes/EnumeratorHelper.cs:35 
+  at UnityEngine.TestTools.BeforeAfterTestCommandBase`1+<ExecuteEnumerable>d__16[T].MoveNext () [0x00132] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Commands/BeforeAfterTestCommandBase.cs:155 
+--TearDown
+  at UnityEngine.InputSystem.InputManager.RemoveDevice (UnityEngine.InputSystem.InputDevice device, System.Boolean keepOnListOfAvailableDevices) [0x001c8] in ./Library/PackageCache/com.unity.inputsystem@7f0f3b77ed69/InputSystem/InputManager.cs:1509 
+  at UnityEngine.InputSystem.InputSystem.RemoveDevice (UnityEngine.InputSystem.InputDevice device) [0x00000] in ./Library/PackageCache/com.unity.inputsystem@7f0f3b77ed69/InputSystem/InputSystem.cs:1560 
+  at Wattshift.Tests.CameraControlsTests+<TearDown>d__10.MoveNext () [0x00021] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Tests/PlayMode/CameraControlsTests.cs:61 
+  at UnityEngine.TestTools.EnumeratorHelper+<ProgressOnEnumerator>d__5.MoveNext () [0x00017] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Attributes/EnumeratorHelper.cs:35 
+  at UnityEngine.TestTools.BeforeAfterTestCommandBase`1+<ExecuteEnumerable>d__16[T].MoveNext () [0x0043e] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Commands/BeforeAfterTestCommandBase.cs:248 ]]></stack-trace>
+              </failure>
+              <output><![CDATA[ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.OnDisable () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:71)
+
+ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.OnDisable () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:71)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Тихий двор • building-type-e'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Зелёная крыша • building-type-d'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом у лип • building-type-a'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Поликлиника • building-c'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Школа № 1 • building-e'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Солнечный дом • building-type-b'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом на бульваре • building-type-c'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом у парка • building-type-f'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.SetScannerState (Wattshift.ScannerHighlightState value) (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:43)
+Wattshift.CityAtmosphere.Present (System.Double hour, System.Boolean scannerEnabled, Wattshift.SimulationSnapshot snapshot, System.String[] investigatedIds) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:75)
+Wattshift.GameSession.Refresh () (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:218)
+Wattshift.GameSession.Start () (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:81)
+
+]]></output>
+            </test-case>
+            <test-case id="1008" name="TouchPanPinchAndTransitionsDoNotJumpOrSelect" fullname="Wattshift.Tests.CameraControlsTests.TouchPanPinchAndTransitionsDoNotJumpOrSelect" methodname="TouchPanPinchAndTransitionsDoNotJumpOrSelect" classname="Wattshift.Tests.CameraControlsTests" runstate="Runnable" seed="986349891" result="Failed" label="Error" start-time="2026-11-08 17:37:25Z" end-time="2026-11-08 17:37:25Z" duration="0.112929" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[SetUp : System.ArgumentNullException : Value cannot be null.
+Parameter name: dest
+TearDown : System.ArgumentNullException : Value cannot be null.
+Parameter name: device]]></message>
+                <stack-trace><![CDATA[--SetUp
+  at UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) [0x00018] in /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54 
+  at UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) [0x00003] in <e90e9a08c61e45f68e99816fc035e5bf>:0 
+  at UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) [0x00001] in /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67 
+  at Wattshift.SourceBuildingHighlight.Apply () [0x000dd] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62 
+  at Wattshift.SourceBuildingHighlight.SetScannerState (Wattshift.ScannerHighlightState value) [0x00019] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:43 
+  at Wattshift.CityAtmosphere.Present (System.Double hour, System.Boolean scannerEnabled, Wattshift.SimulationSnapshot snapshot, System.String[] investigatedIds) [0x001cc] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:75 
+  at Wattshift.GameSession.Refresh () [0x000c2] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:218 
+  at Wattshift.GameSession.BeginMission (System.Int32 index) [0x00074] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:102 
+  at Wattshift.Tests.CameraControlsTests+<SetUp>d__8.MoveNext () [0x000bc] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Tests/PlayMode/CameraControlsTests.cs:32 
+  at UnityEngine.TestTools.EnumeratorHelper+<ProgressOnEnumerator>d__5.MoveNext () [0x00017] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Attributes/EnumeratorHelper.cs:35 
+  at UnityEngine.TestTools.BeforeAfterTestCommandBase`1+<ExecuteEnumerable>d__16[T].MoveNext () [0x00132] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Commands/BeforeAfterTestCommandBase.cs:155 
+--TearDown
+  at UnityEngine.InputSystem.InputManager.RemoveDevice (UnityEngine.InputSystem.InputDevice device, System.Boolean keepOnListOfAvailableDevices) [0x001c8] in ./Library/PackageCache/com.unity.inputsystem@7f0f3b77ed69/InputSystem/InputManager.cs:1509 
+  at UnityEngine.InputSystem.InputSystem.RemoveDevice (UnityEngine.InputSystem.InputDevice device) [0x00000] in ./Library/PackageCache/com.unity.inputsystem@7f0f3b77ed69/InputSystem/InputSystem.cs:1560 
+  at Wattshift.Tests.CameraControlsTests+<TearDown>d__10.MoveNext () [0x00021] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Tests/PlayMode/CameraControlsTests.cs:61 
+  at UnityEngine.TestTools.EnumeratorHelper+<ProgressOnEnumerator>d__5.MoveNext () [0x00017] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Attributes/EnumeratorHelper.cs:35 
+  at UnityEngine.TestTools.BeforeAfterTestCommandBase`1+<ExecuteEnumerable>d__16[T].MoveNext () [0x0043e] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Commands/BeforeAfterTestCommandBase.cs:248 ]]></stack-trace>
+              </failure>
+              <output><![CDATA[ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.SetScannerState (Wattshift.ScannerHighlightState value) (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:43)
+Wattshift.CityAtmosphere.OnDisable () (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:120)
+
+ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.OnDisable () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:71)
+
+ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.OnDisable () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:71)
+
+ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.OnDisable () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:71)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом на бульваре • building-type-c'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Школа № 1 • building-e'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом у лип • building-type-a'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Тихий двор • building-type-e'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Солнечный дом • building-type-b'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Поликлиника • building-c'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Зелёная крыша • building-type-d'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом у парка • building-type-f'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.SetScannerState (Wattshift.ScannerHighlightState value) (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:43)
+Wattshift.CityAtmosphere.Present (System.Double hour, System.Boolean scannerEnabled, Wattshift.SimulationSnapshot snapshot, System.String[] investigatedIds) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:75)
+Wattshift.GameSession.Refresh () (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:218)
+Wattshift.GameSession.Start () (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:81)
+
+]]></output>
+            </test-case>
+            <test-case id="1005" name="WheelZoomIsSmoothBoundedAndBlockedByUI" fullname="Wattshift.Tests.CameraControlsTests.WheelZoomIsSmoothBoundedAndBlockedByUI" methodname="WheelZoomIsSmoothBoundedAndBlockedByUI" classname="Wattshift.Tests.CameraControlsTests" runstate="Runnable" seed="579156943" result="Failed" label="Error" start-time="2026-11-08 17:37:25Z" end-time="2026-11-08 17:37:25Z" duration="0.112752" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[SetUp : System.ArgumentNullException : Value cannot be null.
+Parameter name: dest
+TearDown : System.ArgumentNullException : Value cannot be null.
+Parameter name: device]]></message>
+                <stack-trace><![CDATA[--SetUp
+  at UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) [0x00018] in /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54 
+  at UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) [0x00003] in <e90e9a08c61e45f68e99816fc035e5bf>:0 
+  at UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) [0x00001] in /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67 
+  at Wattshift.SourceBuildingHighlight.Apply () [0x000dd] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62 
+  at Wattshift.SourceBuildingHighlight.SetScannerState (Wattshift.ScannerHighlightState value) [0x00019] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:43 
+  at Wattshift.CityAtmosphere.Present (System.Double hour, System.Boolean scannerEnabled, Wattshift.SimulationSnapshot snapshot, System.String[] investigatedIds) [0x001cc] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:75 
+  at Wattshift.GameSession.Refresh () [0x000c2] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:218 
+  at Wattshift.GameSession.BeginMission (System.Int32 index) [0x00074] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:102 
+  at Wattshift.Tests.CameraControlsTests+<SetUp>d__8.MoveNext () [0x000bc] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Tests/PlayMode/CameraControlsTests.cs:32 
+  at UnityEngine.TestTools.EnumeratorHelper+<ProgressOnEnumerator>d__5.MoveNext () [0x00017] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Attributes/EnumeratorHelper.cs:35 
+  at UnityEngine.TestTools.BeforeAfterTestCommandBase`1+<ExecuteEnumerable>d__16[T].MoveNext () [0x00132] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Commands/BeforeAfterTestCommandBase.cs:155 
+--TearDown
+  at UnityEngine.InputSystem.InputManager.RemoveDevice (UnityEngine.InputSystem.InputDevice device, System.Boolean keepOnListOfAvailableDevices) [0x001c8] in ./Library/PackageCache/com.unity.inputsystem@7f0f3b77ed69/InputSystem/InputManager.cs:1509 
+  at UnityEngine.InputSystem.InputSystem.RemoveDevice (UnityEngine.InputSystem.InputDevice device) [0x00000] in ./Library/PackageCache/com.unity.inputsystem@7f0f3b77ed69/InputSystem/InputSystem.cs:1560 
+  at Wattshift.Tests.CameraControlsTests+<TearDown>d__10.MoveNext () [0x00021] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Tests/PlayMode/CameraControlsTests.cs:61 
+  at UnityEngine.TestTools.EnumeratorHelper+<ProgressOnEnumerator>d__5.MoveNext () [0x00017] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Attributes/EnumeratorHelper.cs:35 
+  at UnityEngine.TestTools.BeforeAfterTestCommandBase`1+<ExecuteEnumerable>d__16[T].MoveNext () [0x0043e] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Commands/BeforeAfterTestCommandBase.cs:248 ]]></stack-trace>
+              </failure>
+              <output><![CDATA[ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.SetScannerState (Wattshift.ScannerHighlightState value) (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:43)
+Wattshift.CityAtmosphere.OnDisable () (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:120)
+
+ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.OnDisable () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:71)
+
+ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.OnDisable () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:71)
+
+ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.OnDisable () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:71)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом у лип • building-type-a'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Школа № 1 • building-e'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом у парка • building-type-f'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Солнечный дом • building-type-b'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом на бульваре • building-type-c'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Поликлиника • building-c'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Зелёная крыша • building-type-d'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Тихий двор • building-type-e'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.SetScannerState (Wattshift.ScannerHighlightState value) (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:43)
+Wattshift.CityAtmosphere.Present (System.Double hour, System.Boolean scannerEnabled, Wattshift.SimulationSnapshot snapshot, System.String[] investigatedIds) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:75)
+Wattshift.GameSession.Refresh () (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:218)
+Wattshift.GameSession.Start () (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:81)
+
+]]></output>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1009" name="GameplayIntegrationTests" fullname="Wattshift.Tests.GameplayIntegrationTests" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" testcasecount="4" result="Failed" site="Child" start-time="2026-11-08 17:37:25Z" end-time="2026-11-08 17:37:26Z" duration="1.151050" total="4" passed="0" failed="3" inconclusive="0" skipped="1" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1010" name="FirstShiftRequiresInvestigationRealObservationAndPreservesProgress" fullname="Wattshift.Tests.GameplayIntegrationTests.FirstShiftRequiresInvestigationRealObservationAndPreservesProgress" methodname="FirstShiftRequiresInvestigationRealObservationAndPreservesProgress" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" seed="1379639116" result="Failed" start-time="2026-11-08 17:37:25Z" end-time="2026-11-08 17:37:25Z" duration="0.377864" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[SetUp : Unhandled log message: '[Exception] ArgumentNullException: Value cannot be null.
+Parameter name: dest'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+                <stack-trace><![CDATA[UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.OnDisable () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:71)
+
+]]></stack-trace>
+              </failure>
+              <output><![CDATA[ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.OnDisable () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:71)
+
+ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.OnDisable () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:71)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Солнечный дом • building-type-b'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Школа № 1 • building-e'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Зелёная крыша • building-type-d'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Тихий двор • building-type-e'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом у парка • building-type-f'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом на бульваре • building-type-c'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом у лип • building-type-a'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Поликлиника • building-c'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.SetScannerState (Wattshift.ScannerHighlightState value) (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:43)
+Wattshift.CityAtmosphere.Present (System.Double hour, System.Boolean scannerEnabled, Wattshift.SimulationSnapshot snapshot, System.String[] investigatedIds) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:75)
+Wattshift.GameSession.Refresh () (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:218)
+Wattshift.GameSession.Start () (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:81)
+
+]]></output>
+            </test-case>
+            <test-case id="1012" name="MenuAndInspectionRemainReachableAcrossAspects" fullname="Wattshift.Tests.GameplayIntegrationTests.MenuAndInspectionRemainReachableAcrossAspects" methodname="MenuAndInspectionRemainReachableAcrossAspects" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" seed="2068645139" result="Failed" start-time="2026-11-08 17:37:25Z" end-time="2026-11-08 17:37:26Z" duration="0.384077" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[SetUp : Unhandled log message: '[Exception] ArgumentNullException: Value cannot be null.
+Parameter name: dest'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+                <stack-trace><![CDATA[UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.OnDisable () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:71)
+
+]]></stack-trace>
+              </failure>
+              <output><![CDATA[ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.OnDisable () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:71)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом на бульваре • building-type-c'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Солнечный дом • building-type-b'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Зелёная крыша • building-type-d'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом у лип • building-type-a'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Школа № 1 • building-e'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Поликлиника • building-c'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом у парка • building-type-f'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Тихий двор • building-type-e'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.SetScannerState (Wattshift.ScannerHighlightState value) (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:43)
+Wattshift.CityAtmosphere.Present (System.Double hour, System.Boolean scannerEnabled, Wattshift.SimulationSnapshot snapshot, System.String[] investigatedIds) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:75)
+Wattshift.GameSession.Refresh () (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:218)
+Wattshift.GameSession.Start () (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:81)
+
+]]></output>
+            </test-case>
+            <test-case id="1011" name="MissedShiftFailsAndLatePurchasesCannotRewriteEnergy" fullname="Wattshift.Tests.GameplayIntegrationTests.MissedShiftFailsAndLatePurchasesCannotRewriteEnergy" methodname="MissedShiftFailsAndLatePurchasesCannotRewriteEnergy" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" seed="127675437" result="Failed" start-time="2026-11-08 17:37:26Z" end-time="2026-11-08 17:37:26Z" duration="0.381455" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[SetUp : Unhandled log message: '[Exception] ArgumentNullException: Value cannot be null.
+Parameter name: dest'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+                <stack-trace><![CDATA[UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.OnDisable () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:71)
+
+]]></stack-trace>
+              </failure>
+              <output><![CDATA[ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.OnDisable () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:71)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом у лип • building-type-a'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Школа № 1 • building-e'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Солнечный дом • building-type-b'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Поликлиника • building-c'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом на бульваре • building-type-c'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Тихий двор • building-type-e'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Дом у парка • building-type-f'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+UnityException: CreateImpl is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call it in Awake or Start instead. Called from MonoBehaviour 'SourceBuildingHighlight' on game object 'Зелёная крыша • building-type-d'.
+See "Script Serialization" page in the Unity Manual for further details.
+UnityEngine.MaterialPropertyBlock..ctor () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Shaders/MaterialPropertyBlock.cs:81)
+Wattshift.SourceBuildingHighlight..ctor () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:13)
+UnityEngine.GameObject:AddComponent()
+Wattshift.CityAtmosphere:Bind(CityBuilding[], BuildingEnergyView[]) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:34)
+Wattshift.GameSession:Start() (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:74)
+
+ArgumentNullException: Value cannot be null.
+Parameter name: dest
+UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:54)
+UnityEngine.Renderer.Internal_GetPropertyBlock (UnityEngine.MaterialPropertyBlock dest) (at <e90e9a08c61e45f68e99816fc035e5bf>:0)
+UnityEngine.Renderer.GetPropertyBlock (UnityEngine.MaterialPropertyBlock properties) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:67)
+Wattshift.SourceBuildingHighlight.Apply () (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:62)
+Wattshift.SourceBuildingHighlight.SetScannerState (Wattshift.ScannerHighlightState value) (at Assets/_WATTSHIFT/Scripts/Presentation/SourceBuildingHighlight.cs:43)
+Wattshift.CityAtmosphere.Present (System.Double hour, System.Boolean scannerEnabled, Wattshift.SimulationSnapshot snapshot, System.String[] investigatedIds) (at Assets/_WATTSHIFT/Scripts/Presentation/CityAtmosphere.cs:75)
+Wattshift.GameSession.Refresh () (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:218)
+Wattshift.GameSession.Start () (at Assets/_WATTSHIFT/Scripts/Infrastructure/GameSession.cs:81)
+
+]]></output>
+            </test-case>
+            <test-case id="1013" name="RealTimeFirstShiftWalkthrough" fullname="Wattshift.Tests.GameplayIntegrationTests.RealTimeFirstShiftWalkthrough" methodname="RealTimeFirstShiftWalkthrough" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Explicit" seed="992793649" result="Skipped" label="Explicit" start-time="2026-11-08 17:37:26Z" end-time="2026-11-08 17:37:26Z" duration="0.000187" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="_SKIPREASON" value="Six-minute real-clock Game View walkthrough; run by exact test name." />
+              </properties>
+              <reason>
+                <message><![CDATA[Six-minute real-clock Game View walkthrough; run by exact test name.]]></message>
+              </reason>
+              <output><![CDATA[Saving results to: /Users/yato/Library/Application Support/WATTSHIFT/WATTSHIFT/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

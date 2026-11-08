@@ -1,0 +1,3 @@
+Unity Game View automatic UI walkthrough; actual360second clock per shift.
+Тёмные улицы: actual seconds=361.6713678; actual kWh=105.234187773131
+Энергия жизни: actual seconds=361.6837805; actual kWh=111.280636253272

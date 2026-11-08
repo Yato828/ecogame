@@ -1,0 +1,9 @@
+Actual Editor Play Mode walkthrough, default360-second profile; no time jumps.
+Active monotonic seconds including decision pauses=362.5374324
+UTC wall seconds=363.810252
+Unity realtime seconds=363.809117875
+GPU=Apple M4
+Samples=47105
+Median frame ms=6.998165
+P95 frame ms=12.66684
+Editor-only sample; no native/browser/physical-device FPS claim.

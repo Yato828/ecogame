@@ -9,6 +9,16 @@ namespace Wattshift
         public string MissionId;
         public bool Completed;
         public BuildingState[] Buildings = Array.Empty<BuildingState>();
+        public double CurrentHour;
+        public UpgradePurchaseRecord[] History = Array.Empty<UpgradePurchaseRecord>();
+    }
+
+    [Serializable]
+    public sealed class UpgradePurchaseRecord
+    {
+        public string BuildingId;
+        public string UpgradeId;
+        public double Hour;
     }
 
     [Serializable]
@@ -16,6 +26,16 @@ namespace Wattshift
     {
         public string BuildingId;
         public string[] UpgradeIds = Array.Empty<string>();
+    }
+
+    public sealed class DeviceMetrics
+    {
+        public string Id;
+        public string Title;
+        public LoadPriority Priority;
+        public bool Essential;
+        public double CurrentPowerKW;
+        public double ServiceLevel;
     }
 
     public sealed class BuildingMetrics
@@ -28,6 +48,8 @@ namespace Wattshift
         public double LightingRatio;
         public float Comfort;
         public bool HasUpgrade;
+        public double ServiceLevel = 1;
+        public DeviceMetrics[] Devices = Array.Empty<DeviceMetrics>();
     }
 
     public sealed class SimulationSnapshot
@@ -44,6 +66,14 @@ namespace Wattshift
         public bool SafetySatisfied;
         public bool Completed;
         public BuildingMetrics[] Buildings = Array.Empty<BuildingMetrics>();
+        public bool IsTimeline;
+        public double AccumulatedEnergyKWh;
+        public double AccumulatedBaselineEnergyKWh;
+        public double ObservedSavingPercent;
+        public double ElapsedHours;
+        public double LastUpgradeHour;
+        public int PurchaseCount;
+        public string[] UpgradedBuildingIds = Array.Empty<string>();
     }
 
     public sealed class ActionResult
@@ -61,5 +91,7 @@ namespace Wattshift
         public bool CanComplete;
         public string[] Reasons = Array.Empty<string>();
         public int Score;
+        public int Stars;
+        public int Reward;
     }
 }
