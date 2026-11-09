@@ -27,6 +27,27 @@ namespace Wattshift
         public MissionEventDefinition[] Events = Array.Empty<MissionEventDefinition>();
         public float[] StarSavingThresholds = { 0, 30, 40 };
         [Min(0)] public int BaseReward = 100;
+        public bool UseDecisionRating;
+        [Range(0, 100)] public float MinimumUsefulSavingPercent = .25f;
+        public MissionProblemDefinition[] Problems = Array.Empty<MissionProblemDefinition>();
+        public int[] RatingStarThresholds = { 25, 60, 85 };
+        [Min(0)] public float ProblemWeight = 40;
+        [Min(0)] public float EnergyWeight = 30;
+        [Min(0)] public float SafetyWeight = 20;
+        [Min(0)] public float BudgetWeight = 10;
+        [Min(0)] public int RationalSpend = 440;
+    }
+
+    [Serializable]
+    public sealed class MissionProblemDefinition
+    {
+        public string Id;
+        public string BuildingId;
+        public string Title;
+        public string[] DeviceIds = Array.Empty<string>();
+        public bool Required = true;
+        public bool Urgent;
+        [Range(0, 100)] public float MinimumReductionPercent = 25;
     }
 
     [Serializable]

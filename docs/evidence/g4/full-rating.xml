@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-09 10:35:01Z" end-time="2026-11-09 10:35:05Z" duration="4.0715171">
+  <test-suite type="TestSuite" id="1021" name="WATTSHIFT" fullname="WATTSHIFT" runstate="Runnable" testcasecount="12" result="Passed" start-time="2026-11-09 10:35:01Z" end-time="2026-11-09 10:35:05Z" duration="4.071517" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1018" name="Wattshift.PlayMode.Tests.dll" fullname="/private/tmp/WATTSHIFT_Validation/Library/ScriptAssemblies/Wattshift.PlayMode.Tests.dll" runstate="Runnable" testcasecount="12" result="Passed" start-time="2026-11-09 10:35:01Z" end-time="2026-11-09 10:35:05Z" duration="4.067582" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="28233" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1019" name="Wattshift" fullname="Wattshift" runstate="Runnable" testcasecount="12" result="Passed" start-time="2026-11-09 10:35:01Z" end-time="2026-11-09 10:35:05Z" duration="4.067275" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1020" name="Tests" fullname="Wattshift.Tests" runstate="Runnable" testcasecount="12" result="Passed" start-time="2026-11-09 10:35:01Z" end-time="2026-11-09 10:35:05Z" duration="4.066948" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1010" name="GameplayIntegrationTests" fullname="Wattshift.Tests.GameplayIntegrationTests" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-09 10:35:01Z" end-time="2026-11-09 10:35:05Z" duration="4.066298" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1012" name="FullRatingAndReplayKeepIndependentRecordsAndTutorialPreference" fullname="Wattshift.Tests.GameplayIntegrationTests.FullRatingAndReplayKeepIndependentRecordsAndTutorialPreference" methodname="FullRatingAndReplayKeepIndependentRecordsAndTutorialPreference" classname="Wattshift.Tests.GameplayIntegrationTests" runstate="Runnable" seed="1138735874" result="Passed" start-time="2026-11-09 10:35:01Z" end-time="2026-11-09 10:35:05Z" duration="4.061274" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+Saving results to: /Users/yato/Library/Application Support/WATTSHIFT/WATTSHIFT/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -13,3 +13,11 @@ Primary targets are budgets, not observed benchmarks. Use profiling before claim
 - Provide quality Low/Medium/High and auto default; test with Unity Profiler, Frame Debugger, browser devtools, real desktop, real Android and iPhone.
 - Touch: >=44 CSS pixel-equivalent touch targets where feasible, safe-area support, readable labels, reduced UI density.
 - Test actual browser matrix and record crashes, load time, FPS, device+OS+browser details. No 'runs on every device' marketing claim.
+
+## G4 measured scope (2026-11-09)
+
+ARM64 Development macOS Player, Apple M4, Metal, 1600x900; paused 20:00 district with four streetlights, problem markers and expanded card; ~10 seconds/tier. Foreground rerun observed approximately 60 FPS on each tier, median 16.7 ms/P95 ~17.5 ms; draw-call medians 106/175/182 and Unity allocated ~89.2-89.4 MiB, reserved ~220.2 MiB. Not full process RSS or GPU memory. Raw: docs/evidence/g4/native-foreground/native-smoke.json.
+
+An earlier direct-executable run of the same binary measured High 27.97 FPS with intermittent long frames (P95 71.75 ms). Both are retained; launch/focus/scheduling influence remains unproven. Do not claim sustained 60 FPS, thermal/leak stability or mobile/browser targets. High graphics are preserved. Low/Medium reduce scale, shadows/MSAA/cascades and per-object light limits; observed draw counts are lower.
+
+Counters use median positive ProfilerRecorder samples with sample count; zero-only counters are unavailable. Anchors are cached, simulation/UI updates run at 5 Hz, forecasts use the same integrator, offer controls persist across clock ticks. No speculative LOD/pooling rewrite was introduced without measured need. Browser/device and active-play profiling remain separate from this paused-render sample.

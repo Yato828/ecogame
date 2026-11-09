@@ -51,7 +51,7 @@ namespace Wattshift
             ApplyLighting(1);
         }
 
-        public void Present(double hour, bool scannerEnabled, SimulationSnapshot snapshot, string[] investigatedIds)
+        public void Present(double hour, bool scannerEnabled, SimulationSnapshot snapshot, string[] investigatedIds, ProblemEvaluation[] problems = null)
         {
             if (!bound) return;
             SetTime(hour);
@@ -73,7 +73,16 @@ namespace Wattshift
                     {
                         double saving = value.BaselineEnergyKWh > .00001 ? (value.BaselineEnergyKWh - value.CurrentEnergyKWh) / value.BaselineEnergyKWh * 100 : 0;
                         bool observed = value.CurrentPowerKW + .00001 < value.BaselinePowerKW;
-                        if (value.HasUpgrade && observed && saving + .00001 >= ResolvedSavingsPercent) state = ScannerHighlightState.Resolved;
+                        if (problems == null)
+                        {
+                            if (value.HasUpgrade && observed && saving + .00001 >= ResolvedSavingsPercent) state = ScannerHighlightState.Resolved;
+                        }
+                        else
+                        {
+                            int total=0,resolved=0;
+                            foreach(var problem in problems)if(problem.BuildingId==building.SimulationId){total++;if(problem.Resolved)resolved++;}
+                            if(total>0 && resolved==total)state=ScannerHighlightState.Resolved;
+                        }
                     }
                 }
                 highlights[i].SetScannerState(state);

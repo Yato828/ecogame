@@ -1,0 +1,7 @@
+{
+  "Assets/Settings/DefaultVolumeProfile.asset": "Neutral/default volume schema additions and removal of deprecated template test-component references",
+  "Assets/Settings/PC_RPAsset.asset": "Build-generated URP shader prefilter metadata; authored render parameters unchanged",
+  "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset": "URP runtime settings reference list populated by build pipeline",
+  "ProjectSettings/ProjectSettings.asset": "Standalone default batching serialized explicitly: static1,dynamic0",
+  "ProjectSettings/UnityConnectSettings.asset": "Unity diagnostics settings schema upgraded; reporting remains disabled"
+}

@@ -56,7 +56,7 @@ namespace Wattshift
             }
             float dt = Mathf.Min(Time.unscaledDeltaTime, .05f);
             if ((GameSession.Instance != null && GameSession.Instance.Phase != GamePhase.Playing)
-                || (GameplayHud.Instance != null && GameplayHud.Instance.IsSettingsOpen))
+                || (GameplayHud.Instance != null && GameplayHud.Instance.HasBlockingModal))
             {
                 mouseDragging = leftDragging = leftDragCandidate = false;
                 return;
@@ -220,6 +220,17 @@ namespace Wattshift
             effectiveMinimum = Mathf.Max(.1f, MinimumSize * framingScale);
             effectiveMaximum = Mathf.Max(effectiveMinimum, MaximumSize * framingScale);
             desiredSize = Mathf.Clamp(baseline * zoomRatio, effectiveMinimum, effectiveMaximum);
+        }
+
+        public void FocusOn(Vector3 worldPoint)
+        {
+            targetFocus = new Vector3(worldPoint.x, 0, worldPoint.z); ClampFocus();
+            CityOverlay.Instance?.CancelWorldPress();
+        }
+        public void ZoomBy(float multiplier)
+        {
+            if (float.IsNaN(multiplier) || float.IsInfinity(multiplier) || multiplier <= 0) return;
+            desiredSize = Mathf.Clamp(desiredSize * multiplier, effectiveMinimum, effectiveMaximum);
         }
 
         public void ResetView()

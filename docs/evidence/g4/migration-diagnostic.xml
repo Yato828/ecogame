@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="2" result="Failed(Child)" total="2" passed="1" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-09 10:19:48Z" end-time="2026-11-09 10:19:48Z" duration="0.082231">
+  <test-suite type="TestSuite" id="1000" name="WATTSHIFT" fullname="WATTSHIFT" runstate="Runnable" testcasecount="85" result="Failed" site="Child" start-time="2026-11-09 10:19:48Z" end-time="2026-11-09 10:19:48Z" duration="0.082231" total="2" passed="1" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1104" name="Wattshift.Editor.Tests.dll" fullname="/private/tmp/WATTSHIFT_Validation/Library/ScriptAssemblies/Wattshift.Editor.Tests.dll" runstate="Runnable" testcasecount="85" result="Failed" site="Child" start-time="2026-11-09 10:19:48Z" end-time="2026-11-09 10:19:48Z" duration="0.074883" total="2" passed="1" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="24895" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1105" name="Wattshift" fullname="Wattshift" runstate="Runnable" testcasecount="85" result="Failed" site="Child" start-time="2026-11-09 10:19:48Z" end-time="2026-11-09 10:19:48Z" duration="0.073629" total="2" passed="1" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1106" name="Tests" fullname="Wattshift.Tests" runstate="Runnable" testcasecount="85" result="Failed" site="Child" start-time="2026-11-09 10:19:48Z" end-time="2026-11-09 10:19:48Z" duration="0.072648" total="2" passed="1" failed="1" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="1073" name="G4MigrationTests" fullname="Wattshift.Tests.G4MigrationTests" classname="Wattshift.Tests.G4MigrationTests" runstate="Runnable" testcasecount="2" result="Failed" site="Child" start-time="2026-11-09 10:19:48Z" end-time="2026-11-09 10:19:48Z" duration="0.070458" total="2" passed="1" failed="1" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1074" name="ActualG3CampaignMigratesWithoutDestroyingAnyOldFileOrUnlocks" fullname="Wattshift.Tests.G4MigrationTests.ActualG3CampaignMigratesWithoutDestroyingAnyOldFileOrUnlocks" methodname="ActualG3CampaignMigratesWithoutDestroyingAnyOldFileOrUnlocks" classname="Wattshift.Tests.G4MigrationTests" runstate="Runnable" seed="444134804" result="Failed" start-time="2026-11-09 10:19:48Z" end-time="2026-11-09 10:19:48Z" duration="0.055848" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  Результат не подтверждается состоянием миссии.
+  Expected: True
+  But was:  False
+]]></message>
+                <stack-trace><![CDATA[at Wattshift.Tests.G4MigrationTests.ActualG3CampaignMigratesWithoutDestroyingAnyOldFileOrUnlocks () [0x000e2] in /private/tmp/WATTSHIFT_Validation/Assets/_WATTSHIFT/Tests/Editor/G4MigrationTests.cs:25
+]]></stack-trace>
+              </failure>
+            </test-case>
+            <test-case id="1075" name="CorruptOldProgressDoesNotCreateDestinationOrOverwritePreviousData" fullname="Wattshift.Tests.G4MigrationTests.CorruptOldProgressDoesNotCreateDestinationOrOverwritePreviousData" methodname="CorruptOldProgressDoesNotCreateDestinationOrOverwritePreviousData" classname="Wattshift.Tests.G4MigrationTests" runstate="Runnable" seed="1785786298" result="Passed" start-time="2026-11-09 10:19:48Z" end-time="2026-11-09 10:19:48Z" duration="0.004798" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: /Users/yato/Library/Application Support/WATTSHIFT/WATTSHIFT/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

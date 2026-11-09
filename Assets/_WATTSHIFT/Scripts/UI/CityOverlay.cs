@@ -14,6 +14,18 @@ namespace Wattshift
         public VisualElement ContextRoot => context;
         public bool GameplayMode { get; private set; }
         bool contextCompact;
+        bool expandedCard;
+        public bool ContextExpanded => expandedCard;
+        public Rect ContextScreenBounds
+        {
+            get
+            {
+                if (context == null || SelectedBuilding == null) return Rect.zero;
+                Rect bounds = context.worldBound;
+                float scale = settings != null ? settings.scale : 1;
+                return new Rect(bounds.x * scale, Screen.height - bounds.yMax * scale, bounds.width * scale, bounds.height * scale);
+            }
+        }
 
         UIDocument document;
         PanelSettings settings;
@@ -37,11 +49,14 @@ namespace Wattshift
         {
             Instance = this;
             if (SceneCamera == null) SceneCamera = Camera.main;
+            expandedCard = UserExperienceSettings.ExpandedCard;
             BuildInterface();
+            UserExperienceSettings.Changed += PreferencesChanged;
         }
 
         void OnDisable()
         {
+            UserExperienceSettings.Changed -= PreferencesChanged;
             if (Instance == this) Instance = null;
             if (SelectedBuilding != null) SelectedBuilding.SetSelected(false);
             SelectedBuilding = null;
@@ -122,6 +137,12 @@ namespace Wattshift
 
             context = Card();
             context.style.position = Position.Absolute;
+            context.style.transitionProperty = new System.Collections.Generic.List<StylePropertyName>
+            {
+                new StylePropertyName("width"), new StylePropertyName("height")
+            };
+            context.style.transitionDuration = new System.Collections.Generic.List<TimeValue> { new TimeValue(.16f, TimeUnit.Second) };
+            context.style.transitionTimingFunction = new System.Collections.Generic.List<EasingFunction> { new EasingFunction(EasingMode.EaseOut) };
             context.style.right = 26;
             context.style.bottom = 24;
             context.style.width = 350;
@@ -135,7 +156,7 @@ namespace Wattshift
             bar.style.alignItems = Align.Center;
             contextEyebrow = Text("ОБЪЕКТ КВАРТАЛА", 10, accent, true);
             bar.Add(contextEyebrow);
-            Button close = new Button(() => Select(null)) { text = "×", tooltip = "Закрыть карточку (Esc)", tabIndex = -1 };
+            Button close = new Button(() => Select(null)) { text = "×", tooltip = "Закрыть карточку (Esc)", tabIndex = 0 };
             closeButton = close;
             close.style.width = close.style.height = 44;
             close.style.marginTop = -10;
@@ -145,6 +166,7 @@ namespace Wattshift
             close.style.backgroundColor = Color.clear;
             close.style.borderTopWidth = close.style.borderRightWidth = close.style.borderBottomWidth = close.style.borderLeftWidth = 0;
             bar.Add(close);
+            bar.style.flexShrink = 0;
             context.Add(bar);
             category = Text("", 12, muted, false);
             category.style.marginTop = 8;
@@ -202,16 +224,22 @@ namespace Wattshift
             previousHeight = Screen.height;
             previousSafeArea = Screen.safeArea;
             bool portrait = Screen.width < Screen.height;
-            settings.scale = portrait ? Screen.width / 600f : Mathf.Clamp(Screen.width / 1600f, 0.7f, 2f);
+            settings.scale = UserExperienceSettings.EffectiveScale;
             float scale = Mathf.Max(settings.scale, 0.1f);
             Rect safe = Screen.safeArea;
             safeRoot.style.left = safe.xMin / scale;
             safeRoot.style.right = (Screen.width - safe.xMax) / scale;
             safeRoot.style.top = (Screen.height - safe.yMax) / scale;
             safeRoot.style.bottom = safe.yMin / scale;
-            context.style.left = portrait ? new StyleLength(26) : new StyleLength(StyleKeyword.Auto);
-            context.style.width = portrait ? new StyleLength(StyleKeyword.Auto) : new StyleLength(350);
-            context.style.bottom = 24;
+            context.style.left = portrait ? new StyleLength(12) : new StyleLength(StyleKeyword.Auto);
+            float availableWidth = safe.width / scale;
+            float availableHeight = safe.height / scale;
+            context.style.right = portrait ? 12 : 26;
+            context.style.width = portrait ? availableWidth - 24 : Mathf.Min(expandedCard ? 540 : 350, Mathf.Max(280, availableWidth - 390));
+            context.style.bottom = portrait ? 12 : 24;
+            context.style.top = new StyleLength(StyleKeyword.Auto);
+            context.style.maxHeight = portrait ? (expandedCard ? availableHeight - 24 : availableHeight * .44f) : availableHeight * .75f;
+            context.style.height = expandedCard ? (portrait ? availableHeight - 24 : availableHeight * .75f) : Mathf.Min(portrait ? 208 : 260, availableHeight * .44f);
             context.style.paddingLeft = context.style.paddingRight = portrait ? 16 : 24;
             context.style.paddingTop = context.style.paddingBottom = portrait ? 16 : 22;
             contextBar.style.height = portrait ? 0 : new StyleLength(StyleKeyword.Auto);
@@ -238,6 +266,7 @@ namespace Wattshift
             badge.style.display = portrait || GameplayMode ? DisplayStyle.None : DisplayStyle.Flex;
             brandTitle.style.fontSize = portrait ? 18 : 26;
             brandSubtitle.style.display = portrait ? DisplayStyle.None : DisplayStyle.Flex;
+            header.style.display = GameplayMode ? DisplayStyle.None : DisplayStyle.Flex;
             header.style.paddingTop = header.style.paddingBottom = portrait ? 12 : 17;
             header.style.paddingLeft = header.style.paddingRight = portrait ? 16 : 23;
             float closeSize = Mathf.Max(44, 44 / scale);
@@ -259,10 +288,11 @@ namespace Wattshift
 
         public bool IsPointerOverPanel(Vector2 screenPosition)
         {
+            if (ProblemMarkers.Instance != null && ProblemMarkers.Instance.IsPointerOverUI(screenPosition)) return true;
             if (GameplayHud.Instance != null && GameplayHud.Instance.IsPointerOverUI(screenPosition)) return true;
             if (root == null || root.panel == null) return false;
             Vector2 p = RuntimePanelUtils.ScreenToPanel(root.panel, new Vector2(screenPosition.x, Screen.height - screenPosition.y));
-            return header.worldBound.Contains(p)
+            return (header.style.display == DisplayStyle.Flex && header.worldBound.Contains(p))
                 || (badge.style.display == DisplayStyle.Flex && badge.worldBound.Contains(p))
                 || (instructions.style.display == DisplayStyle.Flex && instructions.worldBound.Contains(p))
                 || (context.style.display == DisplayStyle.Flex && context.worldBound.Contains(p));
@@ -288,7 +318,7 @@ namespace Wattshift
         {
             if (previousWidth != Screen.width || previousHeight != Screen.height || previousSafeArea != Screen.safeArea) UpdateLayout();
             if (GameSession.Instance != null && GameSession.Instance.Phase != GamePhase.Playing) return;
-            if (GameplayHud.Instance != null && GameplayHud.Instance.IsSettingsOpen) { CancelWorldPress(); return; }
+            if (GameplayHud.Instance != null && GameplayHud.Instance.HasBlockingModal) { CancelWorldPress(); return; }
             if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame) Select(null);
             if (Keyboard.current != null && Keyboard.current.tabKey.wasPressedThisFrame)
                 CycleSelection(Keyboard.current.leftShiftKey.isPressed || Keyboard.current.rightShiftKey.isPressed ? -1 : 1);
@@ -352,6 +382,20 @@ namespace Wattshift
         public void SetGameplayMode(bool enabled)
         {
             GameplayMode = enabled;
+            if (root != null) UpdateLayout();
+        }
+
+        void PreferencesChanged()
+        {
+            expandedCard = UserExperienceSettings.ExpandedCard;
+            if (root != null) UpdateLayout();
+        }
+
+        public void SetExpandedCard(bool expanded)
+        {
+            if (expandedCard == expanded) return;
+            expandedCard = expanded;
+            UserExperienceSettings.ExpandedCard = expanded;
             if (root != null) UpdateLayout();
         }
 

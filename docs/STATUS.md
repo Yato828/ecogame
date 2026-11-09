@@ -1,28 +1,27 @@
 # WATTSHIFT status
 
-Updated: 2026-11-08, Europe/Minsk.
+Updated: 2026-11-09, Europe/Minsk.
 
-- G0: PASS — four original user-supplied Kenney CC0 archives checked; 213 distinct models/639 format files inventoried. Provenance: assets_manifest/.
-- G1: VISUALLY APPROVED BY USER. Genuine source models/materials/composition retained.
-- G1.1/G2: accepted previous implementation, 22/22 EditMode and 7/7 PlayMode; historical docs/G11_G2_REPORT.md.
-- G3-A: PASS — chronological energy, 360-second 17:00–23:00 shift, events, scan→inspect→choose→observe→results. Actual first-shift live walkthrough 362.5 seconds; 2 stars using sensors+computer sleep.
-- G3-B: PASS — three distinct scenarios, safe crossing/path lighting, clinic load priorities, sequential unlock, stars/rewards, repeated-run protection.
-- G3-C: PASS — RU menus/HUD/context/results, persisted audio/quality, original cached audio, upgrade feedback, trackpad drag, responsive/error UI. Keyboard/modal focus corrected and included in acceptance coverage.
-- G3-D: PASS in Editor — 66/66 EditMode; 10/10 ordinary PlayMode including keyboard modality; 1/1 fresh-Editor saved-campaign restore. Actual-time street and clinic shifts both passed at 361.7 seconds each, 3 stars each.
-- G4: NOT STARTED. Stop for user gameplay/visual approval; no production-ready claim.
+G0/G1: original four Kenney CC0 archives verified; G1 visually approved by user. Same approved models/materials and district composition retained.
+G1.1/G2/G3: historical accepted work; baseline commit 7728d9c, local checkpoint tag checkpoint/g3-before-g4. G3 had 66 EditMode and 10 ordinary PlayMode passes.
+G4-A: IMPLEMENTED — 0–100 decision rating 40/30/20/10, partial rewards, configurable 25/60/85 star thresholds and independent best stars/score/savings. One star unlocks next mission; no safe useful action or critical safety failure gives no reward.
+G4-B: IMPLEMENTED — source-object-anchored yellow/red/green markers, grouped nearby infrastructure, UI obstruction avoidance and click-to-open; scanner optional.
+G4-C/D/E: IMPLEMENTED — enlarged/compact cards, forecasts, UI 90/100/115/130%, short persisted/skippable tutorial, immediate first problem, pause/1×/2×/4×/early finish, on-screen zoom, clearer results and next-star explanation.
+G4 tests: 93/93 EditMode PASS (all 66 old domain cases retained); 12/12 PlayMode PASS (five camera + seven UX/campaign scenarios). Five viewport shapes and four scales checked. Final scanner/marker agreement, isolated virtual input and disclosure touch target verified; accepted playmode-input-isolated.xml.
+G4 macOS: ARM64 Development build SUCCEEDED, zero BuildReport errors/warnings; real native Metal run completed all three missions 94/98/98, 9 stars, save/load PASS, zero observed game console errors/warnings. A separate fresh process restored the completed clinic, budget 0 and 9 stars. Counters now use render-window sampling. Foreground native run passed; a direct High run showed intermittent long frames (27.97FPS), retained as an unresolved performance limitation.
+G4 Web/Windows: BLOCKED — Build Support modules absent. Installed Hub catalogue confirms webgl and windows-mono are available but not installed; exact instructions docs/WEB_MODULE_SETUP.md. No Web/Windows runtime claims.
+G4 physical-device/human acceptance: NOT TESTED — actual MacBook trackpad feel, Android/iPhone, human audio/readability, browser storage/audio/HTTP behavior, sustained thermal/leak tests. Full portable Definition of Done NOT PASSED. G5 NOT STARTED.
 
-Unity 6000.3.27f1 arm64; URP 17.3.0; InputSystem 1.17.0. Editor actually executed. Test workspace `/private/tmp/WATTSHIFT_Validation` preserves user's open Editor. No package or ProjectSettings changes during G3.
+Unity 6000.3.27f1 arm64; URP 17.3.0; InputSystem 1.17.0. Test project /private/tmp/WATTSHIFT_Validation; user's Editor not closed. Scene Assets/_WATTSHIFT/Scenes/CitySlice.unity. Current data Data/CampaignG4; G3 source data retained in Data/Campaign. Power is kW; actual energy is chronologically integrated kWh; projections are labelled forecasts, not past savings. Safety/service percentages are educational assumptions.
 
-Current scene: `Assets/_WATTSHIFT/Scenes/CitySlice.unity`. Same 8 genuine source buildings and 4 source lamp models; lamp groups add selectable infrastructure, no new buildings. Data: `Assets/_WATTSHIFT/Data/Campaign`. Save: `Application.persistentDataPath/wattshift-campaign-v3.json` (campaign schema 3, simulation history 2, atomic tmp/backup). Old G2 save retained separately, no automatic migration. Tests isolate saves/settings.
+Save: Application.persistentDataPath/wattshift-campaign-v4.json, compatible container schema 3 and simulation history 2. Existing v3 file replay-verified with legacy missions then mapped/replayed under G4, never deleted. Best records/awards do not decrease/farm on replay. Tutorial, interface and audio/quality settings persist; all automated runs isolate real player files/settings.
 
-Campaign scenarios have independent starting states/budgets. Best results, stars, unlocks and score points persist; exact upgrades are not carried between scenarios. All power/cost/service/target/timing values are authored data. kW is instantaneous, kWh is actual accumulated energy; late decisions do not rewrite past use. Medical loads and minimum lighting/service are protected.
+Builds/G4/macOS/WATTSHIFT.app and WATTSHIFT-macOS-arm64.zip are ignored local build artifacts, not notarized distribution. Actual native profiling uses Apple M4/Metal 1600×900 with paused 20:00 city, four lights, markers and open card, ~10 sec/tier. Frame statistics/Unity memory/counters are scoped development-player observations, not phone/browser guarantees; details docs/G4_REPORT.md.
 
-Source audit: 556 tracked art/Packages/ProjectSettings files unchanged; original ordinary transforms and prefab pose overrides unchanged; 408 unique GUIDs, no missing .meta or duplicates. Publication scan 676 text files, no secret-pattern suspects. Kenney bundled CC0 licenses retained; audio is original synthesis, not falsely attributed to Kenney.
+Unity build normalized five files: neutral/deprecated default-volume schema, generated URP prefilter/runtime metadata, explicit default Standalone batching and disabled diagnostics schema. Authored High rendering parameters and scene poses retained. Evidence docs/evidence/g4/unity-build-normalization.json. No art or package upgrade.
 
-Performance evidence: Apple M4 Editor sample at G3-A, 47105 frames, median 7.0 ms/P95 12.7 ms. No final native/browser/device FPS or memory claim. Targets 60 desktop/30 mobile FPS remain unverified. Browser/native builds NOT RUN; physical devices and real trackpad NOT TESTED; human audio/UX assessment pending. MacStandaloneSupport installed, Web/Windows absent. docs/WEB_MODULE_SETUP.md gives module/profile handoff. Service/license-token and Metal messages remain in local Editor logs; accepted tests distinguish them from game exceptions.
+Docs: G4_REPORT.md, WEB_MODULE_SETUP.md, evidence/g4/*.xml, native/native-smoke.json, native-restart/native-smoke.json and real ScreenCapture PNGs. Early failures retained separately; raw .logs/builds/caches ignored. Git origin https://github.com/Yato828/ecogame.git, main; final requested commit feat: polish WATTSHIFT gameplay and UX and actual push/hash reported in handoff. No forced history changes.
 
-Reports/evidence: docs/G3_REPORT.md, docs/evidence/g3/. Final domain: editmode-acceptance.xml; final UI: playmode-acceptance.xml. Live evidence: live-firstshift-monotonic.xml and live-remaining.xml; process restart: restarted-editor-fixed.xml. Tested Assets/Packages/ProjectSettings match workspace byte-for-byte (810 files), no extra files; artifact-validation.json. Earlier failed XMLs retained for diagnosis; raw .log files ignored by Git.
+Next: user gameplay/device review before G5. Web/Windows modules and physical-device acceptance remain open. Web/device gates remain explicit blockers for portability acceptance.
 
-Git: main; origin https://github.com/Yato828/ecogame.git; initial 5f249d0a8354d6afa7a4eb0fbc882827a816878b pushed. Remote fetched and remains at that commit. Final G3 commit/push requested after successful validation; hash and actual push result are given in the handoff. No force push or history deletion.
-
-Next: user review of G3 gameplay/visual quality. Stop before G4.
+Packaged binary acceptance: docs/evidence/g4/native-final-build/native-smoke.json (Passed,94/98/98,9stars). Same final binary restore: native-restart/native-smoke.json. Final foreground FPS approximately60/59.8/59.8; earlier intermittent High stalls remain an explicit limitation. Source/test parity934files;471unique GUIDs; five expected Unity normalization files only.

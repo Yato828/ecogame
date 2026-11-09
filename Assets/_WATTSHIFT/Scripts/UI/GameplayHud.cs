@@ -14,6 +14,8 @@ namespace Wattshift
         public VisualElement Root => root;
         public VisualElement UpgradeRoot => upgrades;
         public bool IsSettingsOpen => settingsOpen;
+        public bool HasBlockingModal => settingsOpen || (session != null && session.Phase != GamePhase.Playing)
+            || (Screen.width < Screen.height && overlay != null && overlay.SelectedBuilding != null && contextExpanded);
         public Button CompleteButton { get; private set; }
         public Button SaveButton { get; private set; }
         public Button LoadButton { get; private set; }
@@ -24,7 +26,15 @@ namespace Wattshift
         GameObject documentObject;
         PanelSettings panel;
         VisualElement root, safeRoot, card, detail, toolbar, modal, modalCard, missionList, resultsBody;
-        VisualElement contextToolbar;
+        VisualElement contextToolbar, tutorialCard;
+        ScrollView missionScroll;
+        Label missionSummary, tutorialText, contextSummary;
+        Button tutorialAction;
+        Button[] speedButtons, scaleButtons;
+        readonly System.Collections.Generic.Dictionary<string, Label> previewLabels = new System.Collections.Generic.Dictionary<string, Label>();
+        readonly System.Collections.Generic.Dictionary<string, Button> previewButtons = new System.Collections.Generic.Dictionary<string, Button>();
+        bool solutionsVisible;
+        IsoCameraController cameraController;
         VisualElement settingsOverlay, settingsCard;
         ScrollView settingsScroll;
         ScrollView upgrades;
@@ -35,7 +45,7 @@ namespace Wattshift
         Slider volume;
         Label menuError, volumeText;
         bool settingsOpen;
-        bool expanded = true, contextExpanded = true, previousPortrait;
+        bool expanded, contextExpanded;
         int width, height;
         Rect safeArea;
         string offersKey = "", menuKey = "";
@@ -50,10 +60,13 @@ namespace Wattshift
             session = GameSession.Instance; overlay = CityOverlay.Instance;
             if (session == null || overlay == null) return;
             Instance = this;
+            contextExpanded = UserExperienceSettings.ExpandedCard;
             Build();
             overlay.SetGameplayMode(true);
             overlay.SelectionChanged += SelectionChanged;
             session.Changed += Refresh;
+            UserExperienceSettings.Changed += PreferencesChanged;
+            cameraController = overlay.SceneCamera != null ? overlay.SceneCamera.GetComponent<IsoCameraController>() : null;
             Refresh();
         }
 
@@ -72,33 +85,56 @@ namespace Wattshift
             safeRoot = new VisualElement { pickingMode = PickingMode.Ignore }; Fill(safeRoot); root.Add(safeRoot);
 
             card = Card("mission-card"); card.style.position = Position.Absolute; safeRoot.Add(card);
-            var heading = Row(); card.Add(heading);
+            missionScroll = new ScrollView(ScrollViewMode.Vertical) { name = "mission-scroll" };
+            missionScroll.horizontalScrollerVisibility = ScrollerVisibility.Hidden;
+            card.Add(missionScroll);
+            var heading = Row(); missionScroll.Add(heading);
             title = Text("", 17, Ink, true); title.name = "mission-title"; title.style.flexGrow = 1; heading.Add(title);
             detailToggle = Button("−", () => { expanded = !expanded; UpdateLayout(); }, "mission-details");
             detailToggle.style.flexGrow = 0; detailToggle.style.flexShrink = 0;
             detailToggle.style.width = 44; heading.Add(detailToggle);
-            clock = Text("", 20, Ink, true); clock.name = "game-clock"; clock.style.marginTop = 6; card.Add(clock);
-            toolbar = Row(); toolbar.style.marginTop = 8; card.Add(toolbar);
+            clock = Text("", 20, Ink, true); clock.name = "game-clock"; clock.style.marginTop = 6; missionScroll.Add(clock);
+            missionSummary = Text("", 13, Ink, true); missionSummary.name = "mission-summary"; missionSummary.style.marginTop = 6; missionScroll.Add(missionSummary);
+            toolbar = Row(); toolbar.style.marginTop = 8; missionScroll.Add(toolbar);
             scanner = Button("Сканер", () => session.SetScanner(!session.ScannerEnabled), "scanner-toggle"); toolbar.Add(scanner);
             pause = Button("Пауза", () => session.TogglePause(), "pause-toggle"); toolbar.Add(pause);
-            eventLabel = Text("", 12, Accent, true); eventLabel.name = "city-event"; eventLabel.style.marginTop = 8; card.Add(eventLabel);
-            detail = new VisualElement(); card.Add(detail);
+            CompleteButton = Button("Завершить", () => session.FinishShiftEarly(), "complete-mission"); CompleteButton.tooltip = "Завершить смену досрочно и оценить текущий результат"; toolbar.Add(CompleteButton);
+            var speedRow = Row(); speedRow.style.flexWrap = Wrap.Wrap; missionScroll.Add(speedRow);
+            speedButtons = new Button[3]; float[] speeds = { 1, 2, 4 };
+            for (int i = 0; i < speeds.Length; i++)
+            {
+                float speed = speeds[i];
+                speedButtons[i] = Button(speed + "×", () => session.SetSpeed(speed), "speed-" + (int)speed);
+                speedRow.Add(speedButtons[i]);
+            }
+            speedRow.Add(Button("−", () => cameraController?.ZoomBy(1.2f), "camera-zoom-out"));
+            speedRow.Add(Button("+", () => cameraController?.ZoomBy(1 / 1.2f), "camera-zoom-in"));
+            tutorialCard = new VisualElement { name = "tutorial-tip" }; missionScroll.Add(tutorialCard);
+            tutorialText = Text("", 12, Ink); tutorialCard.Add(tutorialText);
+            var tutorialActions = Row(); tutorialCard.Add(tutorialActions);
+            tutorialAction = Button("", () => session.PerformTutorialAction(), "tutorial-action"); tutorialActions.Add(tutorialAction);
+            tutorialActions.Add(Button("Пропустить", () => session.SkipTutorial(), "tutorial-skip"));
+            eventLabel = Text("", 12, Accent, true); eventLabel.name = "city-event"; eventLabel.style.marginTop = 8; missionScroll.Add(eventLabel);
+            detail = new VisualElement(); missionScroll.Add(detail);
             totals = Text("", 13, Ink, true); totals.name = "energy-totals"; totals.style.marginTop = 10; detail.Add(totals);
             goal = Text("", 11, Muted); goal.name = "mission-goal"; goal.style.marginTop = 8; detail.Add(goal);
             var actions = Row(); actions.style.flexWrap = Wrap.Wrap; actions.style.marginTop = 10; detail.Add(actions);
-            CompleteButton = Button("Итоги смены", () => session.CompleteMission(), "complete-mission"); actions.Add(CompleteButton);
             SaveButton = Button("Сохранить", () => session.Save(), "save-mission"); actions.Add(SaveButton);
             LoadButton = Button("Загрузить", () => session.Load(), "load-mission"); actions.Add(LoadButton);
             ResetButton = Button("Заново", () => session.ResetMission(), "reset-mission"); actions.Add(ResetButton);
             actions.Add(Button("В меню", () => session.ReturnToMenu(), "return-menu"));
             actions.Add(Button("Настройки", OpenSettings, "settings-playing"));
+            actions.Add(Button("Повторить обучение", () => session.RepeatTutorial(), "tutorial-replay"));
             foreach (VisualElement child in actions.Children()) child.style.flexBasis = Length.Percent(45);
-            message = Text("", 11, Accent); message.name = "action-message"; message.style.marginTop = 8; card.Add(message);
+            message = Text("", 11, Accent); message.name = "action-message"; message.style.marginTop = 8; missionScroll.Add(message);
             controlHint = Text("Перетаскивание — обзор · колесо / + − — масштаб\nWASD / стрелки — движение · Home — центр · Tab — объекты\nТелефон: один палец — обзор, два — масштаб", 10, Muted);
             controlHint.style.marginTop = 9; detail.Add(controlHint);
 
-            contextToolbar = Row(); contextToolbar.style.marginTop = 7; overlay.ContextRoot.Add(contextToolbar);
-            contextToggle = Button("Свернуть", () => { contextExpanded = !contextExpanded; UpdateLayout(); }, "context-details");
+            contextSummary = Text("", 13, Ink); contextSummary.name = "context-problem";
+            contextSummary.style.marginTop = 8; contextSummary.style.maxHeight = 48; contextSummary.style.overflow = Overflow.Hidden; overlay.ContextRoot.Add(contextSummary);
+            contextToolbar = Row(); contextToolbar.style.marginTop = 7; contextToolbar.style.flexShrink = 0; overlay.ContextRoot.Add(contextToolbar);
+            contextToggle = Button("Свернуть", () => { UserExperienceSettings.ExpandedCard = !contextExpanded; }, "context-details");
+            contextToggle.tooltip = "Развернуть или свернуть карточку объекта";
             contextToolbar.Add(contextToggle);
             upgrades = new ScrollView(ScrollViewMode.Vertical) { name = "building-upgrades" };
             upgrades.style.flexShrink = 1; upgrades.style.marginTop = 8;
@@ -106,6 +142,8 @@ namespace Wattshift
             upgrades.verticalScroller.style.width = 8;
             VisualElement thumb = upgrades.verticalScroller.Q("unity-dragger");
             if (thumb != null) thumb.style.backgroundColor = new Color(Accent.r, Accent.g, Accent.b, .5f);
+            upgrades.style.transitionProperty = new System.Collections.Generic.List<StylePropertyName> { new StylePropertyName("opacity") };
+            upgrades.style.transitionDuration = new System.Collections.Generic.List<TimeValue> { new TimeValue(.16f, TimeUnit.Second) };
             overlay.ContextRoot.Add(upgrades);
 
             modal = new VisualElement { name = "game-modal" }; Fill(modal);
@@ -114,14 +152,17 @@ namespace Wattshift
             safeRoot.Add(modal);
             modalCard = Card("menu-card"); modalCard.style.width = 510; modalCard.style.maxWidth = Length.Percent(92);
             modalCard.style.maxHeight = Length.Percent(92); modal.Add(modalCard);
-            modalTitle = Text("WATTSHIFT", 29, Ink, true); modalCard.Add(modalTitle);
-            modalText = Text("", 14, Muted); modalText.style.marginTop = 9; modalCard.Add(modalText);
-            resultStars = Text("", 31, Accent, true); resultStars.name = "result-stars"; resultStars.style.marginTop = 14; modalCard.Add(resultStars);
-            missionList = new ScrollView(ScrollViewMode.Vertical) { name = "mission-list" }; missionList.style.maxHeight = 365; missionList.style.marginTop = 17; modalCard.Add(missionList);
-            resultsBody = new VisualElement(); resultsBody.style.marginTop = 15; modalCard.Add(resultsBody);
+            var modalContent = new ScrollView(ScrollViewMode.Vertical) { name = "menu-scroll" };
+            modalContent.horizontalScrollerVisibility = ScrollerVisibility.Hidden;
+            modalContent.style.flexShrink = 1; modalCard.Add(modalContent);
+            modalTitle = Text("WATTSHIFT", 29, Ink, true); modalContent.Add(modalTitle);
+            modalText = Text("", 14, Muted); modalText.style.marginTop = 9; modalContent.Add(modalText);
+            resultStars = Text("", 31, Accent, true); resultStars.name = "result-stars"; resultStars.style.marginTop = 14; modalContent.Add(resultStars);
+            missionList = new ScrollView(ScrollViewMode.Vertical) { name = "mission-list" }; missionList.style.maxHeight = 365; missionList.style.marginTop = 17; modalContent.Add(missionList);
+            resultsBody = new VisualElement(); resultsBody.style.marginTop = 15; modalContent.Add(resultsBody);
             menuError = Text("", 12, new Color(.66f, .20f, .15f), true); menuError.name = "menu-error";
-            menuError.style.marginTop = 10; modalCard.Add(menuError);
-            modalCard.Add(Button("Настройки", OpenSettings, "settings-menu"));
+            menuError.style.marginTop = 10; modalContent.Add(menuError);
+            modalContent.Add(Button("Настройки", OpenSettings, "settings-menu"));
             BuildSettings();
             UpdateLayout();
         }
@@ -167,6 +208,16 @@ namespace Wattshift
                 }, "quality-" + i);
                 settingsScroll.Add(qualityButtons[i]);
             }
+            var scaleTitle = Text("Размер интерфейса", 16, Ink, true); scaleTitle.style.marginTop = 22; settingsScroll.Add(scaleTitle);
+            var scales = Row(); scales.style.flexWrap = Wrap.Wrap; settingsScroll.Add(scales);
+            int[] scaleValues = { 90, 100, 115, 130 }; scaleButtons = new Button[scaleValues.Length];
+            for (int i = 0; i < scaleValues.Length; i++)
+            {
+                int percent = scaleValues[i];
+                scaleButtons[i] = Button(percent + "%", () => UserExperienceSettings.ScalePercent = percent, "ui-scale-" + percent);
+                scaleButtons[i].style.flexBasis = Length.Percent(45); scales.Add(scaleButtons[i]);
+            }
+            settingsScroll.Add(Button("Повторить обучение", () => { session.RepeatTutorial(); CloseSettings(); }, "settings-tutorial-replay"));
             var close = Button("Готово", CloseSettings, "settings-close");
             close.style.marginTop = 20; settingsScroll.Add(close);
         }
@@ -184,7 +235,8 @@ namespace Wattshift
         {
             settingsOpen = false; settingsOverlay.style.display = DisplayStyle.None;
             card.SetEnabled(true); modal.SetEnabled(true); overlay.ContextRoot.SetEnabled(true);
-            root.Q<Button>(session.Phase == GamePhase.Playing ? "settings-playing" : "settings-menu")?.Focus();
+            UpdateLayout();
+            root.Q<Button>(session.Phase == GamePhase.Playing ? "mission-details" : "settings-menu")?.Focus();
         }
 
         void RefreshSettings()
@@ -195,6 +247,12 @@ namespace Wattshift
                 volume.SetValueWithoutNotify(audio.Volume);
                 volumeText.text = "Громкость · " + Number(audio.Volume * 100, 0) + "%";
                 mute.text = audio.Muted ? "Включить звук" : "Выключить звук";
+            }
+            int[] scaleValues = { 90, 100, 115, 130 };
+            for (int i = 0; i < scaleButtons.Length; i++)
+            {
+                bool active = scaleValues[i] == UserExperienceSettings.ScalePercent;
+                scaleButtons[i].text = (active ? "✓ " : "") + scaleValues[i] + "%";
             }
             int activeTier = QualityController.Instance != null ? QualityController.Instance.Tier : -1;
             string[] tiers = { "Низкое", "Среднее", "Высокое" };
@@ -258,7 +316,6 @@ namespace Wattshift
 
         void SelectionChanged(CityBuilding building)
         {
-            contextExpanded = true;
             offersKey = "";
             RefreshInspector(); UpdateLayout();
         }
@@ -281,18 +338,26 @@ namespace Wattshift
             if (!session.Ready || session.Snapshot == null) return;
             var snapshot = session.Snapshot;
             title.text = session.Mission.Title;
+            var rating = session.Rating;
+            missionSummary.text = "Бюджет " + snapshot.Budget + " · проблемы " + (rating != null ? rating.ResolvedProblems + "/" + rating.TotalProblems : "—");
+            tutorialCard.style.display = session.TutorialActive ? DisplayStyle.Flex : DisplayStyle.None;
+            tutorialText.text = session.TutorialText ?? "";
+            tutorialAction.text = session.TutorialAction ?? "Далее";
+            for (int i = 0; i < speedButtons.Length; i++) speedButtons[i].style.backgroundColor = Mathf.Approximately(session.SpeedMultiplier, 1 << i) ? new Color(.67f, .36f, .13f) : Accent;
             clock.text = Hour(session.GameHour) + (session.Paused ? "  ·  ПАУЗА" : "  ·  СМЕНА");
             pause.text = session.Paused ? "Продолжить" : "Пауза";
             scanner.text = session.ScannerEnabled ? "Сканер: вкл." : "Сканер";
             scanner.style.backgroundColor = session.ScannerEnabled ? new Color(.67f, .36f, .13f) : Accent;
             eventLabel.text = session.CurrentEvent ?? "";
             eventLabel.tooltip = eventLabel.text;
-            eventLabel.style.display = string.IsNullOrWhiteSpace(eventLabel.text) ? DisplayStyle.None : DisplayStyle.Flex;
+            eventLabel.style.display = expanded && !session.TutorialActive && string.IsNullOrWhiteSpace(message.text) && !string.IsNullOrWhiteSpace(eventLabel.text) ? DisplayStyle.Flex : DisplayStyle.None;
             totals.text = Number(snapshot.CurrentPowerKW, 1) + " кВт сейчас\n"
                 + Number(snapshot.AccumulatedEnergyKWh, 1) + " кВт·ч за смену · экономия " + Number(snapshot.ObservedSavingPercent, 1) + "%\n"
                 + "Бюджет " + snapshot.Budget + " уч. ед. · комфорт " + Number(snapshot.Comfort, 0) + "%";
-            goal.text = session.Mission.Description + "\nЦель: ≥ " + Number(session.Mission.TargetSavingPercent, 0)
-                + "% экономии при безопасной работе. Наблюдайте город до " + Hour(session.Mission.EndHour) + ".";
+            goal.text = session.Mission.UseDecisionRating
+                ? session.Mission.Description + "\nРешённые проблемы и фактическая экономия приносят баллы. Частичное безопасное решение тоже получает награду."
+                : session.Mission.Description + "\nЦель: ≥ " + Number(session.Mission.TargetSavingPercent, 0)
+                    + "% экономии при безопасной работе. Конец смены — " + Hour(session.Mission.EndHour) + ". Можно завершить досрочно.";
             goal.tooltip = session.Mission.Assumptions;
             message.text = session.LastMessage ?? "";
             message.style.color = session.LastActionFailed ? new Color(.66f, .20f, .15f) : Accent;
@@ -304,11 +369,18 @@ namespace Wattshift
         {
             if (upgrades == null || session == null || !session.Ready) return;
             CityBuilding selected = overlay.SelectedBuilding;
-            if (selected == null) { upgrades.Clear(); offersKey = ""; return; }
+            if (selected != null)
+            {
+                var problems = (session.Rating?.Problems ?? Array.Empty<ProblemEvaluation>()).Where(problem => problem.BuildingId == selected.SimulationId).ToArray();
+                var unresolved = problems.FirstOrDefault(problem => !problem.Resolved);
+                contextSummary.text = unresolved != null ? unresolved.Title
+                    : problems.Length > 0 ? "✓ Проблемы объекта решены" : "Обследуйте объект и сравните доступные решения.";
+            }
+            if (selected == null) { upgrades.Clear(); previewLabels.Clear(); previewButtons.Clear(); offersKey = ""; return; }
             BuildingDefinition definition = session.Simulation.GetBuildingDefinition(selected.SimulationId);
             if (definition == null)
             {
-                if (offersKey != selected.SimulationId) { upgrades.Clear(); upgrades.Add(Text("У этого объекта нет активной задачи в текущей смене.", 12, Muted)); offersKey = selected.SimulationId; }
+                if (offersKey != selected.SimulationId) { upgrades.Clear(); previewLabels.Clear(); previewButtons.Clear(); upgrades.Add(Text("У этого объекта нет активной задачи в текущей смене.", 12, Muted)); offersKey = selected.SimulationId; }
                 return;
             }
             BuildingMetrics metrics = Array.Find(session.Snapshot.Buildings, b => b.BuildingId == selected.SimulationId);
@@ -320,14 +392,15 @@ namespace Wattshift
             {
                 if (buildingReadout != null && metrics != null) buildingReadout.text = BuildingNumbers(metrics);
                 if (deviceReadout != null && metrics != null) deviceReadout.text = DeviceNumbers(metrics);
+                RefreshPreviews(selected.SimulationId);
                 return;
             }
-            offersKey = key; upgrades.Clear(); buildingReadout = null; deviceReadout = null;
+            offersKey = key; upgrades.Clear(); previewLabels.Clear(); previewButtons.Clear(); buildingReadout = null; deviceReadout = null;
             if (!investigated)
             {
-                upgrades.Add(Text(session.ScannerEnabled ? "Сканер отмечает нагрузку. Обследуйте объект, чтобы выяснить причины." : "Включите сканер и обследуйте объект: сначала информация, затем решение.", 12, Ink));
+                upgrades.Add(Text(session.ScannerEnabled ? "Обследуйте объект, чтобы выяснить причины нагрузки." : "Обследуйте объект: сначала информация, затем решение. Сканер помогает найти нагрузку.", 12, Ink));
                 inspect = Button("Обследовать объект", () => session.InspectBuilding(selected.SimulationId), "inspect-building");
-                inspect.style.marginTop = 10; SetButtonEnabled(inspect, session.ScannerEnabled); upgrades.Add(inspect);
+                inspect.style.marginTop = 10; SetButtonEnabled(inspect, true); upgrades.Add(inspect);
                 return;
             }
             if (metrics != null)
@@ -359,6 +432,31 @@ namespace Wattshift
                 upgrades.Add(button);
                 string note = installed ? "Установлено. Наблюдайте за работой объекта." : alternativeInstalled ? "Уже выбран другой вариант для этой системы." : !availableTime ? "Доступно с " + Hour(offer.RequiredAfterHour) + "." : offer.Description;
                 upgrades.Add(Text(note ?? "", 10, Muted));
+                var forecast = Text("", 11, Accent, true); forecast.name = "preview-" + offerId;
+                forecast.style.marginTop = 5; upgrades.Add(forecast);
+                previewLabels.Add(offerId, forecast); previewButtons.Add(offerId, button);
+            }
+            RefreshPreviews(selected.SimulationId);
+        }
+
+        void RefreshPreviews(string buildingId)
+        {
+            foreach (var entry in previewLabels)
+            {
+                bool installed = session.Simulation.IsPurchased(buildingId, entry.Key);
+                if (installed)
+                {
+                    entry.Value.text = "✓ Установлено";
+                    SetButtonEnabled(previewButtons[entry.Key], false);
+                    continue;
+                }
+                var preview = session.Simulation.PreviewPurchase(buildingId, entry.Key);
+                entry.Value.text = preview.Available
+                    ? "Прогноз до " + Hour(session.Mission.EndHour) + ": " + (preview.SavedEnergyKWh >= 0 ? "−" : "+") + Number(Math.Abs(preview.SavedEnergyKWh), 1)
+                        + " кВт·ч · " + (preview.Safe ? "безопасность сохранена" : "безопасность нарушена")
+                    : preview.Reason ?? "Решение недоступно";
+                entry.Value.style.color = preview.Available && preview.Safe ? Accent : Muted;
+                SetButtonEnabled(previewButtons[entry.Key], preview.Available && preview.Safe && session.Phase == GamePhase.Playing);
             }
         }
 
@@ -390,26 +488,45 @@ namespace Wattshift
             if (session.Phase == GamePhase.Results)
             {
                 modalTitle.text = session.Stars > 0 ? "Смена завершена" : "Нужен другой подход";
-                modalText.text = session.LastMessage ?? "";
+                var rating = session.Rating;
+                modalText.text = rating != null ? rating.RatingExplanation : session.LastMessage ?? "";
                 resultStars.style.display = DisplayStyle.Flex;
-                resultStars.text = session.Stars > 0 ? new string('★', session.Stars) + new string('☆', Mathf.Max(0, 3 - session.Stars)) : "Попробуйте ещё раз";
+                int stars = rating != null ? rating.Stars : session.Stars;
+                resultStars.text = new string('★', Mathf.Clamp(stars, 0, 3)) + new string('☆', Mathf.Max(0, 3 - stars))
+                    + "   " + (rating != null ? rating.Score : session.Score) + "/100";
                 missionList.style.display = DisplayStyle.None;
-                string key = "results:" + session.MissionIndex + ":" + session.Stars + ":" + session.Score;
+                string key = "results:" + session.MissionIndex + ":" + stars + ":" + session.Score;
                 if (menuKey == key) return;
                 menuKey = key; resultsBody.Clear();
-                if (session.Snapshot != null)
-                    resultsBody.Add(Text("За смену: " + Number(session.Snapshot.AccumulatedEnergyKWh, 1) + " кВт·ч\nЭкономия: " + Number(session.Snapshot.ObservedSavingPercent, 1) + "% · комфорт " + Number(session.Snapshot.Comfort, 0) + "%\nОценка: " + session.Score + " · баллы кампании: " + session.CampaignCredits, 14, Ink));
+                if (rating != null && session.Snapshot != null)
+                    resultsBody.Add(Text("Решено проблем: " + rating.ResolvedProblems + "/" + rating.TotalProblems
+                        + "\nСохранено: " + Number(rating.EnergySavedKWh, 1) + " кВт·ч"
+                        + "\nБезопасность: " + (session.Snapshot.SafetySatisfied ? "сохранена" : "нарушена")
+                        + "\nПотрачено: " + (session.Mission.InitialBudget - session.Snapshot.Budget) + " · осталось: " + session.Snapshot.Budget, 16, Ink));
+                if (rating != null)
+                {
+                    var breakdown = new Foldout { text="За что начислены баллы", value=false, name="rating-breakdown" };
+                    breakdown.style.marginTop=10;breakdown.style.marginBottom=10;breakdown.style.minHeight=44;
+                    var breakdownToggle=breakdown.Q<Toggle>();
+                    if(breakdownToggle!=null){breakdownToggle.style.minHeight=44;breakdownToggle.style.fontSize=13;}
+                    breakdown.Add(Text("Проблемы: "+Number(rating.ProblemPoints,1)+"\nЭкономия: "+Number(rating.EnergyPoints,1)
+                        +"\nБезопасность и комфорт: "+Number(rating.SafetyPoints,1)+"\nБюджет: "+Number(rating.BudgetPoints,1),13,Ink));
+                    resultsBody.Add(breakdown);
+                }
+                int next = session.MissionIndex + 1;
+                if (session.Missions != null && next < session.Missions.Length && session.IsMissionUnlocked(next))
+                    resultsBody.Add(Button("Следующая миссия", () => session.BeginMission(next), "next-mission"));
                 resultsBody.Add(Button("Переиграть смену", () => session.ResetMission(), "reset-mission-result"));
                 resultsBody.Add(Button("Выбрать миссию", () => session.ReturnToMenu(), "return-menu-result"));
                 return;
             }
-            modalTitle.text = "Исследуйте. Решайте. Наблюдайте.";
-            modalText.text = "Город расходует энергию по своим расписаниям. Найдите лишнюю нагрузку и сохраните важные службы.\nБаллы кампании: " + session.CampaignCredits;
+            modalTitle.text = "WATTSHIFT";
+            modalText.text = "Звёзды кампании: " + session.TotalStars + "/9 · выберите смену";
             resultStars.style.display = DisplayStyle.None;
             missionList.style.display = DisplayStyle.Flex;
             resultsBody.Clear();
             string signature = "menu:" + (session.Missions?.Length ?? 0) + ":" + session.CampaignCredits;
-            for (int i = 0; i < (session.Missions?.Length ?? 0); i++) signature += ":" + session.GetBestStars(i) + session.IsMissionUnlocked(i);
+            for (int i = 0; i < (session.Missions?.Length ?? 0); i++) signature += ":" + session.GetBestStars(i) + ":" + session.GetBestScore(i) + ":" + session.GetBestSavingPercent(i) + session.IsMissionUnlocked(i);
             if (signature == menuKey) return;
             menuKey = signature; missionList.Clear();
             for (int i = 0; i < (session.Missions?.Length ?? 0); i++)
@@ -419,7 +536,7 @@ namespace Wattshift
                 int stars = session.GetBestStars(i); bool unlocked = session.IsMissionUnlocked(i);
                 var button = Button((i + 1) + ". " + definition.Title + (stars > 0 ? "  " + new string('★', stars) : unlocked ? "" : "  · закрыто"), () => session.BeginMission(index), "start-mission-" + i);
                 SetButtonEnabled(button, unlocked); missionList.Add(button);
-                Label hint = Text(unlocked ? definition.Description : "Сначала завершите предыдущую смену.", 12, Muted);
+                Label hint = Text(unlocked ? "Лучший результат: " + session.GetBestScore(i) + "/100 · экономия " + Number(session.GetBestSavingPercent(i), 1) + "%" : "Сначала завершите предыдущую смену.", 12, Muted);
                 hint.style.marginBottom = 14; missionList.Add(hint);
             }
             missionList.Add(Button("Загрузить сохранение", () => session.Load(), "load-campaign"));
@@ -440,52 +557,93 @@ namespace Wattshift
             if (panel == null) return;
             width = Screen.width; height = Screen.height; safeArea = Screen.safeArea;
             bool portrait = width < height;
-            if (portrait != previousPortrait) { previousPortrait = portrait; expanded = !portrait; }
-            panel.scale = portrait ? width / 600f : Mathf.Clamp(width / 1600f, .7f, 2f);
+            panel.scale = UserExperienceSettings.EffectiveScale;
             float scale = Mathf.Max(.1f, panel.scale);
+            float availableHeight = safeArea.height / scale;
             safeRoot.style.left = safeArea.xMin / scale; safeRoot.style.right = (width - safeArea.xMax) / scale;
             safeRoot.style.top = (height - safeArea.yMax) / scale; safeRoot.style.bottom = safeArea.yMin / scale;
-            card.style.top = portrait ? 84 : 138; card.style.left = 26;
-            card.style.right = portrait ? new StyleLength(26) : new StyleLength(StyleKeyword.Auto);
-            card.style.width = portrait ? new StyleLength(StyleKeyword.Auto) : new StyleLength(300);
+            bool selected = overlay.SelectedBuilding != null;
+            bool contextCoversHud = portrait && selected && contextExpanded;
+            card.style.display = session.Phase == GamePhase.Playing && !contextCoversHud ? DisplayStyle.Flex : DisplayStyle.None;
+            card.style.top = portrait ? 12 : 24; card.style.left = portrait ? 12 : 26;
+            card.style.right = portrait ? new StyleLength(12) : new StyleLength(StyleKeyword.Auto);
+            card.style.width = portrait ? new StyleLength(StyleKeyword.Auto) : new StyleLength(320);
+            card.style.maxHeight = availableHeight * (portrait && selected ? .50f : .92f);
+            missionScroll.style.flexShrink = 1;
             detail.style.display = expanded ? DisplayStyle.Flex : DisplayStyle.None;
-            detailToggle.text = expanded ? "−" : "+";
-            bool compactMobile = portrait && !expanded;
-            message.style.display = (compactMobile && !session.LastActionFailed) || string.IsNullOrWhiteSpace(message.text) ? DisplayStyle.None : DisplayStyle.Flex;
-            controlHint.style.display = compactMobile ? DisplayStyle.None : DisplayStyle.Flex;
-            eventLabel.style.display = string.IsNullOrWhiteSpace(eventLabel.text) ? DisplayStyle.None : DisplayStyle.Flex;
-            eventLabel.style.whiteSpace = compactMobile ? WhiteSpace.NoWrap : WhiteSpace.Normal;
-            eventLabel.style.overflow = compactMobile ? Overflow.Hidden : Overflow.Visible;
-            eventLabel.style.textOverflow = compactMobile ? TextOverflow.Ellipsis : TextOverflow.Clip;
-            title.style.fontSize = portrait ? 14 : 17; clock.style.fontSize = portrait ? 16 : 20;
-            contextToggle.text = contextExpanded ? "Свернуть карточку" : "Развернуть карточку";
+            detailToggle.text = expanded ? "−" : "⋯";
+            detailToggle.tooltip = expanded ? "Свернуть сведения о смене" : "Сведения и настройки смены";
+            message.style.display = string.IsNullOrWhiteSpace(message.text) || (session.TutorialActive && !session.LastActionFailed) ? DisplayStyle.None : DisplayStyle.Flex;
+            controlHint.style.display = expanded ? DisplayStyle.Flex : DisplayStyle.None;
+            eventLabel.style.display = expanded && !session.TutorialActive && string.IsNullOrWhiteSpace(message.text) && !string.IsNullOrWhiteSpace(eventLabel.text) ? DisplayStyle.Flex : DisplayStyle.None;
+            title.style.fontSize = portrait ? 15 : 17; clock.style.fontSize = portrait ? 17 : 20;
+            contextToggle.text = contextExpanded ? "↙  Свернуть" : "↗  Посмотреть решения";
             upgrades.style.display = contextExpanded ? DisplayStyle.Flex : DisplayStyle.None;
-            upgrades.style.height = portrait ? 135 : 210;
-            contextToolbar.style.display = overlay.SelectedBuilding == null ? DisplayStyle.None : DisplayStyle.Flex;
+            if (solutionsVisible != contextExpanded)
+            {
+                solutionsVisible = contextExpanded;
+                upgrades.style.opacity = 0;
+                if (contextExpanded) upgrades.schedule.Execute(() => { if (solutionsVisible) upgrades.style.opacity = 1; }).StartingIn(1);
+            }
+            upgrades.style.flexGrow = contextExpanded ? 1 : 0;
+            upgrades.style.minHeight = 50;
+            upgrades.style.height = contextExpanded ? new StyleLength(StyleKeyword.Auto) : new StyleLength(portrait ? 125 : 165);
+            contextToolbar.style.display = selected ? DisplayStyle.Flex : DisplayStyle.None;
+            overlay.SetExpandedCard(contextExpanded);
             overlay.SetContextCompact(!contextExpanded);
-            modalCard.style.width = portrait ? 548 : 510;
-            settingsCard.style.width = portrait ? 548 : 480;
-            settingsScroll.style.maxHeight = height / scale * .78f;
-            modalTitle.style.fontSize = portrait ? 21 : 29;
-            missionList.style.maxHeight = Mathf.Max(150, height / scale * .5f);
+            modalCard.style.width = portrait ? 420 : 540;
+            settingsCard.style.width = portrait ? 420 : 480;
+            settingsScroll.style.maxHeight = availableHeight * .78f;
+            modalTitle.style.fontSize = portrait ? 23 : 29;
+            missionList.style.maxHeight = Mathf.Max(100, availableHeight * .45f);
             float buttonHeight = Mathf.Max(44, 44 / scale);
             volume.style.minHeight = buttonHeight;
             contextToggle.style.minHeight = buttonHeight;
             detailToggle.style.minWidth = detailToggle.style.width = buttonHeight;
-            foreach (var button in root.Query<Button>().ToList()) button.style.minHeight = buttonHeight;
-            if (upgrades != null) foreach (var button in upgrades.Query<Button>().ToList()) button.style.minHeight = buttonHeight;
+            foreach (var button in root.Query<Button>().ToList()) { button.style.minHeight = buttonHeight; button.style.minWidth = buttonHeight; }
+            if (upgrades != null) foreach (var button in upgrades.Query<Button>().ToList()) { button.style.minHeight = buttonHeight; button.style.minWidth = buttonHeight; }
+            contextToggle.style.minHeight = buttonHeight;
         }
+
+        public void ShowSolutions()
+        {
+            contextExpanded = true;
+            UserExperienceSettings.ExpandedCard = true;
+            overlay?.SetExpandedCard(true);
+            UpdateLayout();
+            if (upgrades != null) upgrades.scrollOffset = Vector2.zero;
+        }
+
+        void PreferencesChanged()
+        {
+            contextExpanded = UserExperienceSettings.ExpandedCard;
+            if (settingsOpen) RefreshSettings();
+            UpdateLayout();
+        }
+
         public bool IsPointerOverUI(Vector2 screenPosition)
         {
             if (root == null || root.panel == null) return false;
-            if (settingsOpen) return true;
-            if (session != null && session.Phase != GamePhase.Playing) return true;
+            if (HasBlockingModal) return true;
             Vector2 p = RuntimePanelUtils.ScreenToPanel(root.panel, new Vector2(screenPosition.x, Screen.height - screenPosition.y));
-            return card.worldBound.Contains(p);
+            return card.style.display == DisplayStyle.Flex && card.worldBound.Contains(p);
+        }
+
+        /// <summary>World markers use bottom-left screen pixels, like camera projection.</summary>
+        public bool IsMarkerObstructed(Rect screenRect)
+        {
+            if (HasBlockingModal) return true;
+            if (root == null || root.panel == null) return false;
+            Rect bounds = card.worldBound;
+            float scale = panel.scale;
+            var hudBounds = new Rect(bounds.x * scale, height - bounds.yMax * scale, bounds.width * scale, bounds.height * scale);
+            return (card.style.display == DisplayStyle.Flex && hudBounds.Overlaps(screenRect))
+                || (overlay != null && overlay.ContextScreenBounds.Overlaps(screenRect));
         }
         void OnDestroy()
         {
             if (session != null) session.Changed -= Refresh;
+            UserExperienceSettings.Changed -= PreferencesChanged;
             if (overlay != null)
             {
                 overlay.ContextRoot?.SetEnabled(true);

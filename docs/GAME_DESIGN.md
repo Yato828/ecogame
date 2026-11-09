@@ -9,7 +9,7 @@ Inspect a building -> detect unnecessary consumption -> choose retrofit or sched
 ## Game scope (MVP)
 One handcrafted 3D neighborhood (10-15 buildings, 1 school, 1 clinic, residential blocks, road segments, park and 8-15 streetlights). Three progressively difficult missions across this same neighborhood. Desktop mouse and touch. Main menu, tutorial, pause, settings, save/load, victory screen, localized Russian UI; optional Belarusian localization later.
 
-## G3 campaign — implemented scenarios
+## G3 campaign — historical baseline
 
 Each shift runs 17:00–23:00 in 360 active real seconds. Decisions may be paused; focus loss pauses play. Events use simulation hours. Investigation becomes meaningful after 18:00. Actual energy is integrated chronologically: an upgrade cannot undo earlier consumption. Victory requires investigation, the configured measures, at least 30 minutes of simulated observation after the final required intervention, and the end of the shift.
 
@@ -44,3 +44,15 @@ Crowd simulation, free-roam avatar, many city maps, traffic AI, detailed electri
 All powers, budgets, service floors, targets and timing are authored ScriptableObject data in `Data/Campaign`. Service percentages are dimensionless teaching constraints, not measured lux, certified medical requirements or real retrofit advice. Presence sensing uses a configurable occupancy multiplier, not simulated pedestrians. The road groups account for two fixtures each; values demonstrate tradeoffs rather than specifying real fixtures. No solar generation is claimed at night. No empirical real-life energy statistic is displayed.
 
 The original eight buildings, four streetlight meshes, Kenney palettes, source URP assets and composition remain. Scanner hulls reuse genuine source meshes; window feedback reuses source glass faces. No generated images or primitive substitute art.
+
+## G4 — current player experience and rating
+
+The same district now starts with actionable problems at 17:00. The school and clinic schedules can address empty rooms from 17:00; streetlights still illuminate at 18:00, and safe adaptive path control is available after 20:00. The scanner is optional. Visible world-anchored markers open a short problem card directly; the enlarged card uses the same data/actions and offers a remaining-shift forecast from the actual simulation. Interface scale choices are 90/100/115/130%; selection/zoom remain blocked by UI.
+
+Clock speeds 1/2/4 multiply simulation advancement, not event thresholds or device power. Pause freezes time. «Завершить» integrates all remaining time with the installed state, fires intervening events and evaluates the outcome; unresolved problems are not automatically fixed. No idle waiting is required.
+
+Each configured device problem earns a share of 40 points when its final-state projected device consumption falls by at least 25% and safety/comfort remain valid. This indicates an installed remedy; actual chronological kWh are scored separately. Energy points: 30×clamp(observed saving percentage/reference saving percentage,0,1). References are 38/6/27% for the three scenarios. Safety and comfort contribute 20 only when both pass. Budget contributes 10×min(1,rational spend/actual spend), with a full 10 when actual spend is zero or below the rational reference; references 440/380/550. Total is rounded to 0–100. Configured weights are normalized if edited.
+
+Stars require safe useful decisions and an ended shift. One star starts at 25 points with positive actual saving of at least 0.25%. Two stars additionally require 60 points, more than half the problems solved and at least half the reference energy saving. Three require 85 points and all mandatory problems resolved. Thus 1/2 school problems can earn 62 points but one star: the second-star conditions are not yet met. The result explains this and offers a short expandable score breakdown. One star unlocks the next mission; independent best stars, score and saving never decrease on replay.
+
+G4 profiles are under `Data/CampaignG4` with mission IDs ending -v4. G3 source profiles are retained. Existing valid G3 progress is first replay-verified under its original rules, then compatible decisions are replayed under G4 rules; original JSON remains untouched. Empty optional JSON replay fields from older Unity serialization are treated as absent, while populated extra replays are fully verified.

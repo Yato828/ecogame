@@ -16,6 +16,7 @@ namespace Wattshift
         public static GameSession Instance { get; private set; }
         public MissionDefinition Mission;
         public MissionDefinition[] Missions = Array.Empty<MissionDefinition>();
+        public MissionDefinition[] LegacyMissions = Array.Empty<MissionDefinition>();
         public CityAtmosphere Atmosphere;
         public CitySimulationService Simulation { get; private set; }
         public SimulationSnapshot Snapshot { get; private set; }
@@ -29,6 +30,16 @@ namespace Wattshift
         public int Stars { get; private set; }
         public int Score { get; private set; }
         public int CampaignCredits => progress?.Credits ?? 0;
+        public int TotalStars => progress?.TotalStars ?? 0;
+        public MissionEvaluation Rating { get; private set; }
+        public float SpeedMultiplier { get; private set; } = 1;
+        bool tutorialDone;
+        string tutorialKey;
+        public bool TutorialActive => Ready && Mission.UseDecisionRating && MissionIndex == 0 && Phase == GamePhase.Playing && !tutorialDone;
+        public string TutorialText => !IsInvestigated("school") ? "Нажми на ! над школой — там лишняя нагрузка." : Snapshot.PurchaseCount == 0 ? "Выбери безопасную меру. Одного полезного решения уже достаточно для первой звезды." : "Мера установлена. Сравни результат или рассчитай смену до конца.";
+        public string TutorialAction => !IsInvestigated("school") ? "Показать проблему" : Snapshot.PurchaseCount == 0 ? "Посмотреть решения" : "Рассчитать до 23:00";
+        public int GetBestScore(int index) => progress?.BestScore(index) ?? 0;
+        public double GetBestSavingPercent(int index) => progress?.BestSavingPercent(index) ?? 0;
         public string LastMessage { get; private set; } = "Выберите смену. Изучайте город и проверяйте последствия решений.";
         public string CurrentEvent { get; private set; } = "";
         public bool LastActionFailed { get; private set; }
@@ -60,12 +71,21 @@ namespace Wattshift
             views = FindObjectsByType<BuildingEnergyView>(FindObjectsSortMode.None);
             cityBuildings = FindObjectsByType<CityBuilding>(FindObjectsSortMode.None);
             string directory = Application.persistentDataPath;
-#if UNITY_EDITOR
             if (Array.IndexOf(Environment.GetCommandLineArgs(), "-wattshiftEvidence") >= 0)
-                directory = Path.Combine(Application.temporaryCachePath, "WattshiftValidation");
+                directory = Path.Combine(Application.temporaryCachePath, "WattshiftValidationG4");
+#if UNITY_EDITOR
             if (!string.IsNullOrEmpty(EditorTestSaveDirectory)) directory = EditorTestSaveDirectory;
 #endif
-            saveService = new CampaignSaveService(Path.Combine(directory, "wattshift-campaign-v3.json"));
+            bool decisionRating = Missions[0].UseDecisionRating;
+            saveService = new CampaignSaveService(Path.Combine(directory, decisionRating ? "wattshift-campaign-v4.json" : "wattshift-campaign-v3.json"));
+            tutorialKey = Wattshift.Presentation.PresentationSettingsScope.Key("tutorial-done");
+            tutorialDone = PlayerPrefs.GetInt(tutorialKey, 0) != 0;
+            if (decisionRating && !saveService.Exists && LegacyMissions.Length == Missions.Length)
+            {
+                string oldPath=Path.Combine(directory,"wattshift-campaign-v3.json");
+                if(File.Exists(oldPath) && !CampaignUpgradeMigration.TryMigrate(oldPath,saveService,LegacyMissions,Missions,out string migrationMessage))
+                { LastActionFailed=true;LastMessage="Предыдущий прогресс не перенесён. Старый файл сохранён. "+migrationMessage; }
+            }
             CreateSimulation(0);
         }
 
@@ -88,7 +108,7 @@ namespace Wattshift
             if (Simulation != null) Simulation.Changed -= Refresh;
             MissionIndex = index; Mission = Missions[index];
             Simulation = new CitySimulationService(Mission); Simulation.Changed += Refresh;
-            investigated.Clear(); firedEvents.Clear(); ScannerEnabled = false; Stars = Score = 0;
+            investigated.Clear(); firedEvents.Clear(); SpeedMultiplier = 1; ScannerEnabled = false; Stars = Score = 0;
             pendingRealTime = autoSaveTime = 0; CurrentEvent = ""; LastActionFailed = false;
         }
 
@@ -122,13 +142,13 @@ namespace Wattshift
         {
             if (Phase != GamePhase.Playing) return;
             LastActionFailed = false; ScannerEnabled = enabled;
-            LastMessage = enabled ? "Синий — обследовать; янтарный — проблема найдена; зелёный — нагрузка снижена." : "Обычный вид города.";
+            LastMessage = enabled ? (Mission.UseDecisionRating ? "Синий — обследовать; янтарный — есть нерешённые проблемы; зелёный — все проблемы объекта решены." : "Синий — обследовать; янтарный — проблема найдена; зелёный — нагрузка снижена.") : "Обычный вид города.";
             Feedback?.Invoke("scanner"); Refresh();
         }
 
         public void InspectBuilding(string id)
         {
-            if (Phase != GamePhase.Playing || !ScannerEnabled) { Inform("Сначала включите энергетический сканер.", "error"); return; }
+            if (Phase != GamePhase.Playing || (!Mission.UseDecisionRating && !ScannerEnabled)) { Inform("Сначала включите энергетический сканер.", "error"); return; }
             if (!Mission.RequiredBuildingIds.Contains(id)) { Inform("Здесь нет проблемы текущего задания.", "event"); return; }
             if (GameHour + .000001 < Mission.InvestigationAvailableHour) { Inform("Пока нагрузка соответствует работе объекта. Дождитесь события смены.", "event"); return; }
             LastActionFailed = false; LastMessage = investigated.Add(id) ? "Обследование завершено. Сопоставьте расписание, важность нагрузок и доступные решения." : "Объект уже обследован. Проверьте последствия мер.";
@@ -160,7 +180,7 @@ namespace Wattshift
         public void CompleteMission()
         {
             if (!Ready || Phase != GamePhase.Playing) return;
-            if (Mission.UseTimeline && Mission.RequiredBuildingIds.Any(id => !IsInvestigated(id)))
+            if (!Mission.UseDecisionRating && Mission.UseTimeline && Mission.RequiredBuildingIds.Any(id => !IsInvestigated(id)))
             {
                 if (GameHour >= Mission.EndHour) { Phase = GamePhase.Results; Paused = true; Stars = Score = 0; Persist(); }
                 Inform("Обследуйте отмеченные объекты и проверьте их работу в течение смены. Без обследования задача не решена.", "error"); return;
@@ -177,9 +197,43 @@ namespace Wattshift
             else
             {
                 if (Mission.UseTimeline && GameHour >= Mission.EndHour) { Phase = GamePhase.Results; Paused = true; Stars = Score = 0; Persist(); }
+                if (Mission.UseDecisionRating) Score = MissionEvaluator.Evaluate(Mission, Simulation.Evaluate(GameHour)).Score;
                 Feedback?.Invoke("error");
             }
+            if (Mission.UseDecisionRating && Phase == GamePhase.Results) SkipTutorial();
             Refresh();
+        }
+
+        public void SetSpeed(float speed)
+        {
+            if (speed != 1 && speed != 2 && speed != 4) return;
+            SpeedMultiplier = speed; pendingRealTime = 0; Refresh(); Persist();
+        }
+        public void FinishShiftEarly()
+        {
+            if (!Ready || Phase != GamePhase.Playing) return;
+            double before = GameHour;
+            var result = Simulation.AdvanceTo(Mission.EndHour);
+            if (!result.Success) { Inform(result.Message, "error"); return; }
+            FireEvents(before, Mission.EndHour); Paused = true; Refresh(); CompleteMission();
+        }
+        public void OpenProblem(string id)
+        {
+            if (!Ready || Phase != GamePhase.Playing) return;
+            var building = Array.Find(cityBuildings, b => b.SimulationId == id);
+            if (building == null) return;
+            selection?.Select(building);
+            Camera.main?.GetComponent<IsoCameraController>()?.FocusOn(building.GetComponent<Collider>().bounds.center);
+            InspectBuilding(id);
+        }
+        public void SkipTutorial() { tutorialDone = true; if (tutorialKey != null) { PlayerPrefs.SetInt(tutorialKey,1); PlayerPrefs.Save(); } Changed?.Invoke(); }
+        public void RepeatTutorial() { tutorialDone = false; PlayerPrefs.SetInt(tutorialKey,0); BeginMission(0); }
+        public void PerformTutorialAction()
+        {
+            if (!TutorialActive) return;
+            if (!IsInvestigated("school")) OpenProblem("school");
+            else if (Snapshot.PurchaseCount == 0) { CityOverlay.Instance?.SetExpandedCard(true); GameplayHud.Instance?.ShowSolutions(); }
+            else FinishShiftEarly();
         }
 
         void Update()
@@ -200,7 +254,7 @@ namespace Wattshift
             using (TickMarker.Auto())
             {
                 double before = GameHour;
-                double hour = Math.Min(Mission.EndHour, before + realSeconds * (Mission.EndHour - Mission.StartHour) / Mission.RealDurationSeconds);
+                double hour = Math.Min(Mission.EndHour, before + realSeconds * SpeedMultiplier * (Mission.EndHour - Mission.StartHour) / Mission.RealDurationSeconds);
                 var result = Simulation.AdvanceTo(hour);
                 if (!result.Success) { Inform(result.Message, "error"); Paused = true; return; }
                 FireEvents(before, hour);
@@ -221,6 +275,7 @@ namespace Wattshift
         {
             if (!Ready) return;
             Snapshot = Simulation.Evaluate(GameHour);
+            Rating = MissionEvaluator.Evaluate(Mission, Snapshot);
             if (views != null)
                 foreach (var view in views)
                     foreach (var metrics in Snapshot.Buildings)
@@ -228,14 +283,14 @@ namespace Wattshift
             if (Atmosphere != null)
             {
                 Atmosphere.TargetBuildingIds = GameHour >= Mission.InvestigationAvailableHour ? Mission.RequiredBuildingIds : Array.Empty<string>();
-                Atmosphere.Present(GameHour, ScannerEnabled && Phase == GamePhase.Playing, Snapshot, InvestigatedBuildingIds);
+                Atmosphere.Present(GameHour, ScannerEnabled && Phase == GamePhase.Playing, Snapshot, InvestigatedBuildingIds, Mission.UseDecisionRating ? Rating.Problems : null);
             }
             Changed?.Invoke();
         }
 
         void Inform(string message, string feedback) { LastActionFailed = feedback == "error"; LastMessage = message; Feedback?.Invoke(feedback); Refresh(); }
         void OnSelection(CityBuilding selected) { if (selected != null) Feedback?.Invoke("select"); }
-        CampaignSave Export() => new CampaignSave { MissionIndex = MissionIndex, City = Simulation.ExportState(), Records = progress.Export(), InvestigatedIds = InvestigatedBuildingIds, ScannerEnabled = ScannerEnabled, Results = Phase == GamePhase.Results };
+        CampaignSave Export() => new CampaignSave { MissionIndex = MissionIndex, City = Simulation.ExportState(), Records = progress.Export(), InvestigatedIds = InvestigatedBuildingIds, ScannerEnabled = ScannerEnabled, Results = Phase == GamePhase.Results, SpeedMultiplier = SpeedMultiplier };
         void Persist() { if (Ready && saveService != null && !saveService.Save(Export(), out string error)) { LastActionFailed = true; LastMessage += " " + error; } }
         public void Save() { if (!Ready) return; LastActionFailed = !saveService.Save(Export(), out string message); LastMessage = !LastActionFailed ? "Смена и кампания сохранены." : message; Refresh(); }
 
@@ -248,7 +303,7 @@ namespace Wattshift
             investigated.Clear(); foreach (string id in saved.InvestigatedIds) investigated.Add(id);
             firedEvents.Clear(); foreach (var item in Mission.Events) if (item.Hour <= GameHour) { firedEvents.Add(item.Id); CurrentEvent = item.Text; }
             Phase = saved.Results || saved.City.Completed ? GamePhase.Results : GamePhase.Playing;
-            Paused = true; ScannerEnabled = saved.ScannerEnabled; pendingRealTime = autoSaveTime = 0;
+            Paused = true; ScannerEnabled = saved.ScannerEnabled; SpeedMultiplier = saved.SpeedMultiplier == 2 || saved.SpeedMultiplier == 4 ? saved.SpeedMultiplier : 1; pendingRealTime = autoSaveTime = 0;
             var evaluation = MissionEvaluator.Evaluate(Mission, Simulation.Evaluate(GameHour));
             Stars = saved.City.Completed ? evaluation.Stars : 0; Score = saved.City.Completed ? evaluation.Score : 0;
             LastActionFailed = false; LastMessage = "Прогресс восстановлен. Время на паузе."; selection?.Select(null); Refresh();

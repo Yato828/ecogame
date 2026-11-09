@@ -1,0 +1,295 @@
+{
+  "unity": "6000.3.27f1",
+  "compared_files": 934,
+  "mismatches": [],
+  "extra_test_files": [],
+  "screenshots": {
+    "05-resolved-marker.png": {
+      "pixels": [
+        1920,
+        1080
+      ],
+      "sha256": "6177a1fea3be34406e5825444761dccd130a6c34e9c65efcd33326770b942f7b"
+    },
+    "06-three-star-result.png": {
+      "pixels": [
+        1920,
+        1080
+      ],
+      "sha256": "9facfa71f019fbd78b58d21089e647beb7cffc3d01ade9db956a95f1134faf4e"
+    },
+    "09-four-three-expanded-130.png": {
+      "pixels": [
+        1200,
+        900
+      ],
+      "sha256": "99a2dbe3febb1328aa1ea1db03539c54925d6c8de9a7c799b465591a8a10fd27"
+    },
+    "04-partial-result-breakdown.png": {
+      "pixels": [
+        1920,
+        1080
+      ],
+      "sha256": "a1813db0c74f287ac5a67f3368af216273c14af0db27aba8fb0d13e3b8bb1375"
+    },
+    "02-visible-problem-marker.png": {
+      "pixels": [
+        1920,
+        1080
+      ],
+      "sha256": "8af07b1d8a9c032dd9f39d50b1a20f55a7d82e2579ec02dadfc56cbca188e6f6"
+    },
+    "03-expanded-school.png": {
+      "pixels": [
+        1920,
+        1080
+      ],
+      "sha256": "01777c160c4d0e2ec2c8f370c4eb2cf84389962755f3ac74c72a432f787a81e6"
+    },
+    "07-clinic-results.png": {
+      "pixels": [
+        1920,
+        1080
+      ],
+      "sha256": "47f9eddcf203057c7dba255564fae427abdb081d543d01c340f1295d3393e1a9"
+    },
+    "01-menu.png": {
+      "pixels": [
+        1920,
+        1080
+      ],
+      "sha256": "0cf56851b95af638568f72ff5fef1007eb36497e9dd665d596b4660d589451e0"
+    },
+    "08-mobile-expanded-130.png": {
+      "pixels": [
+        390,
+        844
+      ],
+      "sha256": "229f36ee3693b169fb2d8155e3f87ef9f57688245480a0a8b93f72043fcee010"
+    },
+    "04-partial-result.png": {
+      "pixels": [
+        1920,
+        1080
+      ],
+      "sha256": "768e1f2293509ce4d32d5d65bb39bb3022e780dbe22881bc8504e47bf9e83778"
+    },
+    "native-foreground/02-problem-markers.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "c7c62dac46e59b5c510027f6becb6d3193e89cdc7a263989beaf9a17bc70ef15"
+    },
+    "native-foreground/01-boot-menu.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "6de27bbb01bd059bb8ff32a06429ecf53d09d65dbb7b657116f38793f077809a"
+    },
+    "native-foreground/06-results.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "b540c79655439532db11077341cec174de15d6436fa38e4f3ef9d253e1fdeb86"
+    },
+    "native-foreground/08-clinic-results.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "277c4d05ff1f0b2d56834dad645e456c043316ee830c22b9695193bcf889b2d1"
+    },
+    "native-foreground/04-quality-low.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "fa0cc684d52e7b063c98bd6960be82e636583a7694a005c20d016f015d28df8f"
+    },
+    "native-foreground/03-expanded-school.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "2d4ccf3827e1ea9882012b507a0768a5104d0456948836a4763577ea8ca965e6"
+    },
+    "native-foreground/05-resolved-school.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "8c339f5aed0b3649c53c0cc7ab8cfba69a04973603aed2d2b187f40fcff1e541"
+    },
+    "native-foreground/07-street-results.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "393db890ce8d68c529ecc0a9dd1b3bd18ff0943b79f3defb3aed6d0c66e0d379"
+    },
+    "native-foreground/04-quality-medium.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "37d7d134ff80a2be45e148025c0edb4f31d5f29411a8019371af8679825844c1"
+    },
+    "native-foreground/04-quality-high.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "bd164ac95453137b53c86e97febd74d88f372d0e12f255bf2e78e6339714c4e8"
+    },
+    "native/02-problem-markers.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "c7c62dac46e59b5c510027f6becb6d3193e89cdc7a263989beaf9a17bc70ef15"
+    },
+    "native/01-boot-menu.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "6de27bbb01bd059bb8ff32a06429ecf53d09d65dbb7b657116f38793f077809a"
+    },
+    "native/06-results.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "dce1e31dbd4a6353efb7691bca692a8acf1ab8ffc83821e60f28278243eb3957"
+    },
+    "native/08-clinic-results.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "6bac529942f7e0c928cb6c9827f0adefeab39cd0a0901d344ca5019204697a72"
+    },
+    "native/04-quality-low.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "fa0cc684d52e7b063c98bd6960be82e636583a7694a005c20d016f015d28df8f"
+    },
+    "native/03-expanded-school.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "9ab7b7567ece89ea64393184a45f6c3218008e7e9b7bd53d5b90e30c08e67a39"
+    },
+    "native/05-resolved-school.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "8c339f5aed0b3649c53c0cc7ab8cfba69a04973603aed2d2b187f40fcff1e541"
+    },
+    "native/07-street-results.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "6cd995a9882087cda5d095a97e1c93c2bc2926276a38fac05f9d9340cd6ca198"
+    },
+    "native/04-quality-medium.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "37d7d134ff80a2be45e148025c0edb4f31d5f29411a8019371af8679825844c1"
+    },
+    "native/04-quality-high.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "bd164ac95453137b53c86e97febd74d88f372d0e12f255bf2e78e6339714c4e8"
+    },
+    "native-final-build/02-problem-markers.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "c7c62dac46e59b5c510027f6becb6d3193e89cdc7a263989beaf9a17bc70ef15"
+    },
+    "native-final-build/01-boot-menu.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "6de27bbb01bd059bb8ff32a06429ecf53d09d65dbb7b657116f38793f077809a"
+    },
+    "native-final-build/06-results.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "54f18c6357e4d3a8f61e0d4ee5ec0c346bb79f8c1fa35218462ad9d3b04395ee"
+    },
+    "native-final-build/08-clinic-results.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "41a2afd5cd48b9a2b3a7e2617cbe124520aa4af62c16f78a13bcee5ca517aeec"
+    },
+    "native-final-build/04-quality-low.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "fa0cc684d52e7b063c98bd6960be82e636583a7694a005c20d016f015d28df8f"
+    },
+    "native-final-build/03-expanded-school.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "60c238145c493321b2ce004cf8bcb9d8e6abe2b22b04254092e488dd17dbb0ab"
+    },
+    "native-final-build/05-resolved-school.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "25ddd194a74c7936cbd767f3911bacb041ef5ca8637206c39d9ff7c76c7d3cc2"
+    },
+    "native-final-build/07-street-results.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "69b468c9ec08a78a318f4771c500dd228aac48e665b106d880d79b5d96ed05dd"
+    },
+    "native-final-build/04-quality-medium.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "621f020c277584e1b77d761b075a7b30210c5a76de3893b43cd410266d05fabe"
+    },
+    "native-final-build/04-quality-high.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "53917c1ca70bf2d4acf5bcee0ba9dfb17bf820dfccb1cb59e3436b2b09ea71e7"
+    },
+    "native-restart/09-restored-campaign.png": {
+      "pixels": [
+        1600,
+        900
+      ],
+      "sha256": "e712d42ae5e8a57b7d595807d1c0c3f2770a030a7a11fe7f71aef0265ad21350"
+    }
+  }
+}

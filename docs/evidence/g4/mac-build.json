@@ -1,0 +1,16 @@
+{
+    "result": "Succeeded",
+    "utc": "2026-11-09T13:08:24.2300720Z",
+    "unity": "6000.3.27f1",
+    "target": "StandaloneOSX",
+    "architecture": "ARM64",
+    "output": "/private/tmp/WATTSHIFT_Validation/Builds/G4/macOS/WATTSHIFT.app",
+    "error": "",
+    "seconds": 8.067978,
+    "bytes": 188758198,
+    "warnings": 0,
+    "errors": 0,
+    "scenes": [
+        "Assets/_WATTSHIFT/Scenes/CitySlice.unity"
+    ]
+}

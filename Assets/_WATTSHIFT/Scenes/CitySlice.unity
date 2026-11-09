@@ -5257,6 +5257,8 @@ GameObject:
   - component: {fileID: 1823377842}
   - component: {fileID: 1823377845}
   - component: {fileID: 1823377844}
+  - component: {fileID: 1823377847}
+  - component: {fileID: 1823377846}
   m_Layer: 0
   m_Name: "Mission 1 \u2022 data-driven gameplay"
   m_TagString: Untagged
@@ -5276,8 +5278,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c08a13897b994125a39703ed876ed30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Wattshift.Runtime::Wattshift.GameSession
-  Mission: {fileID: 11400000, guid: 2fec9c8a121764018901c2c571837364, type: 2}
+  Mission: {fileID: 11400000, guid: d01e8327105a743638d561189ae543af, type: 2}
   Missions:
+  - {fileID: 11400000, guid: d01e8327105a743638d561189ae543af, type: 2}
+  - {fileID: 11400000, guid: 005c9d0a6a8d64a9e86614e8eff005e7, type: 2}
+  - {fileID: 11400000, guid: 95f39239ce27448c6a7b3a1200532a87, type: 2}
+  LegacyMissions:
   - {fileID: 11400000, guid: 2fec9c8a121764018901c2c571837364, type: 2}
   - {fileID: 11400000, guid: 72e274311de334c1c8eae331fa95f8cb, type: 2}
   - {fileID: 11400000, guid: 9da4d76c48a594d7c91db87afb937c65, type: 2}
@@ -5321,6 +5327,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c960e693ab4774c5089870fd2bade7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Wattshift.Runtime::Wattshift.Presentation.CampaignAudio
+--- !u!114 &1823377846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823377841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3fbd8ce0ae74b058f4ee50b024c7bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Wattshift.Runtime::Wattshift.BuildDiagnostics
+--- !u!114 &1823377847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823377841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb47331d254a4dd3a7576e29eb25e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Wattshift.Runtime::Wattshift.ProblemMarkers
 --- !u!1 &1830865947
 GameObject:
   m_ObjectHideFlags: 0

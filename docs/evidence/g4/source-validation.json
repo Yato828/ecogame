@@ -1,0 +1,24 @@
+{
+  "baseline": "7728d9c2b7183149cc5b17c6d8c4ff9da6241ba7",
+  "preserved_files_compared": 670,
+  "changes": [
+    "Assets/Settings/DefaultVolumeProfile.asset",
+    "Assets/Settings/PC_RPAsset.asset",
+    "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset",
+    "ProjectSettings/ProjectSettings.asset",
+    "ProjectSettings/UnityConnectSettings.asset"
+  ],
+  "original_transform_pose_changes": [],
+  "prefab_pose_overrides_unchanged": true,
+  "unique_guids": 471,
+  "duplicate_guids": {},
+  "missing_meta": [],
+  "expected_unity_normalization": [
+    "Assets/Settings/DefaultVolumeProfile.asset",
+    "Assets/Settings/PC_RPAsset.asset",
+    "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset",
+    "ProjectSettings/ProjectSettings.asset",
+    "ProjectSettings/UnityConnectSettings.asset"
+  ],
+  "urp_authored_parameters_unchanged": true
+}

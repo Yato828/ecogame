@@ -130,6 +130,20 @@ namespace Wattshift
             Require(rules.StarThresholds.Length == 3 && Percent(rules.StarThresholds[0]) && Percent(rules.StarThresholds[1]) && Percent(rules.StarThresholds[2]) && rules.StarThresholds[0] <= rules.StarThresholds[1] && rules.StarThresholds[1] <= rules.StarThresholds[2], "Three ascending star thresholds required.");
             var requiredIds = new HashSet<string>(StringComparer.Ordinal);
             foreach (string id in rules.RequiredBuildingIds) Require(id != null && byId.ContainsKey(id) && requiredIds.Add(id), "Invalid required building ID.");
+            if (rules.DecisionRating)
+            {
+                Require(Percent(rules.MinimumUsefulSavingPercent), "Minimum useful saving must be a finite percentage.");
+                Require(rules.RatingThresholds.Length == 3 && rules.RatingThresholds[0] >= 0 && rules.RatingThresholds[2] <= 100 && rules.RatingThresholds[0] <= rules.RatingThresholds[1] && rules.RatingThresholds[1] <= rules.RatingThresholds[2], "Invalid rating thresholds.");
+                Require(Finite(rules.ProblemWeight) && rules.ProblemWeight >= 0 && Finite(rules.EnergyWeight) && rules.EnergyWeight >= 0 && Finite(rules.SafetyWeight) && rules.SafetyWeight >= 0 && Finite(rules.BudgetWeight) && rules.BudgetWeight >= 0 && rules.ProblemWeight + rules.EnergyWeight + rules.SafetyWeight + rules.BudgetWeight > 0 && rules.RationalSpend >= 0, "Invalid rating weights.");
+                var problemIds = new HashSet<string>(StringComparer.Ordinal);
+                foreach (var problem in rules.Problems)
+                {
+                    Require(problem != null && !string.IsNullOrWhiteSpace(problem.Id) && problemIds.Add(problem.Id) && problem.BuildingId != null && byId.ContainsKey(problem.BuildingId) && Percent(problem.MinimumReductionPercent) && problem.DeviceIds.Length > 0, "Invalid mission problem.");
+                    var devices = new HashSet<string>(StringComparer.Ordinal);
+                    foreach (string id in problem.DeviceIds)
+                        Require(!string.IsNullOrWhiteSpace(id) && devices.Add(id) && Array.Exists(byId[problem.BuildingId].Devices, d => d.Id == id), "Invalid problem device.");
+                }
+            }
             purchases = EmptyPurchases();
             currentHour = startHour;
         }
@@ -153,6 +167,21 @@ namespace Wattshift
             currentHour = hour;
             Changed?.Invoke();
             return ActionResult.Ok();
+        }
+
+        /// <summary>Read-only forecast for the remaining shift; uses exactly the purchase validation and integrator.</summary>
+        public UpgradePreview PreviewPurchase(string buildingId,string upgradeId)
+        {
+            var validation=ValidatePurchase(purchases,buildingId,upgradeId,currentHour);
+            if(!validation.Success)return new UpgradePreview { Available=false,Reason=validation.Message };
+            var candidate=EmptyPurchases();
+            foreach(var pair in purchases)candidate[pair.Key].AddRange(pair.Value);
+            candidate[buildingId].Add(upgradeId);
+            double baselineBefore=0,before=0,baselineAfter=0,after=0;
+            Integrate(purchases,currentHour,endHour,ref baselineBefore,ref before);
+            Integrate(candidate,currentHour,endHour,ref baselineAfter,ref after);
+            var snapshot=EvaluateState(candidate,false,currentHour);
+            return new UpgradePreview { Available=true,Safe=snapshot.SafetySatisfied && snapshot.Comfort>=minimumComfort,SavedEnergyKWh=before-after,CurrentPowerKW=snapshot.CurrentPowerKW };
         }
 
         public ActionResult TryPurchase(string buildingId, string upgradeId)
@@ -323,7 +352,7 @@ namespace Wattshift
                     Device baseline = b.Devices[j], current = effective[j];
                     double bp = ActiveAt(baseline, hour) ? baseline.Power : 0;
                     double cp = ActiveAt(current, hour) ? current.Power : 0;
-                    metrics.Devices[j] = new DeviceMetrics { Id = current.Id, Title = current.Title, Priority = current.Priority, Essential = current.Essential, CurrentPowerKW = cp, ServiceLevel = cp > 0 ? current.Service : 0 };
+                    metrics.Devices[j] = new DeviceMetrics { Id = current.Id, Title = current.Title, Priority = current.Priority, Essential = current.Essential, CurrentPowerKW = cp, BaselineEnergyKWh = baseline.Power * ActiveHours(baseline, startHour, endHour), CurrentEnergyKWh = current.Power * ActiveHours(current, startHour, endHour), ServiceLevel = cp > 0 ? current.Service : 0 };
                     metrics.BaselinePowerKW += bp; metrics.CurrentPowerKW += cp;
                     metrics.BaselineEnergyKWh += baseline.Power * ActiveHours(baseline, startHour, endHour);
                     metrics.CurrentEnergyKWh += current.Power * ActiveHours(current, startHour, endHour);
@@ -378,7 +407,7 @@ namespace Wattshift
         {
             double last = startHour;
             foreach (UpgradePurchaseRecord record in records)
-                if (rules.RequiredBuildingIds.Length == 0 || Array.IndexOf(rules.RequiredBuildingIds, record.BuildingId) >= 0)
+                if (rules.DecisionRating || rules.RequiredBuildingIds.Length == 0 || Array.IndexOf(rules.RequiredBuildingIds, record.BuildingId) >= 0)
                     last = Math.Max(last, record.Hour);
             return last;
         }

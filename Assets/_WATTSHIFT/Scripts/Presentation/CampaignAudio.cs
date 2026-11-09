@@ -130,17 +130,16 @@ namespace Wattshift.Presentation
         public static string Key(string category)
         {
             string prefix = "WATTSHIFT.G3.";
+            string scope = Array.IndexOf(Environment.GetCommandLineArgs(), "-wattshiftEvidence") >= 0 ? Application.temporaryCachePath + "/WattshiftValidationG4" : null;
 #if UNITY_EDITOR
-            string scope = GameSession.EditorTestSaveDirectory;
-            if (string.IsNullOrEmpty(scope) && Array.IndexOf(Environment.GetCommandLineArgs(), "-wattshiftEvidence") >= 0)
-                scope = Application.temporaryCachePath + "/WattshiftValidation";
+            if (!string.IsNullOrEmpty(GameSession.EditorTestSaveDirectory)) scope = GameSession.EditorTestSaveDirectory;
+#endif
             if (!string.IsNullOrEmpty(scope))
             {
                 uint hash = 2166136261;
                 unchecked { foreach (char character in scope) { hash ^= character; hash *= 16777619; } }
                 prefix += "Test." + hash.ToString("x8") + ".";
             }
-#endif
             return prefix + category;
         }
     }

@@ -35,6 +35,8 @@ namespace Wattshift
         public LoadPriority Priority;
         public bool Essential;
         public double CurrentPowerKW;
+        public double BaselineEnergyKWh;
+        public double CurrentEnergyKWh;
         public double ServiceLevel;
     }
 
@@ -86,6 +88,13 @@ namespace Wattshift
         public static ActionResult Fail(string code, string message) => new ActionResult { Success = false, Code = code, Message = message };
     }
 
+    public sealed class ProblemEvaluation
+    {
+        public string Id, BuildingId, Title;
+        public bool Required, Urgent, Resolved;
+        public double ReductionPercent;
+    }
+
     public sealed class MissionEvaluation
     {
         public bool CanComplete;
@@ -93,5 +102,9 @@ namespace Wattshift
         public int Score;
         public int Stars;
         public int Reward;
+        public ProblemEvaluation[] Problems = Array.Empty<ProblemEvaluation>();
+        public int TotalProblems, ResolvedProblems;
+        public double ProblemPoints, EnergyPoints, SafetyPoints, BudgetPoints, EnergySavedKWh;
+        public string RatingExplanation = "";
     }
 }

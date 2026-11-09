@@ -1,0 +1,13 @@
+{
+  "archive": "Builds/G4/macOS/WATTSHIFT-macOS-arm64.zip",
+  "bytes": 61812658,
+  "sha256": "185be7cfed25cc03164a4fe1bb30de4b0b78088eeca6a975d4eef49da0a27c2a",
+  "zip_crc_failure": null,
+  "zip_entries": 599,
+  "copied_app_mismatches": [],
+  "architecture": "ARM64",
+  "configuration": "Development",
+  "notarized": false,
+  "archive_app_mismatches": [],
+  "archive_app_files_compared": 268
+}

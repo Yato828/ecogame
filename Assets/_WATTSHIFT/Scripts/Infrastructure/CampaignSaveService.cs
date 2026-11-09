@@ -14,6 +14,7 @@ namespace Wattshift
         public string[] InvestigatedIds = Array.Empty<string>();
         public bool ScannerEnabled;
         public bool Results;
+        public float SpeedMultiplier = 1;
     }
     public sealed class CampaignSaveService
     {
