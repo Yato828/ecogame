@@ -1,0 +1,20 @@
+{
+  "name": "Noto Sans Regular",
+  "license": "SIL Open Font License 1.1",
+  "source": "https://github.com/notofonts/noto-fonts/blob/main/hinted/ttf/NotoSans/NotoSans-Regular.ttf",
+  "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5",
+  "path": "Assets/_WATTSHIFT/Resources/Fonts/NotoSans-Regular.ttf",
+  "reason": "Built-in runtime font lacks Cyrillic in actual Web players; tested first build in Chrome/Firefox.",
+  "symbolFallbacks": [
+    {
+      "path": "Assets/_WATTSHIFT/Resources/Fonts/NotoSansSymbols-Regular.ttf",
+      "sha256": "8f02f31959bbdf6061547a188248e13f84dc5fdd940326ec494675f453f072bb",
+      "source": "https://github.com/notofonts/noto-fonts/blob/main/hinted/ttf/NotoSansSymbols/NotoSansSymbols-Regular.ttf"
+    },
+    {
+      "path": "Assets/_WATTSHIFT/Resources/Fonts/NotoSansSymbols2-Regular.ttf",
+      "sha256": "630846d528dbe4c4981370a4d0a9475a1fd1491a129bb411f8e157cdb5de13c6",
+      "source": "https://github.com/notofonts/noto-fonts/blob/main/hinted/ttf/NotoSansSymbols2/NotoSansSymbols2-Regular.ttf"
+    }
+  ]
+}

@@ -36,3 +36,7 @@ docs/evidence/**/third-pass/
 docs/evidence/**/failed-ui-parent/
 docs/evidence/**/first-gameplay-capture/
 .DS_Store
+
+# Generated public Unity Web payload and local Vercel link metadata.
+release/web-deploy/
+.vercel/

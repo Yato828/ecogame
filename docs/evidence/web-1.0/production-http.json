@@ -1,0 +1,92 @@
+{
+  "url": "https://wattshift-game.vercel.app",
+  "utc": "2026-11-10T03:03:03.627Z",
+  "files": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 2733,
+      "sha256Matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "contentEncoding": null,
+      "pass": true
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.txt",
+      "status": 200,
+      "bytes": 7165,
+      "sha256Matches": true,
+      "contentType": "text/plain; charset=utf-8",
+      "contentEncoding": null,
+      "pass": true
+    },
+    {
+      "path": "style.css",
+      "status": 200,
+      "bytes": 1137,
+      "sha256Matches": true,
+      "contentType": "text/css; charset=utf-8",
+      "contentEncoding": null,
+      "pass": true
+    },
+    {
+      "path": "Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br",
+      "status": 200,
+      "bytes": 76626,
+      "sha256Matches": true,
+      "contentType": "application/javascript",
+      "contentEncoding": "br",
+      "pass": true
+    },
+    {
+      "path": "Build/c0208c73480043a65ed306de598a7a3e.wasm.br",
+      "status": 200,
+      "bytes": 8088352,
+      "sha256Matches": true,
+      "contentType": "application/wasm",
+      "contentEncoding": "br",
+      "pass": true
+    },
+    {
+      "path": "Build/b03dbdcdf94687e5c9914b85c439cec7.loader.js",
+      "status": 200,
+      "bytes": 26983,
+      "sha256Matches": true,
+      "contentType": "application/javascript; charset=utf-8",
+      "contentEncoding": null,
+      "pass": true
+    },
+    {
+      "path": "Build/36b5f854a2b54d98f4f20dcb24efd3c4.data.br",
+      "status": 200,
+      "bytes": 5035901,
+      "sha256Matches": true,
+      "contentType": "application/octet-stream",
+      "contentEncoding": "br",
+      "pass": true
+    }
+  ],
+  "forbidden": [
+    {
+      "path": "/.env.local",
+      "status": 404
+    },
+    {
+      "path": "/AGENTS.md",
+      "status": 404
+    },
+    {
+      "path": "/.agents/skills/",
+      "status": 404
+    },
+    {
+      "path": "/.vercel/project.json",
+      "status": 404
+    },
+    {
+      "path": "/Assets/",
+      "status": 404
+    }
+  ],
+  "pass": true
+}

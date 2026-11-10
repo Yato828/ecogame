@@ -1,0 +1,15 @@
+{
+  "id": "dpl_BvaQj6Vy168bfXe9mPMUV2fhGRs1",
+  "name": "wattshift-game",
+  "url": "wattshift-game-73b57rv0s-yato828s-projects.vercel.app",
+  "readyState": "READY",
+  "target": "production",
+  "createdAt": 1794279611796,
+  "alias": [
+    "wattshift-game.vercel.app",
+    "wattshift-game-yato828s-projects.vercel.app"
+  ],
+  "publicUrl": "https://wattshift-game.vercel.app",
+  "plan": "hobby",
+  "version": "1.0.0"
+}

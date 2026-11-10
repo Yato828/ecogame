@@ -1,0 +1,17 @@
+{
+    "result": "Succeeded",
+    "utc": "2026-11-10T02:53:36.2042300Z",
+    "unity": "6000.3.27f1",
+    "target": "WebGL",
+    "architecture": "WebAssembly",
+    "output": "/private/tmp/WATTSHIFT_Validation/Builds/G5/WebRelease",
+    "error": "",
+    "development": false,
+    "seconds": 51.283367,
+    "bytes": 3870,
+    "warnings": 0,
+    "errors": 0,
+    "scenes": [
+        "Assets/_WATTSHIFT/Scenes/CitySlice.unity"
+    ]
+}

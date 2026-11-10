@@ -89,7 +89,7 @@ namespace Wattshift
             var document = documentObject.AddComponent<UIDocument>(); document.panelSettings = panel;
             root = document.rootVisualElement; root.pickingMode = PickingMode.Ignore;
             Fill(root);
-            root.style.unityFontDefinition = FontDefinition.FromFont(Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf"));
+            root.style.unityFontDefinition = RuntimeUiFont.Definition;
             safeRoot = new VisualElement { pickingMode = PickingMode.Ignore }; Fill(safeRoot); root.Add(safeRoot);
 
             card = Card("mission-card"); card.style.position = Position.Absolute; safeRoot.Add(card);
@@ -98,7 +98,7 @@ namespace Wattshift
             card.Add(missionScroll);
             var heading = Row(); missionScroll.Add(heading);
             title = Text("", 17, Ink, true); title.name = "mission-title"; title.style.flexGrow = 1; title.style.minWidth = 0; heading.Add(title);
-            detailToggle = Button("−", () => { expanded = !expanded; UpdateLayout(); }, "mission-details");
+            detailToggle = Button("-", () => { expanded = !expanded; UpdateLayout(); }, "mission-details");
             detailToggle.style.flexGrow = 0; detailToggle.style.flexShrink = 0;
             detailToggle.style.width = 44; heading.Add(detailToggle);
             demoBanner = Text("Демонстрация · прогресс отдельно от кампании", 12, Accent, true);
@@ -117,7 +117,7 @@ namespace Wattshift
                 speedButtons[i] = Button(speed + "×", () => session.SetSpeed(speed), "speed-" + (int)speed);
                 speedRow.Add(speedButtons[i]);
             }
-            speedRow.Add(Button("−", () => cameraController?.ZoomBy(1.2f), "camera-zoom-out"));
+            speedRow.Add(Button("-", () => cameraController?.ZoomBy(1.2f), "camera-zoom-out"));
             speedRow.Add(Button("+", () => cameraController?.ZoomBy(1 / 1.2f), "camera-zoom-in"));
             tutorialCard = new VisualElement { name = "tutorial-tip" }; missionScroll.Add(tutorialCard);
             tutorialText = Text("", 12, Ink); tutorialCard.Add(tutorialText);
@@ -140,7 +140,7 @@ namespace Wattshift
             message = Text("", 11, Accent); message.name = "action-message"; message.style.marginTop = 8; missionScroll.Add(message);
             saveStatus = Text("", 11, Muted); saveStatus.name = "save-status";
             saveStatus.style.marginTop = 6; missionScroll.Add(saveStatus);
-            controlHint = Text("Перетаскивание — обзор · колесо / + − — масштаб\nWASD / стрелки — движение · Home — центр · Tab — объекты\nТелефон: один палец — обзор, два — масштаб", 10, Muted);
+            controlHint = Text("Перетаскивание — обзор · колесо / + - — масштаб\nWASD / стрелки — движение · Home — центр · Tab — объекты\nТелефон: один палец — обзор, два — масштаб", 10, Muted);
             controlHint.style.marginTop = 9; detail.Add(controlHint);
 
             contextSummary = Text("", 13, Ink); contextSummary.name = "context-problem";
@@ -643,7 +643,7 @@ namespace Wattshift
                 }
                 var preview = session.Simulation.PreviewPurchase(buildingId, entry.Key);
                 entry.Value.text = preview.Available
-                    ? "Прогноз до " + Hour(session.Mission.EndHour) + ": " + (preview.SavedEnergyKWh >= 0 ? "−" : "+") + Number(Math.Abs(preview.SavedEnergyKWh), 1)
+                    ? "Прогноз до " + Hour(session.Mission.EndHour) + ": " + (preview.SavedEnergyKWh >= 0 ? "-" : "+") + Number(Math.Abs(preview.SavedEnergyKWh), 1)
                         + " кВт·ч · " + (preview.Safe ? "безопасность сохранена" : "безопасность нарушена")
                     : preview.Reason ?? "Решение недоступно";
                 entry.Value.style.color = preview.Available && preview.Safe ? Accent : Muted;
@@ -770,7 +770,7 @@ namespace Wattshift
             card.style.maxHeight = availableHeight * (portrait && selected ? .50f : .92f);
             missionScroll.style.flexShrink = 1; missionScroll.style.minHeight = 0;
             detail.style.display = expanded ? DisplayStyle.Flex : DisplayStyle.None;
-            detailToggle.text = expanded ? "−" : "⋯";
+            detailToggle.text = expanded ? "-" : "…";
             detailToggle.tooltip = expanded ? "Свернуть сведения о смене" : "Сведения и настройки смены";
             message.style.display = string.IsNullOrWhiteSpace(message.text) || (session.TutorialActive && !session.LastActionFailed) ? DisplayStyle.None : DisplayStyle.Flex;
             controlHint.style.display = expanded ? DisplayStyle.Flex : DisplayStyle.None;

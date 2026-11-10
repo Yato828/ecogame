@@ -1,0 +1,5965 @@
+{
+  "session": {
+    "sessionId": "8adc936f-5064-4b69-97f9-d5af89bb7c75",
+    "capabilities": {
+      "acceptInsecureCerts": false,
+      "browserName": "firefox",
+      "browserVersion": "159.0.1",
+      "platformName": "mac",
+      "setWindowRect": true,
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:159.0) Gecko/20100101 Firefox/159.0",
+      "moz:buildID": "20261102144711",
+      "moz:headless": false,
+      "moz:platformVersion": "27.3.0",
+      "moz:processID": 62248,
+      "moz:profile": "/private/tmp/wattshift-firefox-release-check",
+      "moz:shutdownTimeout": 73000
+    }
+  },
+  "events": [
+    {
+      "type": "event",
+      "method": "network.responseCompleted",
+      "params": {
+        "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+        "isBlocked": false,
+        "navigation": "2ddd775c-8cbe-4488-9c96-09389152b099",
+        "redirectCount": 0,
+        "request": {
+          "request": "9-36ff276c-9d71-47e3-ae86-68db7e306655",
+          "url": "http://127.0.0.1:8086/",
+          "method": "GET",
+          "bodySize": 0,
+          "headersSize": 452,
+          "headers": [
+            {
+              "name": "Host",
+              "value": {
+                "type": "string",
+                "value": "127.0.0.1:8086"
+              }
+            },
+            {
+              "name": "User-Agent",
+              "value": {
+                "type": "string",
+                "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:159.0) Gecko/20100101 Firefox/159.0"
+              }
+            },
+            {
+              "name": "Accept",
+              "value": {
+                "type": "string",
+                "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+              }
+            },
+            {
+              "name": "Accept-Language",
+              "value": {
+                "type": "string",
+                "value": "en-US,en;q=0.9"
+              }
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": {
+                "type": "string",
+                "value": "gzip, deflate, br, zstd"
+              }
+            },
+            {
+              "name": "Connection",
+              "value": {
+                "type": "string",
+                "value": "keep-alive"
+              }
+            },
+            {
+              "name": "Upgrade-Insecure-Requests",
+              "value": {
+                "type": "string",
+                "value": "1"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": {
+                "type": "string",
+                "value": "document"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": {
+                "type": "string",
+                "value": "navigate"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": {
+                "type": "string",
+                "value": "none"
+              }
+            },
+            {
+              "name": "Sec-Fetch-User",
+              "value": {
+                "type": "string",
+                "value": "?1"
+              }
+            },
+            {
+              "name": "Priority",
+              "value": {
+                "type": "string",
+                "value": "u=0, i"
+              }
+            }
+          ],
+          "cookies": [],
+          "destination": "document",
+          "initiatorType": null,
+          "timings": {
+            "timeOrigin": 0,
+            "requestTime": 1794276460810.29,
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 1794276460812.452,
+            "dnsStart": 1794276460812.452,
+            "dnsEnd": 1794276460815.657,
+            "connectStart": 1794276460816.031,
+            "connectEnd": 1794276460816.428,
+            "tlsStart": 0,
+            "tlsEnd": 1794276460816.428,
+            "requestStart": 1794276460819.33,
+            "responseStart": 1794276460819.873,
+            "responseEnd": 1794276460819.898
+          }
+        },
+        "timestamp": 1794276460836,
+        "userContext": "default",
+        "response": {
+          "url": "http://127.0.0.1:8086/",
+          "protocol": "http/1.0",
+          "status": 200,
+          "statusText": "OK",
+          "fromCache": false,
+          "headers": [
+            {
+              "name": "Server",
+              "value": {
+                "type": "string",
+                "value": "SimpleHTTP/0.6 Python/3.9.6"
+              }
+            },
+            {
+              "name": "Date",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:07:40 GMT"
+              }
+            },
+            {
+              "name": "Content-Length",
+              "value": {
+                "type": "string",
+                "value": "2699"
+              }
+            },
+            {
+              "name": "Last-Modified",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:06:50 GMT"
+              }
+            },
+            {
+              "name": "Content-Type",
+              "value": {
+                "type": "string",
+                "value": "text/html; charset=utf-8"
+              }
+            },
+            {
+              "name": "Cache-Control",
+              "value": {
+                "type": "string",
+                "value": "no-cache"
+              }
+            },
+            {
+              "name": "X-Content-Type-Options",
+              "value": {
+                "type": "string",
+                "value": "nosniff"
+              }
+            }
+          ],
+          "mimeType": "text/html;charset=utf-8",
+          "bytesReceived": 2958,
+          "headersSize": 259,
+          "bodySize": 2699,
+          "content": {
+            "size": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "network.responseCompleted",
+      "params": {
+        "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+        "isBlocked": false,
+        "navigation": null,
+        "redirectCount": 0,
+        "request": {
+          "request": "10-36ff276c-9d71-47e3-ae86-68db7e306655",
+          "url": "http://127.0.0.1:8086/style.css",
+          "method": "GET",
+          "bodySize": 0,
+          "headersSize": 399,
+          "headers": [
+            {
+              "name": "Host",
+              "value": {
+                "type": "string",
+                "value": "127.0.0.1:8086"
+              }
+            },
+            {
+              "name": "User-Agent",
+              "value": {
+                "type": "string",
+                "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:159.0) Gecko/20100101 Firefox/159.0"
+              }
+            },
+            {
+              "name": "Accept",
+              "value": {
+                "type": "string",
+                "value": "text/css,*/*;q=0.1"
+              }
+            },
+            {
+              "name": "Accept-Language",
+              "value": {
+                "type": "string",
+                "value": "en-US,en;q=0.9"
+              }
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": {
+                "type": "string",
+                "value": "gzip, deflate, br, zstd"
+              }
+            },
+            {
+              "name": "Connection",
+              "value": {
+                "type": "string",
+                "value": "keep-alive"
+              }
+            },
+            {
+              "name": "Referer",
+              "value": {
+                "type": "string",
+                "value": "http://127.0.0.1:8086/"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": {
+                "type": "string",
+                "value": "style"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": {
+                "type": "string",
+                "value": "no-cors"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": {
+                "type": "string",
+                "value": "same-origin"
+              }
+            },
+            {
+              "name": "Priority",
+              "value": {
+                "type": "string",
+                "value": "u=2"
+              }
+            }
+          ],
+          "cookies": [],
+          "destination": "style",
+          "initiatorType": "link",
+          "timings": {
+            "timeOrigin": 0,
+            "requestTime": 1794276460846.87,
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 1794276460847.104,
+            "dnsStart": 1794276460847.104,
+            "dnsEnd": 1794276460847.607,
+            "connectStart": 1794276460847.619,
+            "connectEnd": 1794276460847.864,
+            "tlsStart": 0,
+            "tlsEnd": 1794276460847.864,
+            "requestStart": 1794276460848.735,
+            "responseStart": 1794276460849.221,
+            "responseEnd": 1794276460849.256
+          }
+        },
+        "timestamp": 1794276460850,
+        "userContext": "default",
+        "response": {
+          "url": "http://127.0.0.1:8086/style.css",
+          "protocol": "http/1.0",
+          "status": 200,
+          "statusText": "OK",
+          "fromCache": false,
+          "headers": [
+            {
+              "name": "Server",
+              "value": {
+                "type": "string",
+                "value": "SimpleHTTP/0.6 Python/3.9.6"
+              }
+            },
+            {
+              "name": "Date",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:07:40 GMT"
+              }
+            },
+            {
+              "name": "Content-Length",
+              "value": {
+                "type": "string",
+                "value": "1137"
+              }
+            },
+            {
+              "name": "Last-Modified",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:06:50 GMT"
+              }
+            },
+            {
+              "name": "Content-Type",
+              "value": {
+                "type": "string",
+                "value": "text/css; charset=utf-8"
+              }
+            },
+            {
+              "name": "Cache-Control",
+              "value": {
+                "type": "string",
+                "value": "no-cache"
+              }
+            },
+            {
+              "name": "X-Content-Type-Options",
+              "value": {
+                "type": "string",
+                "value": "nosniff"
+              }
+            }
+          ],
+          "mimeType": "text/css;charset=utf-8",
+          "bytesReceived": 1395,
+          "headersSize": 258,
+          "bodySize": 1137,
+          "content": {
+            "size": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "network.responseCompleted",
+      "params": {
+        "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+        "isBlocked": false,
+        "navigation": null,
+        "redirectCount": 0,
+        "request": {
+          "request": "12-36ff276c-9d71-47e3-ae86-68db7e306655",
+          "url": "http://127.0.0.1:8086/Build/1d2814b6bf5baf4ad4a2d23076046141.loader.js",
+          "method": "GET",
+          "bodySize": 0,
+          "headersSize": 409,
+          "headers": [
+            {
+              "name": "Host",
+              "value": {
+                "type": "string",
+                "value": "127.0.0.1:8086"
+              }
+            },
+            {
+              "name": "User-Agent",
+              "value": {
+                "type": "string",
+                "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:159.0) Gecko/20100101 Firefox/159.0"
+              }
+            },
+            {
+              "name": "Accept",
+              "value": {
+                "type": "string",
+                "value": "*/*"
+              }
+            },
+            {
+              "name": "Accept-Language",
+              "value": {
+                "type": "string",
+                "value": "en-US,en;q=0.9"
+              }
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": {
+                "type": "string",
+                "value": "gzip, deflate, br, zstd"
+              }
+            },
+            {
+              "name": "Connection",
+              "value": {
+                "type": "string",
+                "value": "keep-alive"
+              }
+            },
+            {
+              "name": "Referer",
+              "value": {
+                "type": "string",
+                "value": "http://127.0.0.1:8086/"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": {
+                "type": "string",
+                "value": "script"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": {
+                "type": "string",
+                "value": "no-cors"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": {
+                "type": "string",
+                "value": "same-origin"
+              }
+            }
+          ],
+          "cookies": [],
+          "destination": "script",
+          "initiatorType": "script",
+          "timings": {
+            "timeOrigin": 0,
+            "requestTime": 1794276460865.247,
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 1794276460865.764,
+            "dnsStart": 1794276460865.764,
+            "dnsEnd": 1794276460865.992,
+            "connectStart": 1794276460866.004,
+            "connectEnd": 1794276460866.277,
+            "tlsStart": 0,
+            "tlsEnd": 1794276460866.277,
+            "requestStart": 1794276460866.303,
+            "responseStart": 1794276460866.803,
+            "responseEnd": 1794276460866.832
+          }
+        },
+        "timestamp": 1794276460867,
+        "userContext": "default",
+        "response": {
+          "url": "http://127.0.0.1:8086/Build/1d2814b6bf5baf4ad4a2d23076046141.loader.js",
+          "protocol": "http/1.0",
+          "status": 200,
+          "statusText": "OK",
+          "fromCache": false,
+          "headers": [
+            {
+              "name": "Server",
+              "value": {
+                "type": "string",
+                "value": "SimpleHTTP/0.6 Python/3.9.6"
+              }
+            },
+            {
+              "name": "Date",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:07:40 GMT"
+              }
+            },
+            {
+              "name": "Content-Length",
+              "value": {
+                "type": "string",
+                "value": "26983"
+              }
+            },
+            {
+              "name": "Last-Modified",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:05:16 GMT"
+              }
+            },
+            {
+              "name": "Content-Type",
+              "value": {
+                "type": "string",
+                "value": "application/javascript"
+              }
+            },
+            {
+              "name": "Cache-Control",
+              "value": {
+                "type": "string",
+                "value": "public, max-age=31536000, immutable"
+              }
+            },
+            {
+              "name": "X-Content-Type-Options",
+              "value": {
+                "type": "string",
+                "value": "nosniff"
+              }
+            }
+          ],
+          "mimeType": "application/javascript",
+          "bytesReceived": 27268,
+          "headersSize": 285,
+          "bodySize": 26983,
+          "content": {
+            "size": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "network.responseCompleted",
+      "params": {
+        "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+        "isBlocked": false,
+        "navigation": null,
+        "redirectCount": 0,
+        "request": {
+          "request": "11-36ff276c-9d71-47e3-ae86-68db7e306655",
+          "url": "http://127.0.0.1:8086/favicon.ico",
+          "method": "GET",
+          "bodySize": 0,
+          "headersSize": 462,
+          "headers": [
+            {
+              "name": "Host",
+              "value": {
+                "type": "string",
+                "value": "127.0.0.1:8086"
+              }
+            },
+            {
+              "name": "User-Agent",
+              "value": {
+                "type": "string",
+                "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:159.0) Gecko/20100101 Firefox/159.0"
+              }
+            },
+            {
+              "name": "Accept",
+              "value": {
+                "type": "string",
+                "value": "image/avif,image/jxl,image/webp,image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5"
+              }
+            },
+            {
+              "name": "Accept-Language",
+              "value": {
+                "type": "string",
+                "value": "en-US,en;q=0.9"
+              }
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": {
+                "type": "string",
+                "value": "gzip, deflate, br, zstd"
+              }
+            },
+            {
+              "name": "Connection",
+              "value": {
+                "type": "string",
+                "value": "keep-alive"
+              }
+            },
+            {
+              "name": "Referer",
+              "value": {
+                "type": "string",
+                "value": "http://127.0.0.1:8086/"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": {
+                "type": "string",
+                "value": "image"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": {
+                "type": "string",
+                "value": "no-cors"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": {
+                "type": "string",
+                "value": "same-origin"
+              }
+            },
+            {
+              "name": "Priority",
+              "value": {
+                "type": "string",
+                "value": "u=6"
+              }
+            }
+          ],
+          "cookies": [],
+          "destination": "image",
+          "initiatorType": null,
+          "timings": {
+            "timeOrigin": 0,
+            "requestTime": 1794276460865.211,
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 1794276460865.349,
+            "dnsStart": 1794276460865.349,
+            "dnsEnd": 1794276460865.99,
+            "connectStart": 1794276460868.23,
+            "connectEnd": 1794276460868.553,
+            "tlsStart": 0,
+            "tlsEnd": 1794276460868.553,
+            "requestStart": 1794276460868.597,
+            "responseStart": 1794276460869.317,
+            "responseEnd": 1794276460869.338
+          }
+        },
+        "timestamp": 1794276460870,
+        "userContext": "default",
+        "response": {
+          "url": "http://127.0.0.1:8086/favicon.ico",
+          "protocol": "http/1.0",
+          "status": 404,
+          "statusText": "File not found",
+          "fromCache": false,
+          "headers": [
+            {
+              "name": "Server",
+              "value": {
+                "type": "string",
+                "value": "SimpleHTTP/0.6 Python/3.9.6"
+              }
+            },
+            {
+              "name": "Date",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:07:40 GMT"
+              }
+            },
+            {
+              "name": "Connection",
+              "value": {
+                "type": "string",
+                "value": "close"
+              }
+            },
+            {
+              "name": "Content-Type",
+              "value": {
+                "type": "string",
+                "value": "text/html;charset=utf-8"
+              }
+            },
+            {
+              "name": "Content-Length",
+              "value": {
+                "type": "string",
+                "value": "469"
+              }
+            }
+          ],
+          "mimeType": "text/html;charset=utf-8",
+          "bytesReceived": 653,
+          "headersSize": 184,
+          "bodySize": 469,
+          "content": {
+            "size": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "network.responseCompleted",
+      "params": {
+        "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+        "isBlocked": false,
+        "navigation": null,
+        "redirectCount": 0,
+        "request": {
+          "request": "13-36ff276c-9d71-47e3-ae86-68db7e306655",
+          "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br",
+          "method": "GET",
+          "bodySize": 0,
+          "headersSize": 415,
+          "headers": [
+            {
+              "name": "Host",
+              "value": {
+                "type": "string",
+                "value": "127.0.0.1:8086"
+              }
+            },
+            {
+              "name": "User-Agent",
+              "value": {
+                "type": "string",
+                "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:159.0) Gecko/20100101 Firefox/159.0"
+              }
+            },
+            {
+              "name": "Accept",
+              "value": {
+                "type": "string",
+                "value": "*/*"
+              }
+            },
+            {
+              "name": "Accept-Language",
+              "value": {
+                "type": "string",
+                "value": "en-US,en;q=0.9"
+              }
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": {
+                "type": "string",
+                "value": "gzip, deflate, br, zstd"
+              }
+            },
+            {
+              "name": "Connection",
+              "value": {
+                "type": "string",
+                "value": "keep-alive"
+              }
+            },
+            {
+              "name": "Referer",
+              "value": {
+                "type": "string",
+                "value": "http://127.0.0.1:8086/"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": {
+                "type": "string",
+                "value": "script"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": {
+                "type": "string",
+                "value": "no-cors"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": {
+                "type": "string",
+                "value": "same-origin"
+              }
+            }
+          ],
+          "cookies": [],
+          "destination": "script",
+          "initiatorType": "script",
+          "timings": {
+            "timeOrigin": 0,
+            "requestTime": 1794276460896.343,
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 1794276460896.526,
+            "dnsStart": 1794276460896.526,
+            "dnsEnd": 1794276460896.971,
+            "connectStart": 1794276460896.99,
+            "connectEnd": 1794276460897.295,
+            "tlsStart": 0,
+            "tlsEnd": 1794276460897.295,
+            "requestStart": 1794276460897.319,
+            "responseStart": 1794276460897.992,
+            "responseEnd": 1794276460898.096
+          }
+        },
+        "timestamp": 1794276460898,
+        "userContext": "default",
+        "response": {
+          "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br",
+          "protocol": "http/1.0",
+          "status": 200,
+          "statusText": "OK",
+          "fromCache": false,
+          "headers": [
+            {
+              "name": "Server",
+              "value": {
+                "type": "string",
+                "value": "SimpleHTTP/0.6 Python/3.9.6"
+              }
+            },
+            {
+              "name": "Date",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:07:40 GMT"
+              }
+            },
+            {
+              "name": "Content-Length",
+              "value": {
+                "type": "string",
+                "value": "76626"
+              }
+            },
+            {
+              "name": "Last-Modified",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:05:18 GMT"
+              }
+            },
+            {
+              "name": "Content-Type",
+              "value": {
+                "type": "string",
+                "value": "application/javascript"
+              }
+            },
+            {
+              "name": "Cache-Control",
+              "value": {
+                "type": "string",
+                "value": "public, max-age=31536000, immutable"
+              }
+            },
+            {
+              "name": "X-Content-Type-Options",
+              "value": {
+                "type": "string",
+                "value": "nosniff"
+              }
+            },
+            {
+              "name": "Content-Encoding",
+              "value": {
+                "type": "string",
+                "value": "br"
+              }
+            }
+          ],
+          "mimeType": "application/javascript",
+          "bytesReceived": 76933,
+          "headersSize": 307,
+          "bodySize": 76626,
+          "content": {
+            "size": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "network.responseCompleted",
+      "params": {
+        "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+        "isBlocked": false,
+        "navigation": null,
+        "redirectCount": 0,
+        "request": {
+          "request": "14-36ff276c-9d71-47e3-ae86-68db7e306655",
+          "url": "http://127.0.0.1:8086/Build/98c1396dae91a8bc871cee0207461344.data.br",
+          "method": "GET",
+          "bodySize": 0,
+          "headersSize": 418,
+          "headers": [
+            {
+              "name": "Host",
+              "value": {
+                "type": "string",
+                "value": "127.0.0.1:8086"
+              }
+            },
+            {
+              "name": "User-Agent",
+              "value": {
+                "type": "string",
+                "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:159.0) Gecko/20100101 Firefox/159.0"
+              }
+            },
+            {
+              "name": "Accept",
+              "value": {
+                "type": "string",
+                "value": "*/*"
+              }
+            },
+            {
+              "name": "Accept-Language",
+              "value": {
+                "type": "string",
+                "value": "en-US,en;q=0.9"
+              }
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": {
+                "type": "string",
+                "value": "gzip, deflate, br, zstd"
+              }
+            },
+            {
+              "name": "Referer",
+              "value": {
+                "type": "string",
+                "value": "http://127.0.0.1:8086/"
+              }
+            },
+            {
+              "name": "Connection",
+              "value": {
+                "type": "string",
+                "value": "keep-alive"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": {
+                "type": "string",
+                "value": "empty"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": {
+                "type": "string",
+                "value": "cors"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": {
+                "type": "string",
+                "value": "same-origin"
+              }
+            },
+            {
+              "name": "Priority",
+              "value": {
+                "type": "string",
+                "value": "u=4"
+              }
+            }
+          ],
+          "cookies": [],
+          "destination": "",
+          "initiatorType": "fetch",
+          "timings": {
+            "timeOrigin": 0,
+            "requestTime": 1794276460907.657,
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 1794276460907.822,
+            "dnsStart": 1794276460907.822,
+            "dnsEnd": 1794276460908.316,
+            "connectStart": 1794276460908.324,
+            "connectEnd": 1794276460908.541,
+            "tlsStart": 0,
+            "tlsEnd": 1794276460908.541,
+            "requestStart": 1794276460908.564,
+            "responseStart": 1794276460909.296,
+            "responseEnd": 1794276460952.005
+          }
+        },
+        "timestamp": 1794276460969,
+        "userContext": "default",
+        "response": {
+          "url": "http://127.0.0.1:8086/Build/98c1396dae91a8bc871cee0207461344.data.br",
+          "protocol": "http/1.0",
+          "status": 200,
+          "statusText": "OK",
+          "fromCache": false,
+          "headers": [
+            {
+              "name": "Server",
+              "value": {
+                "type": "string",
+                "value": "SimpleHTTP/0.6 Python/3.9.6"
+              }
+            },
+            {
+              "name": "Date",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:07:40 GMT"
+              }
+            },
+            {
+              "name": "Content-Length",
+              "value": {
+                "type": "string",
+                "value": "4390003"
+              }
+            },
+            {
+              "name": "Last-Modified",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:04:17 GMT"
+              }
+            },
+            {
+              "name": "Content-Type",
+              "value": {
+                "type": "string",
+                "value": "application/octet-stream"
+              }
+            },
+            {
+              "name": "Cache-Control",
+              "value": {
+                "type": "string",
+                "value": "public, max-age=31536000, immutable"
+              }
+            },
+            {
+              "name": "X-Content-Type-Options",
+              "value": {
+                "type": "string",
+                "value": "nosniff"
+              }
+            },
+            {
+              "name": "Content-Encoding",
+              "value": {
+                "type": "string",
+                "value": "br"
+              }
+            }
+          ],
+          "mimeType": "application/octet-stream",
+          "bytesReceived": 4390314,
+          "headersSize": 311,
+          "bodySize": 4390003,
+          "content": {
+            "size": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[UnityCache] 'http://127.0.0.1:8086/Build/98c1396dae91a8bc871cee0207461344.data.br' successfully downloaded and stored in the browser cache"
+          }
+        ],
+        "level": "info",
+        "text": "[UnityCache] 'http://127.0.0.1:8086/Build/98c1396dae91a8bc871cee0207461344.data.br' successfully downloaded and stored in the browser cache",
+        "timestamp": 1794276461061,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 6759,
+              "functionName": "U",
+              "lineNumber": 0,
+              "url": "http://127.0.0.1:8086/Build/1d2814b6bf5baf4ad4a2d23076046141.loader.js"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "network.responseCompleted",
+      "params": {
+        "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+        "isBlocked": false,
+        "navigation": null,
+        "redirectCount": 0,
+        "request": {
+          "request": "15-36ff276c-9d71-47e3-ae86-68db7e306655",
+          "url": "http://127.0.0.1:8086/Build/36d7fddb47135aa422bc16ef3b912ece.wasm.br",
+          "method": "GET",
+          "bodySize": 0,
+          "headersSize": 418,
+          "headers": [
+            {
+              "name": "Host",
+              "value": {
+                "type": "string",
+                "value": "127.0.0.1:8086"
+              }
+            },
+            {
+              "name": "User-Agent",
+              "value": {
+                "type": "string",
+                "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:159.0) Gecko/20100101 Firefox/159.0"
+              }
+            },
+            {
+              "name": "Accept",
+              "value": {
+                "type": "string",
+                "value": "*/*"
+              }
+            },
+            {
+              "name": "Accept-Language",
+              "value": {
+                "type": "string",
+                "value": "en-US,en;q=0.9"
+              }
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": {
+                "type": "string",
+                "value": "gzip, deflate, br, zstd"
+              }
+            },
+            {
+              "name": "Referer",
+              "value": {
+                "type": "string",
+                "value": "http://127.0.0.1:8086/"
+              }
+            },
+            {
+              "name": "Connection",
+              "value": {
+                "type": "string",
+                "value": "keep-alive"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": {
+                "type": "string",
+                "value": "empty"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": {
+                "type": "string",
+                "value": "cors"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": {
+                "type": "string",
+                "value": "same-origin"
+              }
+            },
+            {
+              "name": "Priority",
+              "value": {
+                "type": "string",
+                "value": "u=4"
+              }
+            }
+          ],
+          "cookies": [],
+          "destination": "",
+          "initiatorType": "fetch",
+          "timings": {
+            "timeOrigin": 0,
+            "requestTime": 1794276460924.967,
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 1794276460925.121,
+            "dnsStart": 1794276460925.121,
+            "dnsEnd": 1794276460925.622,
+            "connectStart": 1794276460925.647,
+            "connectEnd": 1794276460926.262,
+            "tlsStart": 0,
+            "tlsEnd": 1794276460926.262,
+            "requestStart": 1794276460926.299,
+            "responseStart": 1794276460926.973,
+            "responseEnd": 1794276461059.905
+          }
+        },
+        "timestamp": 1794276461108,
+        "userContext": "default",
+        "response": {
+          "url": "http://127.0.0.1:8086/Build/36d7fddb47135aa422bc16ef3b912ece.wasm.br",
+          "protocol": "http/1.0",
+          "status": 200,
+          "statusText": "OK",
+          "fromCache": false,
+          "headers": [
+            {
+              "name": "Server",
+              "value": {
+                "type": "string",
+                "value": "SimpleHTTP/0.6 Python/3.9.6"
+              }
+            },
+            {
+              "name": "Date",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:07:40 GMT"
+              }
+            },
+            {
+              "name": "Content-Length",
+              "value": {
+                "type": "string",
+                "value": "8081653"
+              }
+            },
+            {
+              "name": "Last-Modified",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:06:50 GMT"
+              }
+            },
+            {
+              "name": "Content-Type",
+              "value": {
+                "type": "string",
+                "value": "application/wasm"
+              }
+            },
+            {
+              "name": "Cache-Control",
+              "value": {
+                "type": "string",
+                "value": "public, max-age=31536000, immutable"
+              }
+            },
+            {
+              "name": "X-Content-Type-Options",
+              "value": {
+                "type": "string",
+                "value": "nosniff"
+              }
+            },
+            {
+              "name": "Content-Encoding",
+              "value": {
+                "type": "string",
+                "value": "br"
+              }
+            }
+          ],
+          "mimeType": "application/wasm",
+          "bytesReceived": 8081956,
+          "headersSize": 303,
+          "bodySize": 8081653,
+          "content": {
+            "size": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[UnityMemory] Configuration Parameters - Can be set up in boot.config\n"
+          }
+        ],
+        "level": "info",
+        "text": "[UnityMemory] Configuration Parameters - Can be set up in boot.config\n",
+        "timestamp": 1794276461691,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-allocator-temp-initial-block-size-main=262144\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-allocator-temp-initial-block-size-main=262144\"\n",
+        "timestamp": 1794276461691,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-allocator-temp-initial-block-size-worker=262144\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-allocator-temp-initial-block-size-worker=262144\"\n",
+        "timestamp": 1794276461692,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-temp-allocator-size-audio-worker=65536\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-temp-allocator-size-audio-worker=65536\"\n",
+        "timestamp": 1794276461692,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-remapper-allocator-initial-capacity=32768\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-remapper-allocator-initial-capacity=32768\"\n",
+        "timestamp": 1794276461692,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-temp-allocator-size-background-worker=32768\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-temp-allocator-size-background-worker=32768\"\n",
+        "timestamp": 1794276461692,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-bucket-allocator-granularity=16\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-bucket-allocator-granularity=16\"\n",
+        "timestamp": 1794276461692,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-bucket-allocator-bucket-count=8\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-bucket-allocator-bucket-count=8\"\n",
+        "timestamp": 1794276461692,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-bucket-allocator-block-size=4194304\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-bucket-allocator-block-size=4194304\"\n",
+        "timestamp": 1794276461692,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-bucket-allocator-block-count=1\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-bucket-allocator-block-count=1\"\n",
+        "timestamp": 1794276461693,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-main-allocator-block-size=16777216\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-main-allocator-block-size=16777216\"\n",
+        "timestamp": 1794276461693,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-thread-allocator-block-size=16777216\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-thread-allocator-block-size=16777216\"\n",
+        "timestamp": 1794276461693,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-gfx-main-allocator-block-size=16777216\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-gfx-main-allocator-block-size=16777216\"\n",
+        "timestamp": 1794276461693,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-gfx-thread-allocator-block-size=16777216\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-gfx-thread-allocator-block-size=16777216\"\n",
+        "timestamp": 1794276461694,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-cache-allocator-block-size=4194304\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-cache-allocator-block-size=4194304\"\n",
+        "timestamp": 1794276461694,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-typetree-allocator-block-size=2097152\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-typetree-allocator-block-size=2097152\"\n",
+        "timestamp": 1794276461694,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-profiler-bucket-allocator-granularity=16\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-profiler-bucket-allocator-granularity=16\"\n",
+        "timestamp": 1794276461694,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-profiler-bucket-allocator-bucket-count=8\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-profiler-bucket-allocator-bucket-count=8\"\n",
+        "timestamp": 1794276461694,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-profiler-bucket-allocator-block-size=4194304\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-profiler-bucket-allocator-block-size=4194304\"\n",
+        "timestamp": 1794276461694,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-profiler-bucket-allocator-block-count=1\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-profiler-bucket-allocator-block-count=1\"\n",
+        "timestamp": 1794276461694,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-profiler-allocator-block-size=16777216\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-profiler-allocator-block-size=16777216\"\n",
+        "timestamp": 1794276461695,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-profiler-editor-allocator-block-size=1048576\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-profiler-editor-allocator-block-size=1048576\"\n",
+        "timestamp": 1794276461695,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-temp-allocator-size-main=4194304\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-temp-allocator-size-main=4194304\"\n",
+        "timestamp": 1794276461695,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-job-temp-allocator-block-size=2097152\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-job-temp-allocator-block-size=2097152\"\n",
+        "timestamp": 1794276461695,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-job-temp-allocator-block-size-background=1048576\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-job-temp-allocator-block-size-background=1048576\"\n",
+        "timestamp": 1794276461695,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-job-temp-allocator-reduction-small-platforms=262144\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-job-temp-allocator-reduction-small-platforms=262144\"\n",
+        "timestamp": 1794276461695,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Input System module state changed to: Initialized.\n"
+          }
+        ],
+        "level": "info",
+        "text": "Input System module state changed to: Initialized.\n",
+        "timestamp": 1794276461742,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[Physics::Module] Initialized fallback backend.\n"
+          }
+        ],
+        "level": "info",
+        "text": "[Physics::Module] Initialized fallback backend.\n",
+        "timestamp": 1794276461743,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[Physics::Module] Id: 0xdecafbad\n"
+          }
+        ],
+        "level": "info",
+        "text": "[Physics::Module] Id: 0xdecafbad\n",
+        "timestamp": 1794276461744,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Loading player data from data.unity3d\n"
+          }
+        ],
+        "level": "info",
+        "text": "Loading player data from data.unity3d\n",
+        "timestamp": 1794276461744,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Initialize engine version: 6000.3.27f1 (672d562a42a7)\n"
+          }
+        ],
+        "level": "info",
+        "text": "Initialize engine version: 6000.3.27f1 (672d562a42a7)\n",
+        "timestamp": 1794276461746,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[Subsystems] Discovering subsystems at path UnitySubsystems\n"
+          }
+        ],
+        "level": "info",
+        "text": "[Subsystems] Discovering subsystems at path UnitySubsystems\n",
+        "timestamp": 1794276461746,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Creating WebGL 2.0 context."
+          }
+        ],
+        "level": "info",
+        "text": "Creating WebGL 2.0 context.",
+        "timestamp": 1794276461746,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 1311,
+              "functionName": "print",
+              "lineNumber": 0,
+              "url": "http://127.0.0.1:8086/Build/1d2814b6bf5baf4ad4a2d23076046141.loader.js"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Renderer: Apple M1, or similar\n"
+          }
+        ],
+        "level": "info",
+        "text": "Renderer: Apple M1, or similar\n",
+        "timestamp": 1794276461771,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Vendor:   Mozilla\n"
+          }
+        ],
+        "level": "info",
+        "text": "Vendor:   Mozilla\n",
+        "timestamp": 1794276461772,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Version:  OpenGL ES 3.0 (WebGL 2.0)\n"
+          }
+        ],
+        "level": "info",
+        "text": "Version:  OpenGL ES 3.0 (WebGL 2.0)\n",
+        "timestamp": 1794276461772,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "GLES:     3\n"
+          }
+        ],
+        "level": "info",
+        "text": "GLES:     3\n",
+        "timestamp": 1794276461772,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": " EXT_color_buffer_float EXT_depth_clamp EXT_float_blend EXT_texture_compression_rgtc EXT_texture_filter_anisotropic EXT_texture_norm16 OES_draw_buffers_indexed OES_texture_float_linear WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_provoking_vertex GL_EXT_color_buffer_float GL_EXT_depth_clamp GL_EXT_float_blend GL_EXT_texture_compression_rgtc GL_EXT_texture_filter_anisotropic GL_EXT_texture_norm16 GL_OES_draw_buffers_indexed GL_OES_texture_float_linear GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_provoking_vertex\n"
+          }
+        ],
+        "level": "info",
+        "text": " EXT_color_buffer_float EXT_depth_clamp EXT_float_blend EXT_texture_compression_rgtc EXT_texture_filter_anisotropic EXT_texture_norm16 OES_draw_buffers_indexed OES_texture_float_linear WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_provoking_vertex GL_EXT_color_buffer_float GL_EXT_depth_clamp GL_EXT_float_blend GL_EXT_texture_compression_rgtc GL_EXT_texture_filter_anisotropic GL_EXT_texture_norm16 GL_OES_draw_buffers_indexed GL_OES_texture_float_linear GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_provoking_vertex\n",
+        "timestamp": 1794276461772,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1\n"
+          }
+        ],
+        "level": "info",
+        "text": "OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1\n",
+        "timestamp": 1794276461777,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[Physics::Module] Selected backend.\n"
+          }
+        ],
+        "level": "info",
+        "text": "[Physics::Module] Selected backend.\n",
+        "timestamp": 1794276461829,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[Physics::Module] Name: PhysX\n"
+          }
+        ],
+        "level": "info",
+        "text": "[Physics::Module] Name: PhysX\n",
+        "timestamp": 1794276461829,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[Physics::Module] Id: 0xf2b8ea05\n"
+          }
+        ],
+        "level": "info",
+        "text": "[Physics::Module] Id: 0xf2b8ea05\n",
+        "timestamp": 1794276461829,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[Physics::Module] SDK Version: 4.1.2\n"
+          }
+        ],
+        "level": "info",
+        "text": "[Physics::Module] SDK Version: 4.1.2\n",
+        "timestamp": 1794276461829,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[Physics::Module] Integration Version: 1.0.0\n"
+          }
+        ],
+        "level": "info",
+        "text": "[Physics::Module] Integration Version: 1.0.0\n",
+        "timestamp": 1794276461829,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[Physics::Module] Threading Mode: Single-Threaded\n"
+          }
+        ],
+        "level": "info",
+        "text": "[Physics::Module] Threading Mode: Single-Threaded\n",
+        "timestamp": 1794276461829,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "ERROR: Shader "
+          }
+        ],
+        "level": "info",
+        "text": "ERROR: Shader ",
+        "timestamp": 1794276461910,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Hidden/CoreSRP/CoreCopy shader is not supported on this GPU (none of subshaders/fallbacks are suitable)\n"
+          }
+        ],
+        "level": "info",
+        "text": "Hidden/CoreSRP/CoreCopy shader is not supported on this GPU (none of subshaders/fallbacks are suitable)\n",
+        "timestamp": 1794276461910,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "ERROR: Shader "
+          }
+        ],
+        "level": "info",
+        "text": "ERROR: Shader ",
+        "timestamp": 1794276461911,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Hidden/Universal Render Pipeline/StencilDitherMaskSeed shader is not supported on this GPU (none of subshaders/fallbacks are suitable)\n"
+          }
+        ],
+        "level": "info",
+        "text": "Hidden/Universal Render Pipeline/StencilDitherMaskSeed shader is not supported on this GPU (none of subshaders/fallbacks are suitable)\n",
+        "timestamp": 1794276461911,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "ERROR: Shader "
+          }
+        ],
+        "level": "info",
+        "text": "ERROR: Shader ",
+        "timestamp": 1794276461934,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Hidden/Universal/HDRDebugView shader is not supported on this GPU (none of subshaders/fallbacks are suitable)\n"
+          }
+        ],
+        "level": "info",
+        "text": "Hidden/Universal/HDRDebugView shader is not supported on this GPU (none of subshaders/fallbacks are suitable)\n",
+        "timestamp": 1794276461934,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Input System initialize...\n"
+          }
+        ],
+        "level": "info",
+        "text": "Input System initialize...\n",
+        "timestamp": 1794276461980,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "d8c1484b-51c4-445c-8033-94a0a4576a3d",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "UnloadTime: 0.000000 ms\n"
+          }
+        ],
+        "level": "info",
+        "text": "UnloadTime: 0.000000 ms\n",
+        "timestamp": 1794276462062,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "network.responseCompleted",
+      "params": {
+        "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+        "isBlocked": false,
+        "navigation": "de7a5133-b862-4620-a53e-ea7c04650b74",
+        "redirectCount": 0,
+        "request": {
+          "request": "16-36ff276c-9d71-47e3-ae86-68db7e306655",
+          "url": "http://127.0.0.1:8086/",
+          "method": "GET",
+          "bodySize": 0,
+          "headersSize": 502,
+          "headers": [
+            {
+              "name": "Host",
+              "value": {
+                "type": "string",
+                "value": "127.0.0.1:8086"
+              }
+            },
+            {
+              "name": "User-Agent",
+              "value": {
+                "type": "string",
+                "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:159.0) Gecko/20100101 Firefox/159.0"
+              }
+            },
+            {
+              "name": "Accept",
+              "value": {
+                "type": "string",
+                "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+              }
+            },
+            {
+              "name": "Accept-Language",
+              "value": {
+                "type": "string",
+                "value": "en-US,en;q=0.9"
+              }
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": {
+                "type": "string",
+                "value": "gzip, deflate, br, zstd"
+              }
+            },
+            {
+              "name": "Connection",
+              "value": {
+                "type": "string",
+                "value": "keep-alive"
+              }
+            },
+            {
+              "name": "Upgrade-Insecure-Requests",
+              "value": {
+                "type": "string",
+                "value": "1"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": {
+                "type": "string",
+                "value": "document"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": {
+                "type": "string",
+                "value": "navigate"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": {
+                "type": "string",
+                "value": "none"
+              }
+            },
+            {
+              "name": "Sec-Fetch-User",
+              "value": {
+                "type": "string",
+                "value": "?1"
+              }
+            },
+            {
+              "name": "If-Modified-Since",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:06:50 GMT"
+              }
+            },
+            {
+              "name": "Priority",
+              "value": {
+                "type": "string",
+                "value": "u=0, i"
+              }
+            }
+          ],
+          "cookies": [],
+          "destination": "document",
+          "initiatorType": null,
+          "timings": {
+            "timeOrigin": 0,
+            "requestTime": 1794277386460.555,
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 1794277386462.416,
+            "dnsStart": 1794277386462.416,
+            "dnsEnd": 1794277386465.461,
+            "connectStart": 1794277386467.628,
+            "connectEnd": 1794277386467.908,
+            "tlsStart": 0,
+            "tlsEnd": 1794277386467.908,
+            "requestStart": 1794277386467.937,
+            "responseStart": 1794277386468.935,
+            "responseEnd": 1794277386468.975
+          }
+        },
+        "timestamp": 1794277386481,
+        "userContext": "default",
+        "response": {
+          "url": "http://127.0.0.1:8086/",
+          "protocol": "http/1.0",
+          "status": 200,
+          "statusText": "OK",
+          "fromCache": false,
+          "headers": [
+            {
+              "name": "Server",
+              "value": {
+                "type": "string",
+                "value": "SimpleHTTP/0.6 Python/3.9.6"
+              }
+            },
+            {
+              "name": "Date",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:23:06 GMT"
+              }
+            },
+            {
+              "name": "Content-Length",
+              "value": {
+                "type": "string",
+                "value": "2733"
+              }
+            },
+            {
+              "name": "Last-Modified",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:21:13 GMT"
+              }
+            },
+            {
+              "name": "Content-Type",
+              "value": {
+                "type": "string",
+                "value": "text/html; charset=utf-8"
+              }
+            },
+            {
+              "name": "Cache-Control",
+              "value": {
+                "type": "string",
+                "value": "no-cache"
+              }
+            },
+            {
+              "name": "X-Content-Type-Options",
+              "value": {
+                "type": "string",
+                "value": "nosniff"
+              }
+            }
+          ],
+          "mimeType": "text/html;charset=utf-8",
+          "bytesReceived": 2992,
+          "headersSize": 259,
+          "bodySize": 2733,
+          "content": {
+            "size": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "network.responseCompleted",
+      "params": {
+        "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+        "isBlocked": false,
+        "navigation": null,
+        "redirectCount": 0,
+        "request": {
+          "request": "2-0784c138-8afd-4378-9d5a-2002392ecc39",
+          "url": "data:,",
+          "method": "GET",
+          "bodySize": 0,
+          "headersSize": 0,
+          "headers": [],
+          "cookies": [],
+          "destination": "image",
+          "initiatorType": null,
+          "timings": {
+            "timeOrigin": 0,
+            "requestTime": 1794277386488,
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 1794277386488,
+            "dnsStart": 1794277386488,
+            "dnsEnd": 1794277386488,
+            "connectStart": 1794277386488,
+            "connectEnd": 1794277386488,
+            "tlsStart": 1794277386488,
+            "tlsEnd": 1794277386488,
+            "requestStart": 1794277386488,
+            "responseStart": 1794277386488,
+            "responseEnd": 1794277386488
+          }
+        },
+        "timestamp": 1794277386497,
+        "userContext": "default",
+        "response": {
+          "url": "data:,",
+          "protocol": "data",
+          "status": 200,
+          "statusText": "OK",
+          "fromCache": false,
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": {
+                "type": "string",
+                "value": "text/plain"
+              }
+            }
+          ],
+          "mimeType": "text/plain;charset=US-ASCII",
+          "bytesReceived": 0,
+          "headersSize": 0,
+          "bodySize": 0,
+          "content": {
+            "size": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "network.responseCompleted",
+      "params": {
+        "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+        "isBlocked": false,
+        "navigation": null,
+        "redirectCount": 0,
+        "request": {
+          "request": "17-36ff276c-9d71-47e3-ae86-68db7e306655",
+          "url": "http://127.0.0.1:8086/style.css",
+          "method": "GET",
+          "bodySize": 0,
+          "headersSize": 449,
+          "headers": [
+            {
+              "name": "Host",
+              "value": {
+                "type": "string",
+                "value": "127.0.0.1:8086"
+              }
+            },
+            {
+              "name": "User-Agent",
+              "value": {
+                "type": "string",
+                "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:159.0) Gecko/20100101 Firefox/159.0"
+              }
+            },
+            {
+              "name": "Accept",
+              "value": {
+                "type": "string",
+                "value": "text/css,*/*;q=0.1"
+              }
+            },
+            {
+              "name": "Accept-Language",
+              "value": {
+                "type": "string",
+                "value": "en-US,en;q=0.9"
+              }
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": {
+                "type": "string",
+                "value": "gzip, deflate, br, zstd"
+              }
+            },
+            {
+              "name": "Connection",
+              "value": {
+                "type": "string",
+                "value": "keep-alive"
+              }
+            },
+            {
+              "name": "Referer",
+              "value": {
+                "type": "string",
+                "value": "http://127.0.0.1:8086/"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": {
+                "type": "string",
+                "value": "style"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": {
+                "type": "string",
+                "value": "no-cors"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": {
+                "type": "string",
+                "value": "same-origin"
+              }
+            },
+            {
+              "name": "If-Modified-Since",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:06:50 GMT"
+              }
+            },
+            {
+              "name": "Priority",
+              "value": {
+                "type": "string",
+                "value": "u=2"
+              }
+            }
+          ],
+          "cookies": [],
+          "destination": "style",
+          "initiatorType": "link",
+          "timings": {
+            "timeOrigin": 0,
+            "requestTime": 1794277386497.604,
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 0,
+            "dnsStart": 0,
+            "dnsEnd": 0,
+            "connectStart": 1794277386498.141,
+            "connectEnd": 1794277386498.34,
+            "tlsStart": 0,
+            "tlsEnd": 1794277386498.34,
+            "requestStart": 1794277386498.359,
+            "responseStart": 1794277386498.857,
+            "responseEnd": 1794277386498.882
+          }
+        },
+        "timestamp": 1794277386499,
+        "userContext": "default",
+        "response": {
+          "url": "http://127.0.0.1:8086/style.css",
+          "protocol": "http/1.0",
+          "status": 200,
+          "statusText": "OK",
+          "fromCache": false,
+          "headers": [
+            {
+              "name": "Server",
+              "value": {
+                "type": "string",
+                "value": "SimpleHTTP/0.6 Python/3.9.6"
+              }
+            },
+            {
+              "name": "Date",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:23:06 GMT"
+              }
+            },
+            {
+              "name": "Content-Length",
+              "value": {
+                "type": "string",
+                "value": "1137"
+              }
+            },
+            {
+              "name": "Last-Modified",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:21:13 GMT"
+              }
+            },
+            {
+              "name": "Content-Type",
+              "value": {
+                "type": "string",
+                "value": "text/css; charset=utf-8"
+              }
+            },
+            {
+              "name": "Cache-Control",
+              "value": {
+                "type": "string",
+                "value": "no-cache"
+              }
+            },
+            {
+              "name": "X-Content-Type-Options",
+              "value": {
+                "type": "string",
+                "value": "nosniff"
+              }
+            }
+          ],
+          "mimeType": "text/css;charset=utf-8",
+          "bytesReceived": 1395,
+          "headersSize": 258,
+          "bodySize": 1137,
+          "content": {
+            "size": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "network.responseCompleted",
+      "params": {
+        "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+        "isBlocked": false,
+        "navigation": null,
+        "redirectCount": 0,
+        "request": {
+          "request": "18-36ff276c-9d71-47e3-ae86-68db7e306655",
+          "url": "http://127.0.0.1:8086/Build/396f77fd32d8290e55bb26a030f0fef7.loader.js",
+          "method": "GET",
+          "bodySize": 0,
+          "headersSize": 409,
+          "headers": [
+            {
+              "name": "Host",
+              "value": {
+                "type": "string",
+                "value": "127.0.0.1:8086"
+              }
+            },
+            {
+              "name": "User-Agent",
+              "value": {
+                "type": "string",
+                "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:159.0) Gecko/20100101 Firefox/159.0"
+              }
+            },
+            {
+              "name": "Accept",
+              "value": {
+                "type": "string",
+                "value": "*/*"
+              }
+            },
+            {
+              "name": "Accept-Language",
+              "value": {
+                "type": "string",
+                "value": "en-US,en;q=0.9"
+              }
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": {
+                "type": "string",
+                "value": "gzip, deflate, br, zstd"
+              }
+            },
+            {
+              "name": "Connection",
+              "value": {
+                "type": "string",
+                "value": "keep-alive"
+              }
+            },
+            {
+              "name": "Referer",
+              "value": {
+                "type": "string",
+                "value": "http://127.0.0.1:8086/"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": {
+                "type": "string",
+                "value": "script"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": {
+                "type": "string",
+                "value": "no-cors"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": {
+                "type": "string",
+                "value": "same-origin"
+              }
+            }
+          ],
+          "cookies": [],
+          "destination": "script",
+          "initiatorType": "script",
+          "timings": {
+            "timeOrigin": 0,
+            "requestTime": 1794277386506.971,
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 0,
+            "dnsStart": 0,
+            "dnsEnd": 0,
+            "connectStart": 1794277386507.603,
+            "connectEnd": 1794277386507.855,
+            "tlsStart": 0,
+            "tlsEnd": 1794277386507.855,
+            "requestStart": 1794277386507.875,
+            "responseStart": 1794277386508.303,
+            "responseEnd": 1794277386508.33
+          }
+        },
+        "timestamp": 1794277386510,
+        "userContext": "default",
+        "response": {
+          "url": "http://127.0.0.1:8086/Build/396f77fd32d8290e55bb26a030f0fef7.loader.js",
+          "protocol": "http/1.0",
+          "status": 200,
+          "statusText": "OK",
+          "fromCache": false,
+          "headers": [
+            {
+              "name": "Server",
+              "value": {
+                "type": "string",
+                "value": "SimpleHTTP/0.6 Python/3.9.6"
+              }
+            },
+            {
+              "name": "Date",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:23:06 GMT"
+              }
+            },
+            {
+              "name": "Content-Length",
+              "value": {
+                "type": "string",
+                "value": "26983"
+              }
+            },
+            {
+              "name": "Last-Modified",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:19:40 GMT"
+              }
+            },
+            {
+              "name": "Content-Type",
+              "value": {
+                "type": "string",
+                "value": "application/javascript"
+              }
+            },
+            {
+              "name": "Cache-Control",
+              "value": {
+                "type": "string",
+                "value": "public, max-age=31536000, immutable"
+              }
+            },
+            {
+              "name": "X-Content-Type-Options",
+              "value": {
+                "type": "string",
+                "value": "nosniff"
+              }
+            }
+          ],
+          "mimeType": "application/javascript",
+          "bytesReceived": 27268,
+          "headersSize": 285,
+          "bodySize": 26983,
+          "content": {
+            "size": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "network.responseCompleted",
+      "params": {
+        "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+        "isBlocked": false,
+        "navigation": null,
+        "redirectCount": 0,
+        "request": {
+          "request": "19-36ff276c-9d71-47e3-ae86-68db7e306655",
+          "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br",
+          "method": "GET",
+          "bodySize": 0,
+          "headersSize": 0,
+          "headers": [
+            {
+              "name": "Host",
+              "value": {
+                "type": "string",
+                "value": "127.0.0.1:8086"
+              }
+            },
+            {
+              "name": "User-Agent",
+              "value": {
+                "type": "string",
+                "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:159.0) Gecko/20100101 Firefox/159.0"
+              }
+            },
+            {
+              "name": "Accept",
+              "value": {
+                "type": "string",
+                "value": "*/*"
+              }
+            },
+            {
+              "name": "Accept-Language",
+              "value": {
+                "type": "string",
+                "value": "en-US,en;q=0.9"
+              }
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": {
+                "type": "string",
+                "value": "gzip, deflate, br, zstd"
+              }
+            },
+            {
+              "name": "Connection",
+              "value": {
+                "type": "string",
+                "value": "keep-alive"
+              }
+            },
+            {
+              "name": "Referer",
+              "value": {
+                "type": "string",
+                "value": "http://127.0.0.1:8086/"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": {
+                "type": "string",
+                "value": "script"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": {
+                "type": "string",
+                "value": "no-cors"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": {
+                "type": "string",
+                "value": "same-origin"
+              }
+            }
+          ],
+          "cookies": [],
+          "destination": "script",
+          "initiatorType": "script",
+          "timings": {
+            "timeOrigin": 0,
+            "requestTime": 1794277386529.356,
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 0,
+            "dnsStart": 0,
+            "dnsEnd": 0,
+            "connectStart": 0,
+            "connectEnd": 0,
+            "tlsStart": 0,
+            "tlsEnd": 0,
+            "requestStart": 0,
+            "responseStart": 0,
+            "responseEnd": 0
+          }
+        },
+        "timestamp": 1794277386530,
+        "userContext": "default",
+        "response": {
+          "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br",
+          "protocol": "http/1.0",
+          "status": 200,
+          "statusText": "OK",
+          "fromCache": true,
+          "headers": [
+            {
+              "name": "Server",
+              "value": {
+                "type": "string",
+                "value": "SimpleHTTP/0.6 Python/3.9.6"
+              }
+            },
+            {
+              "name": "Date",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:07:40 GMT"
+              }
+            },
+            {
+              "name": "Content-Length",
+              "value": {
+                "type": "string",
+                "value": "76626"
+              }
+            },
+            {
+              "name": "Last-Modified",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:05:18 GMT"
+              }
+            },
+            {
+              "name": "Content-Type",
+              "value": {
+                "type": "string",
+                "value": "application/javascript"
+              }
+            },
+            {
+              "name": "Cache-Control",
+              "value": {
+                "type": "string",
+                "value": "public, max-age=31536000, immutable"
+              }
+            },
+            {
+              "name": "X-Content-Type-Options",
+              "value": {
+                "type": "string",
+                "value": "nosniff"
+              }
+            },
+            {
+              "name": "Content-Encoding",
+              "value": {
+                "type": "string",
+                "value": "br"
+              }
+            }
+          ],
+          "mimeType": "application/javascript",
+          "bytesReceived": 0,
+          "headersSize": 0,
+          "bodySize": 76626,
+          "content": {
+            "size": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "network.responseCompleted",
+      "params": {
+        "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+        "isBlocked": false,
+        "navigation": null,
+        "redirectCount": 0,
+        "request": {
+          "request": "20-36ff276c-9d71-47e3-ae86-68db7e306655",
+          "url": "http://127.0.0.1:8086/Build/b5bcddd3512bf603de0575b1c6510d1d.data.br",
+          "method": "GET",
+          "bodySize": 0,
+          "headersSize": 418,
+          "headers": [
+            {
+              "name": "Host",
+              "value": {
+                "type": "string",
+                "value": "127.0.0.1:8086"
+              }
+            },
+            {
+              "name": "User-Agent",
+              "value": {
+                "type": "string",
+                "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:159.0) Gecko/20100101 Firefox/159.0"
+              }
+            },
+            {
+              "name": "Accept",
+              "value": {
+                "type": "string",
+                "value": "*/*"
+              }
+            },
+            {
+              "name": "Accept-Language",
+              "value": {
+                "type": "string",
+                "value": "en-US,en;q=0.9"
+              }
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": {
+                "type": "string",
+                "value": "gzip, deflate, br, zstd"
+              }
+            },
+            {
+              "name": "Referer",
+              "value": {
+                "type": "string",
+                "value": "http://127.0.0.1:8086/"
+              }
+            },
+            {
+              "name": "Connection",
+              "value": {
+                "type": "string",
+                "value": "keep-alive"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": {
+                "type": "string",
+                "value": "empty"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": {
+                "type": "string",
+                "value": "cors"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": {
+                "type": "string",
+                "value": "same-origin"
+              }
+            },
+            {
+              "name": "Priority",
+              "value": {
+                "type": "string",
+                "value": "u=4"
+              }
+            }
+          ],
+          "cookies": [],
+          "destination": "",
+          "initiatorType": "fetch",
+          "timings": {
+            "timeOrigin": 0,
+            "requestTime": 1794277386532.665,
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 0,
+            "dnsStart": 0,
+            "dnsEnd": 0,
+            "connectStart": 1794277386530.023,
+            "connectEnd": 1794277386530.226,
+            "tlsStart": 0,
+            "tlsEnd": 1794277386530.226,
+            "requestStart": 1794277386533.22,
+            "responseStart": 1794277386533.603,
+            "responseEnd": 1794277386563.772
+          }
+        },
+        "timestamp": 1794277386578,
+        "userContext": "default",
+        "response": {
+          "url": "http://127.0.0.1:8086/Build/b5bcddd3512bf603de0575b1c6510d1d.data.br",
+          "protocol": "http/1.0",
+          "status": 200,
+          "statusText": "OK",
+          "fromCache": false,
+          "headers": [
+            {
+              "name": "Server",
+              "value": {
+                "type": "string",
+                "value": "SimpleHTTP/0.6 Python/3.9.6"
+              }
+            },
+            {
+              "name": "Date",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:23:06 GMT"
+              }
+            },
+            {
+              "name": "Content-Length",
+              "value": {
+                "type": "string",
+                "value": "5071602"
+              }
+            },
+            {
+              "name": "Last-Modified",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:19:21 GMT"
+              }
+            },
+            {
+              "name": "Content-Type",
+              "value": {
+                "type": "string",
+                "value": "application/octet-stream"
+              }
+            },
+            {
+              "name": "Cache-Control",
+              "value": {
+                "type": "string",
+                "value": "public, max-age=31536000, immutable"
+              }
+            },
+            {
+              "name": "X-Content-Type-Options",
+              "value": {
+                "type": "string",
+                "value": "nosniff"
+              }
+            },
+            {
+              "name": "Content-Encoding",
+              "value": {
+                "type": "string",
+                "value": "br"
+              }
+            }
+          ],
+          "mimeType": "application/octet-stream",
+          "bytesReceived": 5071913,
+          "headersSize": 311,
+          "bodySize": 5071602,
+          "content": {
+            "size": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[UnityCache] 'http://127.0.0.1:8086/Build/b5bcddd3512bf603de0575b1c6510d1d.data.br' successfully downloaded and stored in the browser cache"
+          }
+        ],
+        "level": "info",
+        "text": "[UnityCache] 'http://127.0.0.1:8086/Build/b5bcddd3512bf603de0575b1c6510d1d.data.br' successfully downloaded and stored in the browser cache",
+        "timestamp": 1794277386634,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 6759,
+              "functionName": "U",
+              "lineNumber": 0,
+              "url": "http://127.0.0.1:8086/Build/396f77fd32d8290e55bb26a030f0fef7.loader.js"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "network.responseCompleted",
+      "params": {
+        "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+        "isBlocked": false,
+        "navigation": null,
+        "redirectCount": 0,
+        "request": {
+          "request": "21-36ff276c-9d71-47e3-ae86-68db7e306655",
+          "url": "http://127.0.0.1:8086/Build/8b1a06155adfc0e931a39f983d6998f8.wasm.br",
+          "method": "GET",
+          "bodySize": 0,
+          "headersSize": 418,
+          "headers": [
+            {
+              "name": "Host",
+              "value": {
+                "type": "string",
+                "value": "127.0.0.1:8086"
+              }
+            },
+            {
+              "name": "User-Agent",
+              "value": {
+                "type": "string",
+                "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:159.0) Gecko/20100101 Firefox/159.0"
+              }
+            },
+            {
+              "name": "Accept",
+              "value": {
+                "type": "string",
+                "value": "*/*"
+              }
+            },
+            {
+              "name": "Accept-Language",
+              "value": {
+                "type": "string",
+                "value": "en-US,en;q=0.9"
+              }
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": {
+                "type": "string",
+                "value": "gzip, deflate, br, zstd"
+              }
+            },
+            {
+              "name": "Referer",
+              "value": {
+                "type": "string",
+                "value": "http://127.0.0.1:8086/"
+              }
+            },
+            {
+              "name": "Connection",
+              "value": {
+                "type": "string",
+                "value": "keep-alive"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": {
+                "type": "string",
+                "value": "empty"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": {
+                "type": "string",
+                "value": "cors"
+              }
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": {
+                "type": "string",
+                "value": "same-origin"
+              }
+            },
+            {
+              "name": "Priority",
+              "value": {
+                "type": "string",
+                "value": "u=4"
+              }
+            }
+          ],
+          "cookies": [],
+          "destination": "",
+          "initiatorType": "fetch",
+          "timings": {
+            "timeOrigin": 0,
+            "requestTime": 1794277386545.185,
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 0,
+            "dnsStart": 0,
+            "dnsEnd": 0,
+            "connectStart": 1794277386545.658,
+            "connectEnd": 1794277386545.854,
+            "tlsStart": 0,
+            "tlsEnd": 1794277386545.854,
+            "requestStart": 1794277386545.87,
+            "responseStart": 1794277386546.298,
+            "responseEnd": 1794277386623.291
+          }
+        },
+        "timestamp": 1794277386637,
+        "userContext": "default",
+        "response": {
+          "url": "http://127.0.0.1:8086/Build/8b1a06155adfc0e931a39f983d6998f8.wasm.br",
+          "protocol": "http/1.0",
+          "status": 200,
+          "statusText": "OK",
+          "fromCache": false,
+          "headers": [
+            {
+              "name": "Server",
+              "value": {
+                "type": "string",
+                "value": "SimpleHTTP/0.6 Python/3.9.6"
+              }
+            },
+            {
+              "name": "Date",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:23:06 GMT"
+              }
+            },
+            {
+              "name": "Content-Length",
+              "value": {
+                "type": "string",
+                "value": "8080775"
+              }
+            },
+            {
+              "name": "Last-Modified",
+              "value": {
+                "type": "string",
+                "value": "Tue, 10 Nov 2026 02:21:13 GMT"
+              }
+            },
+            {
+              "name": "Content-Type",
+              "value": {
+                "type": "string",
+                "value": "application/wasm"
+              }
+            },
+            {
+              "name": "Cache-Control",
+              "value": {
+                "type": "string",
+                "value": "public, max-age=31536000, immutable"
+              }
+            },
+            {
+              "name": "X-Content-Type-Options",
+              "value": {
+                "type": "string",
+                "value": "nosniff"
+              }
+            },
+            {
+              "name": "Content-Encoding",
+              "value": {
+                "type": "string",
+                "value": "br"
+              }
+            }
+          ],
+          "mimeType": "application/wasm",
+          "bytesReceived": 8081078,
+          "headersSize": 303,
+          "bodySize": 8080775,
+          "content": {
+            "size": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[UnityMemory] Configuration Parameters - Can be set up in boot.config\n"
+          }
+        ],
+        "level": "info",
+        "text": "[UnityMemory] Configuration Parameters - Can be set up in boot.config\n",
+        "timestamp": 1794277386915,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-allocator-temp-initial-block-size-main=262144\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-allocator-temp-initial-block-size-main=262144\"\n",
+        "timestamp": 1794277386915,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-allocator-temp-initial-block-size-worker=262144\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-allocator-temp-initial-block-size-worker=262144\"\n",
+        "timestamp": 1794277386915,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-temp-allocator-size-audio-worker=65536\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-temp-allocator-size-audio-worker=65536\"\n",
+        "timestamp": 1794277386915,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-remapper-allocator-initial-capacity=32768\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-remapper-allocator-initial-capacity=32768\"\n",
+        "timestamp": 1794277386915,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-temp-allocator-size-background-worker=32768\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-temp-allocator-size-background-worker=32768\"\n",
+        "timestamp": 1794277386915,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-bucket-allocator-granularity=16\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-bucket-allocator-granularity=16\"\n",
+        "timestamp": 1794277386915,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-bucket-allocator-bucket-count=8\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-bucket-allocator-bucket-count=8\"\n",
+        "timestamp": 1794277386916,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-bucket-allocator-block-size=4194304\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-bucket-allocator-block-size=4194304\"\n",
+        "timestamp": 1794277386916,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-bucket-allocator-block-count=1\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-bucket-allocator-block-count=1\"\n",
+        "timestamp": 1794277386916,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-main-allocator-block-size=16777216\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-main-allocator-block-size=16777216\"\n",
+        "timestamp": 1794277386916,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-thread-allocator-block-size=16777216\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-thread-allocator-block-size=16777216\"\n",
+        "timestamp": 1794277386916,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-gfx-main-allocator-block-size=16777216\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-gfx-main-allocator-block-size=16777216\"\n",
+        "timestamp": 1794277386916,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-gfx-thread-allocator-block-size=16777216\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-gfx-thread-allocator-block-size=16777216\"\n",
+        "timestamp": 1794277386916,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-cache-allocator-block-size=4194304\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-cache-allocator-block-size=4194304\"\n",
+        "timestamp": 1794277386917,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-typetree-allocator-block-size=2097152\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-typetree-allocator-block-size=2097152\"\n",
+        "timestamp": 1794277386917,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-profiler-bucket-allocator-granularity=16\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-profiler-bucket-allocator-granularity=16\"\n",
+        "timestamp": 1794277386917,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-profiler-bucket-allocator-bucket-count=8\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-profiler-bucket-allocator-bucket-count=8\"\n",
+        "timestamp": 1794277386917,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-profiler-bucket-allocator-block-size=4194304\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-profiler-bucket-allocator-block-size=4194304\"\n",
+        "timestamp": 1794277386917,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-profiler-bucket-allocator-block-count=1\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-profiler-bucket-allocator-block-count=1\"\n",
+        "timestamp": 1794277386917,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-profiler-allocator-block-size=16777216\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-profiler-allocator-block-size=16777216\"\n",
+        "timestamp": 1794277386917,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-profiler-editor-allocator-block-size=1048576\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-profiler-editor-allocator-block-size=1048576\"\n",
+        "timestamp": 1794277386917,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-temp-allocator-size-main=4194304\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-temp-allocator-size-main=4194304\"\n",
+        "timestamp": 1794277386917,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-job-temp-allocator-block-size=2097152\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-job-temp-allocator-block-size=2097152\"\n",
+        "timestamp": 1794277386917,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-job-temp-allocator-block-size-background=1048576\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-job-temp-allocator-block-size-background=1048576\"\n",
+        "timestamp": 1794277386917,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "    \"memorysetup-job-temp-allocator-reduction-small-platforms=262144\"\n"
+          }
+        ],
+        "level": "info",
+        "text": "    \"memorysetup-job-temp-allocator-reduction-small-platforms=262144\"\n",
+        "timestamp": 1794277386917,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Input System module state changed to: Initialized.\n"
+          }
+        ],
+        "level": "info",
+        "text": "Input System module state changed to: Initialized.\n",
+        "timestamp": 1794277386940,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[Physics::Module] Initialized fallback backend.\n"
+          }
+        ],
+        "level": "info",
+        "text": "[Physics::Module] Initialized fallback backend.\n",
+        "timestamp": 1794277386941,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[Physics::Module] Id: 0xdecafbad\n"
+          }
+        ],
+        "level": "info",
+        "text": "[Physics::Module] Id: 0xdecafbad\n",
+        "timestamp": 1794277386941,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Loading player data from data.unity3d\n"
+          }
+        ],
+        "level": "info",
+        "text": "Loading player data from data.unity3d\n",
+        "timestamp": 1794277386942,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Initialize engine version: 6000.3.27f1 (672d562a42a7)\n"
+          }
+        ],
+        "level": "info",
+        "text": "Initialize engine version: 6000.3.27f1 (672d562a42a7)\n",
+        "timestamp": 1794277386942,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[Subsystems] Discovering subsystems at path UnitySubsystems\n"
+          }
+        ],
+        "level": "info",
+        "text": "[Subsystems] Discovering subsystems at path UnitySubsystems\n",
+        "timestamp": 1794277386942,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Creating WebGL 2.0 context."
+          }
+        ],
+        "level": "info",
+        "text": "Creating WebGL 2.0 context.",
+        "timestamp": 1794277386943,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 1311,
+              "functionName": "print",
+              "lineNumber": 0,
+              "url": "http://127.0.0.1:8086/Build/396f77fd32d8290e55bb26a030f0fef7.loader.js"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Renderer: Apple M1, or similar\n"
+          }
+        ],
+        "level": "info",
+        "text": "Renderer: Apple M1, or similar\n",
+        "timestamp": 1794277386954,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Vendor:   Mozilla\n"
+          }
+        ],
+        "level": "info",
+        "text": "Vendor:   Mozilla\n",
+        "timestamp": 1794277386954,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Version:  OpenGL ES 3.0 (WebGL 2.0)\n"
+          }
+        ],
+        "level": "info",
+        "text": "Version:  OpenGL ES 3.0 (WebGL 2.0)\n",
+        "timestamp": 1794277386954,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "GLES:     3\n"
+          }
+        ],
+        "level": "info",
+        "text": "GLES:     3\n",
+        "timestamp": 1794277386954,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": " EXT_color_buffer_float EXT_depth_clamp EXT_float_blend EXT_texture_compression_rgtc EXT_texture_filter_anisotropic EXT_texture_norm16 OES_draw_buffers_indexed OES_texture_float_linear WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_provoking_vertex GL_EXT_color_buffer_float GL_EXT_depth_clamp GL_EXT_float_blend GL_EXT_texture_compression_rgtc GL_EXT_texture_filter_anisotropic GL_EXT_texture_norm16 GL_OES_draw_buffers_indexed GL_OES_texture_float_linear GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_provoking_vertex\n"
+          }
+        ],
+        "level": "info",
+        "text": " EXT_color_buffer_float EXT_depth_clamp EXT_float_blend EXT_texture_compression_rgtc EXT_texture_filter_anisotropic EXT_texture_norm16 OES_draw_buffers_indexed OES_texture_float_linear WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_provoking_vertex GL_EXT_color_buffer_float GL_EXT_depth_clamp GL_EXT_float_blend GL_EXT_texture_compression_rgtc GL_EXT_texture_filter_anisotropic GL_EXT_texture_norm16 GL_OES_draw_buffers_indexed GL_OES_texture_float_linear GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_provoking_vertex\n",
+        "timestamp": 1794277386954,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1\n"
+          }
+        ],
+        "level": "info",
+        "text": "OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1\n",
+        "timestamp": 1794277386957,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[Physics::Module] Selected backend.\n"
+          }
+        ],
+        "level": "info",
+        "text": "[Physics::Module] Selected backend.\n",
+        "timestamp": 1794277386986,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[Physics::Module] Name: PhysX\n"
+          }
+        ],
+        "level": "info",
+        "text": "[Physics::Module] Name: PhysX\n",
+        "timestamp": 1794277386986,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[Physics::Module] Id: 0xf2b8ea05\n"
+          }
+        ],
+        "level": "info",
+        "text": "[Physics::Module] Id: 0xf2b8ea05\n",
+        "timestamp": 1794277386986,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[Physics::Module] SDK Version: 4.1.2\n"
+          }
+        ],
+        "level": "info",
+        "text": "[Physics::Module] SDK Version: 4.1.2\n",
+        "timestamp": 1794277386986,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[Physics::Module] Integration Version: 1.0.0\n"
+          }
+        ],
+        "level": "info",
+        "text": "[Physics::Module] Integration Version: 1.0.0\n",
+        "timestamp": 1794277386986,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "[Physics::Module] Threading Mode: Single-Threaded\n"
+          }
+        ],
+        "level": "info",
+        "text": "[Physics::Module] Threading Mode: Single-Threaded\n",
+        "timestamp": 1794277386986,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "ERROR: Shader "
+          }
+        ],
+        "level": "info",
+        "text": "ERROR: Shader ",
+        "timestamp": 1794277387023,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Hidden/CoreSRP/CoreCopy shader is not supported on this GPU (none of subshaders/fallbacks are suitable)\n"
+          }
+        ],
+        "level": "info",
+        "text": "Hidden/CoreSRP/CoreCopy shader is not supported on this GPU (none of subshaders/fallbacks are suitable)\n",
+        "timestamp": 1794277387023,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "ERROR: Shader "
+          }
+        ],
+        "level": "info",
+        "text": "ERROR: Shader ",
+        "timestamp": 1794277387024,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Hidden/Universal Render Pipeline/StencilDitherMaskSeed shader is not supported on this GPU (none of subshaders/fallbacks are suitable)\n"
+          }
+        ],
+        "level": "info",
+        "text": "Hidden/Universal Render Pipeline/StencilDitherMaskSeed shader is not supported on this GPU (none of subshaders/fallbacks are suitable)\n",
+        "timestamp": 1794277387024,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "ERROR: Shader "
+          }
+        ],
+        "level": "info",
+        "text": "ERROR: Shader ",
+        "timestamp": 1794277387031,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Hidden/Universal/HDRDebugView shader is not supported on this GPU (none of subshaders/fallbacks are suitable)\n"
+          }
+        ],
+        "level": "info",
+        "text": "Hidden/Universal/HDRDebugView shader is not supported on this GPU (none of subshaders/fallbacks are suitable)\n",
+        "timestamp": 1794277387031,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Input System initialize...\n"
+          }
+        ],
+        "level": "info",
+        "text": "Input System initialize...\n",
+        "timestamp": 1794277387052,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "UnloadTime: 0.000000 ms\n"
+          }
+        ],
+        "level": "info",
+        "text": "UnloadTime: 0.000000 ms\n",
+        "timestamp": 1794277387099,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 36538,
+              "functionName": "_JS_Log_Dump",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "event",
+      "method": "log.entryAdded",
+      "params": {
+        "type": "console",
+        "method": "log",
+        "source": {
+          "realm": "9d890020-3d75-4e6b-b581-a37aa1b86a61",
+          "context": "1578463f-1b0f-4b1b-b02a-692d9883ffc7",
+          "userContext": "default"
+        },
+        "args": [
+          {
+            "type": "string",
+            "value": "Audio context resumed after 46.804 seconds."
+          }
+        ],
+        "level": "info",
+        "text": "Audio context resumed after 46.804 seconds.",
+        "timestamp": 1794277433770,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "columnNumber": 126039,
+              "functionName": "unityFramework/_JS_Sound_Init/WEBAudio.audioContext.onstatechange",
+              "lineNumber": 8,
+              "url": "http://127.0.0.1:8086/Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

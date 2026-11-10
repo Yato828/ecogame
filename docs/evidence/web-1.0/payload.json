@@ -1,0 +1,47 @@
+{
+  "unityBuildBytes": 13231732,
+  "bytes": 13242283,
+  "version": "1.0.0",
+  "files": [
+    {
+      "path": "index.html",
+      "bytes": 2733,
+      "sha256": "fb7866732187174fb2f526e07ed3b36ed99de4f5342393034f7c23ec56fd1228"
+    },
+    {
+      "path": "vercel.json",
+      "bytes": 3386,
+      "sha256": "757dba1aca1cf1bb25cbc39363b2b28434048f20ad095ba78a080eaf999c2571"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.txt",
+      "bytes": 7165,
+      "sha256": "792c6155a24cdc2d885dc713bb69964122f20165bc2fd997398403b95a0b4a72"
+    },
+    {
+      "path": "style.css",
+      "bytes": 1137,
+      "sha256": "7badcc842219a72f95679aca74b6a0fe57f96aa3ae4fb85b30a5596df1d3ae26"
+    },
+    {
+      "path": "Build/0fff00fd97c61e154d507ea790838cf6.framework.js.br",
+      "bytes": 76626,
+      "sha256": "aedf9827f06415de867d7221d1fd7c969165ca40c5d0957ac13ba0c7990708c5"
+    },
+    {
+      "path": "Build/c0208c73480043a65ed306de598a7a3e.wasm.br",
+      "bytes": 8088352,
+      "sha256": "e8da3bfd9cb7b26461ddd06049fc45a4095b2149ae0405543563732950346d82"
+    },
+    {
+      "path": "Build/b03dbdcdf94687e5c9914b85c439cec7.loader.js",
+      "bytes": 26983,
+      "sha256": "267f6b17ee4b803486da90ee3790a5e7164cb29b3aba66e16e1bb5be0b495f2c"
+    },
+    {
+      "path": "Build/36b5f854a2b54d98f4f20dcb24efd3c4.data.br",
+      "bytes": 5035901,
+      "sha256": "3364d373d1b351061718c8021d9e7e8d34156c9f1f7d8afe7d18cda133c3fc3f"
+    }
+  ]
+}

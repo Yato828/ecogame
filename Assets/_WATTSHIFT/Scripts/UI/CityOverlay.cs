@@ -78,7 +78,7 @@ namespace Wattshift
             root.style.position = Position.Absolute;
             root.style.left = root.style.right = root.style.top = root.style.bottom = 0;
             root.style.color = ink;
-            root.style.unityFontDefinition = FontDefinition.FromFont(Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf"));
+            root.style.unityFontDefinition = RuntimeUiFont.Definition;
             root.RegisterCallback<KeyDownEvent>(evt =>
             {
                 // Tab belongs to world inspection; Escape remains available to close the card.

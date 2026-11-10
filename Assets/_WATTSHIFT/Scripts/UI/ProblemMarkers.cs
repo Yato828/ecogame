@@ -116,7 +116,7 @@ namespace Wattshift
             root.pickingMode = PickingMode.Ignore;
             root.style.position = Position.Absolute;
             root.style.left = root.style.right = root.style.top = root.style.bottom = 0;
-            root.style.unityFontDefinition = FontDefinition.FromFont(Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf"));
+            root.style.unityFontDefinition = RuntimeUiFont.Definition;
 
             // This is a static diorama: source colliders and roof anchors are cached once.
             var buildings = FindObjectsByType<CityBuilding>(FindObjectsSortMode.None);

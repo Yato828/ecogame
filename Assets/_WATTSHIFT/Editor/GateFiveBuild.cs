@@ -38,6 +38,10 @@ namespace Wattshift.Editor
                     development ? "Builds/G5/WebDevelopment" : "Builds/G5/WebRelease") };
             var previousArchitecture = UnityEditor.OSXStandalone.UserBuildSettings.architecture;
             string previousTemplate = null;
+            var previousCompression = PlayerSettings.WebGL.compressionFormat;
+            bool previousFallback = PlayerSettings.WebGL.decompressionFallback;
+            bool previousHashes = PlayerSettings.WebGL.nameFilesAsHashes;
+            bool previousCaching = PlayerSettings.WebGL.dataCaching;
             bool architectureChanged = false;
             try
             {
@@ -58,6 +62,10 @@ namespace Wattshift.Editor
                 {
                     previousTemplate = PlayerSettings.WebGL.template;
                     PlayerSettings.WebGL.template = "PROJECT:WATTSHIFT";
+                    PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Brotli;
+                    PlayerSettings.WebGL.decompressionFallback = false;
+                    PlayerSettings.WebGL.nameFilesAsHashes = true;
+                    PlayerSettings.WebGL.dataCaching = true;
                 }
                 Directory.CreateDirectory(Path.GetDirectoryName(summary.output));
                 BuildReport report = BuildPipeline.BuildPlayer(new BuildPlayerOptions
@@ -76,7 +84,14 @@ namespace Wattshift.Editor
             finally
             {
                 if (architectureChanged) UnityEditor.OSXStandalone.UserBuildSettings.architecture = previousArchitecture;
-                if (previousTemplate != null) PlayerSettings.WebGL.template = previousTemplate;
+                if (previousTemplate != null)
+                {
+                    PlayerSettings.WebGL.template = previousTemplate;
+                    PlayerSettings.WebGL.compressionFormat = previousCompression;
+                    PlayerSettings.WebGL.decompressionFallback = previousFallback;
+                    PlayerSettings.WebGL.nameFilesAsHashes = previousHashes;
+                    PlayerSettings.WebGL.dataCaching = previousCaching;
+                }
                 Directory.CreateDirectory(Path.GetDirectoryName(evidence));
                 File.WriteAllText(evidence, JsonUtility.ToJson(summary, true));
             }

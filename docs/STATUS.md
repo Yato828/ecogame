@@ -1,4 +1,16 @@
-# Current status — Gameplay Rescue
+# Current status — Web Release 1.0.0
+
+Production: https://wattshift-game.vercel.app — separate wattshift-game project, Vercel Hobby. Exact deployment state/ID: evidence/web-1.0/deployment.json. Unity Web Release, Development OFF; final BuildReport has 0 warnings/errors. Actual filesystem bytes: build 13,231,732; uploaded public payload 13,242,283 (8 files). BuildReport totalSize omits compressed payloads; use payload.json for actual size/hashes. Seven public files verified via HTTPS/MIME/Brotli/SHA-256; internal paths return 404.
+
+Minimal technical changes: embedded source-tracked OFL fonts repair real missing Web Cyrillic/symbols; normalized Input System wheel ticks use the existing camera sensitivity correctly; mobile first launch selects Low unless a preference exists; loader subtitle/favicon; explicit Brotli/static hosting settings; bundleVersion 1.0.0. Approved tasks, tutorial, scenes, models/materials, URP assets and simulation are retained. Existing untracked Assets/_Recovery is preserved and excluded from the commit/deployment. Checkpoint: /private/tmp/wattshift-before-web-1.0.
+
+PASS: 104/104 Edit Mode + 18/18 Play Mode after font changes; camera-only normalization then passed 5/5 targeted tests. Actual graphical Chrome 155 and Firefox 159 on macOS 27.3 loaded local HTTP and public HTTPS; first task/reward and persisted progress verified. Chrome closed/reopened fully and restored task index 1, Medium/mute/UI scale preferences; previous build progress survived update. WebAudio source starts report running after user input (not human listening). Chrome mobile emulation verified Low, touch selection/card/reward, drag/pinch and orientation; physical phones NOT TESTED. Safari automation blocked by disabled Allow remote automation; Windows/Edge NOT TESTED. No FPS/device compatibility guarantee.
+
+Known observations retained: Chrome WebGL INVALID_ENUM getInternalformatParameter warnings, without observed artifacts/crashes; an aborted .data request on reopen accompanies explicit UnityCache revalidated/served-from-cache success. Browser-denied storage modes and long-session memory/thermal behavior NOT TESTED. Native save failures and bridge callbacks are covered automatically. No blanket production-ready/all-device claim. Vercel auto-assigned the first deployment to production; subsequent final previews were verified then promoted explicitly. No existing Vercel project was modified. No G6 work.
+
+Resume verification (2026-11-10): public HTTPS rechecked; all 7 public resource SHA-256/MIME/Brotli checks PASS, 5 internal paths return 404. Staged 8-file payload hashes/lengths match payload.json. Prior XML results inspected: 104/104 Edit Mode, 18/18 Play Mode, 5/5 camera; tests were not rerun. Existing production-menu screenshot inspected; no new browser/device run in this continuation. Fresh checkpoint: /private/tmp/wattshift-resume-checkpoint (the earlier temporary checkpoint is no longer available). Release sources/configuration/evidence are included in the release commit; generated Web payload and existing Recovery scene are excluded.
+
+## Previous acceptance — Gameplay Rescue
 
 New default player flow: 17 data-driven situations (5/5/4 + 3 final), one source/choice/safety template, Iskra introduction, retry explanations, chapter stars, mistake-based final tips, real source-model feedback. Existing seven upgrades run through the original simulation; no budget/time/scanner barrier in the player UI. Scene, models, materials, lighting assets and packages unchanged.
 

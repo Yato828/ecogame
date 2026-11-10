@@ -1,0 +1,17 @@
+{
+  "origin": "https://wattshift-game.vercel.app",
+  "files": [
+    {
+      "key": "/idbfs/51752a3096f1028eff78aa4db69d723e/wattshift-player-campaign.json",
+      "tasks": {
+        "Index": 1,
+        "TutorialDone": true,
+        "Completed": [
+          "school-light"
+        ],
+        "Errors": [],
+        "Found": []
+      }
+    }
+  ]
+}

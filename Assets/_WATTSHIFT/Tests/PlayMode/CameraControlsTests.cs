@@ -84,11 +84,12 @@ namespace Wattshift.Tests
         {
             Assert.IsTrue(ui.IsPointerOverPanel(Panel));
             float original = camera.orthographicSize;
-            yield return MouseEvent(Panel, 0, 120);
+            yield return MouseEvent(Panel, 0, 1);
             Assert.That(rig.TargetOrthographicSize, Is.EqualTo(original).Within(.001f));
-            yield return MouseEvent(World, 0, 120);
+            yield return MouseEvent(World, 0, 1);
             float target = rig.TargetOrthographicSize;
             Assert.Less(target, original);
+            Assert.That(target, Is.EqualTo(original * Mathf.Exp(-120 * rig.ZoomSensitivity)).Within(.01f), "A real normalized tick must provide useful zoom");
             Assert.That(camera.orthographicSize, Is.InRange(target, original));
             yield return new WaitForSecondsRealtime(.4f);
             Assert.That(camera.orthographicSize, Is.EqualTo(target).Within(.15f));

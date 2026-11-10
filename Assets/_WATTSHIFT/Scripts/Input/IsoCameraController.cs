@@ -92,7 +92,12 @@ namespace Wattshift
             Vector2 position = mouse.position.ReadValue();
             if (!OverUI(position))
             {
-                float scroll = Mathf.Clamp(mouse.scroll.ReadValue().y, -1200, 1200);
+                float scroll = mouse.scroll.ReadValue().y;
+                // Input System 1.17 normalizes wheel ticks to one; retain the serialized
+                // sensitivity's original 120-unit tick convention on every platform.
+                if (InputSystem.settings.scrollDeltaBehavior == InputSettings.ScrollDeltaBehavior.UniformAcrossAllPlatforms)
+                    scroll *= 120;
+                scroll = Mathf.Clamp(scroll, -1200, 1200);
                 desiredSize *= Mathf.Exp(-scroll * ZoomSensitivity);
             }
             bool pressed = mouse.rightButton.wasPressedThisFrame || mouse.middleButton.wasPressedThisFrame;

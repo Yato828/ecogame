@@ -32,7 +32,12 @@ namespace Wattshift.Presentation
             if (Instance != null && Instance != this) { Destroy(this); return; }
             Instance = this;
             key = PresentationSettingsScope.Key("quality");
-            tier = Mathf.Clamp(PlayerPrefs.GetInt(key, 2), 0, 2);
+            int defaultTier = 2;
+#if UNITY_WEBGL && !UNITY_EDITOR
+            // First launch only: saved user choices always win; desktop defaults stay High.
+            if (Application.isMobilePlatform) defaultTier = 0;
+#endif
+            tier = Mathf.Clamp(PlayerPrefs.GetInt(key, defaultTier), 0, 2);
             originalDefault = GraphicsSettings.defaultRenderPipeline;
             originalQuality = QualitySettings.renderPipeline;
             var source = GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset;

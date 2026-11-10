@@ -1,0 +1,31 @@
+{
+  "platform": "macOS 27.3 / Apple M4",
+  "browserTests": {
+    "Chrome": "155; graphical isolated profile; production gameplay, audio engine, settings, restart, update, camera",
+    "Firefox": "159.0.1; graphical isolated profile; production gameplay and page-reopen progress",
+    "mobile": "Chrome Android-UA emulation only; no physical phone tested",
+    "Safari": "NOT TESTED: WebDriver denied because Allow remote automation is disabled",
+    "Windows_Edge": "NOT TESTED"
+  },
+  "automatic": {
+    "editMode": "104/104 PASS",
+    "playMode": "18/18 PASS before wheel correction",
+    "normalizedWheelAndCamera": "5/5 PASS after wheel correction",
+    "hostingFixtures": "6/6 PASS",
+    "bridgeMockProtocol": "4/4 PASS; not proof of browser storage"
+  },
+  "storage": "Actual /idbfs FILE_DATA persistence; completed school-light and index 1 survive Chrome process restart; UI prefs restored. Previous build also restored progress after update.",
+  "audio": "AudioBufferSourceNode starts observed with AudioContext state running after clicks; human listening NOT TESTED.",
+  "screenshots": "Actual Unity Web canvas captured in Chrome/Firefox; mobile files explicitly EMULATED.",
+  "known": [
+    "WebGL INVALID_ENUM capability-query warnings remain",
+    "UnityCache success on reopen accompanies canceled redundant data request"
+  ],
+  "unverified": [
+    "physical mobile compatibility/performance",
+    "Safari",
+    "Windows/Edge",
+    "browser-denied storage modes",
+    "long-session memory/thermal stability"
+  ]
+}
