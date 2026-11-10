@@ -9,6 +9,7 @@ namespace Wattshift
     {
         public int Version = 3;
         public int MissionIndex;
+        public TaskProgress Tasks;
         public CityState City;
         public CampaignRecord[] Records = Array.Empty<CampaignRecord>();
         public string[] InvestigatedIds = Array.Empty<string>();
@@ -24,16 +25,29 @@ namespace Wattshift
         public bool Exists => File.Exists(FilePath);
         public bool Save(CampaignSave state, out string message)
         {
+            if(state==null || state.Version!=3){message="Неподдерживаемое состояние сохранения.";return false;}
             string temp = FilePath + ".tmp";
             try
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(Path.GetFullPath(FilePath)));
                 byte[] bytes = Encoding.UTF8.GetBytes(JsonUtility.ToJson(state, true));
-                using (var stream = new FileStream(temp, FileMode.Create, FileAccess.Write, FileShare.None)) { stream.Write(bytes, 0, bytes.Length); stream.Flush(true); }
+                using (var stream = new FileStream(temp, FileMode.Create, FileAccess.Write, FileShare.None)) { stream.Write(bytes, 0, bytes.Length);
+#if UNITY_WEBGL && !UNITY_EDITOR
+                    stream.Flush();
+#else
+                    stream.Flush(true);
+#endif
+                 }
+#if UNITY_WEBGL && !UNITY_EDITOR
+                if(Exists)File.Copy(FilePath,FilePath+".bak",true);
+                File.Copy(temp,FilePath,true);File.Delete(temp);
+#else
                 if (Exists) File.Replace(temp, FilePath, FilePath + ".bak"); else File.Move(temp, FilePath);
+#endif
+                BrowserPersistence.Request();
                 message = "Смена и прогресс сохранены."; return true;
             }
-            catch (Exception e) when (e is IOException || e is UnauthorizedAccessException || e is ArgumentException)
+            catch (Exception e) when (e is IOException || e is UnauthorizedAccessException || e is ArgumentException || e is NotSupportedException || e is System.Security.SecurityException)
             { message = "Не удалось сохранить: " + e.Message; return false; }
             finally { try { if (File.Exists(temp)) File.Delete(temp); } catch (IOException) { } catch (UnauthorizedAccessException) { } }
         }
@@ -50,7 +64,7 @@ namespace Wattshift
                 if (state == null) { message = "Сохранение повреждено."; return false; }
                 message = "Сохранение прочитано."; return true;
             }
-            catch (Exception e) when (e is IOException || e is UnauthorizedAccessException || e is ArgumentException)
+            catch (Exception e) when (e is IOException || e is UnauthorizedAccessException || e is ArgumentException || e is NotSupportedException || e is System.Security.SecurityException)
             { message = "Не удалось прочитать: " + e.Message; return false; }
         }
     }

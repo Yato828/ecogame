@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{{ PRODUCT_NAME }}}</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="player">
+    <canvas id="unity-canvas" width="{{{ WIDTH }}}" height="{{{ HEIGHT }}}" tabindex="0" aria-label="WATTSHIFT — игровое поле"></canvas>
+    <section id="loading" role="status" aria-live="polite">
+      <h1>{{{ PRODUCT_NAME }}}</h1>
+      <p id="status">Загрузка игры…</p>
+      <progress id="progress" max="1" value="0" aria-label="Загрузка игры"></progress>
+    </section>
+    <p id="notice" role="alert" hidden></p>
+  </main>
+  <script>
+    const canvas = document.getElementById('unity-canvas');
+    const loading = document.getElementById('loading');
+    const status = document.getElementById('status');
+    const notice = document.getElementById('notice');
+    function showError(message) {
+      notice.hidden = false;
+      notice.textContent = 'Не удалось продолжить: ' + String(message) + '. Перезагрузите страницу. Если ошибка повторится, сообщите её текст.';
+    }
+    window.addEventListener('error', event => showError(event.message));
+    window.addEventListener('unhandledrejection', event => showError(event.reason));
+    const buildUrl = 'Build';
+    const config = {
+      dataUrl: buildUrl + '/{{{ DATA_FILENAME }}}',
+      frameworkUrl: buildUrl + '/{{{ FRAMEWORK_FILENAME }}}',
+      codeUrl: buildUrl + '/{{{ CODE_FILENAME }}}',
+#if MEMORY_FILENAME
+      memoryUrl: buildUrl + '/{{{ MEMORY_FILENAME }}}',
+#endif
+#if SYMBOLS_FILENAME
+      symbolsUrl: buildUrl + '/{{{ SYMBOLS_FILENAME }}}',
+#endif
+      streamingAssetsUrl: 'StreamingAssets',
+      companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
+      productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
+      productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}},
+      autoSyncPersistentDataPath: true,
+      showBanner: (message, type) => {
+        if (type === 'error') showError(message);
+        else console.warn(message);
+      }
+    };
+    const loader = document.createElement('script');
+    loader.src = buildUrl + '/{{{ LOADER_FILENAME }}}';
+    loader.onerror = () => showError('файл загрузчика недоступен');
+    loader.onload = () => {
+      status.textContent = 'Загрузка данных и запуск…';
+      createUnityInstance(canvas, config, value => {
+        document.getElementById('progress').value = value;
+      }).then(instance => {
+        window.wattshiftUnityInstance = instance;
+        loading.hidden = true;
+        canvas.focus();
+      }).catch(showError);
+    };
+    document.body.appendChild(loader);
+  </script>
+</body>
+</html>

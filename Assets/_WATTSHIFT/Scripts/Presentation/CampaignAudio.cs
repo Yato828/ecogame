@@ -27,7 +27,7 @@ namespace Wattshift.Presentation
             {
                 volume = float.IsNaN(value) || float.IsInfinity(value) ? .65f : Mathf.Clamp01(value);
                 foreach (AudioSource voice in voices) if (voice != null) voice.volume = volume;
-                if (key != null) PlayerPrefs.SetFloat(key + ".volume", volume);
+                if (key != null) { PlayerPrefs.SetFloat(key + ".volume", volume); PersistentSettings.Request(); }
             }
         }
         public bool Muted
@@ -37,7 +37,7 @@ namespace Wattshift.Presentation
             {
                 muted = value;
                 if (muted) foreach (AudioSource voice in voices) if (voice != null) voice.Stop();
-                if (key != null) PlayerPrefs.SetInt(key + ".muted", value ? 1 : 0);
+                if (key != null) { PlayerPrefs.SetInt(key + ".muted", value ? 1 : 0); PersistentSettings.Request(); }
             }
         }
 

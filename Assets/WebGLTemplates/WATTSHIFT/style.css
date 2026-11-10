@@ -1,0 +1,12 @@
+:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #101b22; color: #eef5f7; }
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+body { padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+#player { width: 100%; height: 100%; position: relative; }
+#unity-canvas { display: block; width: 100%; height: 100%; background: #101b22; touch-action: none; }
+#unity-canvas:focus-visible { outline: 2px solid #bcebd8; outline-offset: -2px; }
+#loading { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; padding: 24px; background: #101b22; }
+#loading[hidden], #notice[hidden] { display: none; }
+h1 { font-size: clamp(1.4rem, 5vw, 2.4rem); letter-spacing: .08em; }
+progress { width: min(75vw, 320px); height: 16px; accent-color: #94d9ba; margin-inline: auto; }
+#notice { position: absolute; inset: auto 12px 12px; max-height: 50%; overflow: auto; padding: 16px; margin: 0; background: #54282b; border: 1px solid #ffc4ba; white-space: pre-wrap; overflow-wrap: anywhere; }

@@ -47,7 +47,9 @@ namespace Wattshift
             public Connector Line;
             public ProblemMarkerState State;
             public Rect ScreenRect;
-            public bool Visible, Present;
+            public bool Visible, Present, AnchorVisible;
+            public Vector2 ProjectedAnchor;
+            public float LastPulse = 1;
             public float SuccessAt = -1;
         }
 
@@ -59,6 +61,39 @@ namespace Wattshift
         PanelSettings panel;
         ThemeStyleSheet theme;
         GameObject documentObject;
+        VisualElement hudRoot, hudCard, contextRoot;
+        bool placementDirty = true, projectionDirty = true, wasActive;
+        int screenWidth, screenHeight;
+        Rect safeArea;
+        Matrix4x4 viewMatrix, projectionMatrix;
+        float lastScale;
+
+        void GeometryChanged(GeometryChangedEvent change) { placementDirty = true; }
+        void PreferencesChanged() { placementDirty = true; }
+
+        // HUD Start order is unspecified: attach once its public tree exists, including the
+        // card whose local geometry changes without changing the full-screen root geometry.
+        void BindGeometry()
+        {
+            var nextHud = GameplayHud.Instance != null ? GameplayHud.Instance.Root : null;
+            if (nextHud != hudRoot)
+            {
+                if (hudRoot != null) hudRoot.UnregisterCallback<GeometryChangedEvent>(GeometryChanged);
+                if (hudCard != null) hudCard.UnregisterCallback<GeometryChangedEvent>(GeometryChanged);
+                hudRoot = nextHud; hudCard = hudRoot?.Q<VisualElement>("mission-card");
+                hudRoot?.RegisterCallback<GeometryChangedEvent>(GeometryChanged);
+                hudCard?.RegisterCallback<GeometryChangedEvent>(GeometryChanged);
+                placementDirty = true;
+            }
+            var nextContext = CityOverlay.Instance != null ? CityOverlay.Instance.ContextRoot : null;
+            if (nextContext != contextRoot)
+            {
+                contextRoot?.UnregisterCallback<GeometryChangedEvent>(GeometryChanged);
+                contextRoot = nextContext;
+                contextRoot?.RegisterCallback<GeometryChangedEvent>(GeometryChanged);
+                placementDirty = true;
+            }
+        }
 
         void Start()
         {
@@ -77,6 +112,7 @@ namespace Wattshift
             document.panelSettings = panel;
             root = document.rootVisualElement;
             root.name = "problem-markers";
+            root.style.display = DisplayStyle.None;
             root.pickingMode = PickingMode.Ignore;
             root.style.position = Position.Absolute;
             root.style.left = root.style.right = root.style.top = root.style.bottom = 0;
@@ -114,6 +150,7 @@ namespace Wattshift
                 marker.Anchors.Add(new Anchor { Building = building, Top = new Vector3(bounds.center.x, bounds.max.y + .18f, bounds.center.z) });
             }
             session.Changed += Refresh;
+            UserExperienceSettings.Changed += PreferencesChanged;
             Refresh();
         }
 
@@ -160,52 +197,85 @@ namespace Wattshift
                     if (problem.Resolved) resolved++;
                     else urgent |= problem.Urgent;
                 }
+                if (session.AdventureMode)
+                {
+                    var taskState = session.TaskMarker(marker.Id);
+                    count = taskState == ProblemMarkerState.Hidden ? 0 : 1;
+                    resolved = taskState == ProblemMarkerState.Resolved ? count : 0;
+                    urgent = false; tooltip.Clear(); tooltip.Append(resolved > 0 ? "Отличная работа!" : session.ActiveTask?.Title);
+                }
+                if (marker.Present != (count > 0)) placementDirty = true;
                 marker.Present = count > 0;
                 var state = count == 0 ? ProblemMarkerState.Hidden : resolved == count ? ProblemMarkerState.Resolved : urgent ? ProblemMarkerState.Urgent : ProblemMarkerState.Problem;
                 if (state == ProblemMarkerState.Resolved && marker.State != state && marker.State != ProblemMarkerState.Hidden)
                     marker.SuccessAt = Time.unscaledTime;
+                bool styleChanged = marker.State != state;
                 marker.State = state;
-                marker.Button.text = state == ProblemMarkerState.Resolved ? "✓" : "!";
+                if (styleChanged) marker.Button.text = state == ProblemMarkerState.Resolved ? "✓" : "!";
                 marker.Button.tooltip = tooltip.Append("\nОткрыть объект (Enter / пробел)").ToString();
-                marker.Button.style.backgroundColor = state == ProblemMarkerState.Resolved ? new Color(.18f, .58f, .38f) : state == ProblemMarkerState.Urgent ? new Color(.79f, .20f, .16f) : new Color(.98f, .74f, .20f);
-                marker.Button.style.color = state == ProblemMarkerState.Problem ? new Color(.20f, .17f, .08f) : Color.white;
+                if (styleChanged) marker.Button.style.backgroundColor = state == ProblemMarkerState.Resolved ? new Color(.18f, .58f, .38f) : state == ProblemMarkerState.Urgent ? new Color(.79f, .20f, .16f) : new Color(.98f, .74f, .20f);
+                if (styleChanged) marker.Button.style.color = state == ProblemMarkerState.Problem ? new Color(.20f, .17f, .08f) : Color.white;
             }
         }
 
         void LateUpdate()
         {
             if (root == null || panel == null || sceneCamera == null) return;
+            BindGeometry();
             bool active = session.Phase == GamePhase.Playing && !(GameplayHud.Instance != null && GameplayHud.Instance.HasBlockingModal);
-            root.style.display = active ? DisplayStyle.Flex : DisplayStyle.None;
+            if (active != wasActive)
+            {
+                root.style.display = active ? DisplayStyle.Flex : DisplayStyle.None;
+                wasActive = active; placementDirty = true;
+            }
             if (!active) { foreach (var marker in markers) marker.Visible = false; return; }
-            panel.scale = Mathf.Max(.1f, UserExperienceSettings.ScaleFactor);
-            float scale = panel.scale;
-            // Physical pixels stay independent of camera zoom and the responsive text scale.
-            float pixels = Mathf.Clamp(Screen.width * .045f, 44, 56);
-            float size = pixels / scale;
-            foreach (var marker in markers) marker.Visible = false;
+            float scale = Mathf.Max(.1f, UserExperienceSettings.ScaleFactor);
+            if (scale != lastScale) { panel.scale = scale; lastScale = scale; placementDirty = true; }
+            if (screenWidth != Screen.width || screenHeight != Screen.height || safeArea != Screen.safeArea
+                || viewMatrix != sceneCamera.worldToCameraMatrix || projectionMatrix != sceneCamera.projectionMatrix)
+            {
+                screenWidth = Screen.width; screenHeight = Screen.height; safeArea = Screen.safeArea;
+                viewMatrix = sceneCamera.worldToCameraMatrix; projectionMatrix = sceneCamera.projectionMatrix;
+                projectionDirty = true; placementDirty = true;
+            }
+            // Collider anchors belong to the static diorama. Reproject/raycast only when the
+            // camera or screen changes; geometry/session notifications invalidate placement.
+            if (placementDirty)
+            {
+                float pixels = Mathf.Clamp(Screen.width * .045f, 44, 56);
+                float size = pixels / scale;
+                foreach (var marker in markers) marker.Visible = false;
+                foreach (var marker in markers)
+                {
+                    if (projectionDirty) marker.AnchorVisible = ChooseAnchor(marker, out marker.ProjectedAnchor);
+                    Vector2 anchor = marker.ProjectedAnchor;
+                    if (!marker.Present || !marker.AnchorVisible || !Place(marker, anchor, pixels, out Rect rect)) { Hide(marker); continue; }
+                    marker.Visible = true; marker.ScreenRect = rect;
+                    marker.Button.style.display = DisplayStyle.Flex;
+                    marker.Button.style.left = rect.x / scale;
+                    marker.Button.style.top = (Screen.height - rect.yMax) / scale;
+                    marker.Button.style.width = marker.Button.style.height = size;
+                    marker.Button.style.fontSize = size * .59f;
+                    Vector2 center = rect.center;
+                    bool displaced = (center - anchor).sqrMagnitude > 16;
+                    marker.Line.style.display = displaced ? DisplayStyle.Flex : DisplayStyle.None;
+                    if (displaced)
+                    {
+                        Vector2 from = new Vector2(anchor.x, Screen.height - anchor.y) / scale;
+                        Vector2 to = new Vector2(center.x, Screen.height - center.y) / scale;
+                        if (marker.Line.From != from || marker.Line.To != to)
+                        { marker.Line.From = from; marker.Line.To = to; marker.Line.MarkDirtyRepaint(); }
+                    }
+                }
+                projectionDirty = false; placementDirty = false;
+            }
             foreach (var marker in markers)
             {
-                if (!marker.Present || !ChooseAnchor(marker, out Vector2 anchor)) { Hide(marker); continue; }
-                if (!Place(marker, anchor, pixels, out Rect rect)) { Hide(marker); continue; }
-                marker.Visible = true; marker.ScreenRect = rect;
-                marker.Button.style.display = DisplayStyle.Flex;
-                marker.Button.style.left = rect.x / scale;
-                marker.Button.style.top = (Screen.height - rect.yMax) / scale;
-                marker.Button.style.width = marker.Button.style.height = size;
-                marker.Button.style.fontSize = size * .59f;
                 float elapsed = Time.unscaledTime - marker.SuccessAt;
                 float pulse = marker.SuccessAt >= 0 && elapsed < .38f ? 1 + .13f * Mathf.Sin(elapsed / .38f * Mathf.PI) : 1;
+                if (pulse == marker.LastPulse) continue;
+                marker.LastPulse = pulse;
                 marker.Button.style.scale = new Scale(new Vector3(pulse, pulse, 1));
-                Vector2 center = rect.center;
-                bool displaced = (center - anchor).sqrMagnitude > 16;
-                marker.Line.style.display = displaced ? DisplayStyle.Flex : DisplayStyle.None;
-                if (displaced)
-                {
-                    marker.Line.From = new Vector2(anchor.x, Screen.height - anchor.y) / scale;
-                    marker.Line.To = new Vector2(center.x, Screen.height - center.y) / scale;
-                    marker.Line.MarkDirtyRepaint();
-                }
             }
         }
 
@@ -274,6 +344,10 @@ namespace Wattshift
         {
             if (Instance == this) Instance = null;
             if (session != null) session.Changed -= Refresh;
+            UserExperienceSettings.Changed -= PreferencesChanged;
+            hudRoot?.UnregisterCallback<GeometryChangedEvent>(GeometryChanged);
+            hudCard?.UnregisterCallback<GeometryChangedEvent>(GeometryChanged);
+            contextRoot?.UnregisterCallback<GeometryChangedEvent>(GeometryChanged);
             if (documentObject != null) Destroy(documentObject);
             if (panel != null) Destroy(panel);
             if (theme != null) Destroy(theme);

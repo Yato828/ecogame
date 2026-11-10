@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Globalization;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.Profiling;
@@ -15,7 +16,10 @@ namespace Wattshift
     {
         [Serializable] sealed class TierSample
         {
-            public string tier, drawCallsStatus, batchesStatus;
+            public string tier, mode, drawCallsStatus, batchesStatus, unityMemoryStatus, processMemoryStatus;
+            public int intervalSamples, focusedSamples, framesAbove33Ms, framesAbove50Ms, framesAbove100Ms;
+            public double meanFrameMs, onePercentLowFps, p99FrameMs, maxFrameMs, focusedSampleFraction, startHour, endHour;
+            public long processWorkingSetBytes = -1;
             public int renderedFrames;
             public double observedSeconds, medianFrameMs, p95FrameMs, observedFps;
             public long allocatedBytes, reservedBytes, drawCalls, batches;
@@ -23,8 +27,17 @@ namespace Wattshift
         [Serializable] sealed class SmokeReport
         {
             public string result = "Running", utc, unity, os, gpu, graphicsApi, output, error;
-            public string scope = "Automated native rendered smoke; no browser/device/human-play compatibility claim. Frame timings include development-player instrumentation.";
+            public string scope = "Automated native rendered smoke; no browser/device/human-play compatibility claim. Build type is recorded; Release profiler counters may be unavailable. Samples are native rendered wall intervals, not browser/phone benchmarks.";
             public int width, height, meshRenderers, missingMaterials, missingMeshes, consoleErrors, consoleWarnings;
+            public int activeObjects, activeLights, shadowCastingLights, uniqueMaterials, uniqueMeshes, audioSources, loadedAudioClips;
+            public bool developmentBuild;
+            public double sceneReadyLoadSeconds, requestedProfileSeconds;
+            public string sceneReadyScope = "Time.realtimeSinceStartupAsDouble at first diagnostics frame after scene session, HUD and markers are ready; includes engine startup/scene initialization to that point, excludes OS launch and download.";
+            public string audioEvidence = "Counts/settings only; no human listening verification.";
+            public bool audioMuted, settingsWrittenForFreshProcess, settingsRestoredInFreshProcess;
+            public float audioVolume;
+            public int qualityTier;
+            public TierSample activeHigh;
             public bool speed1, speed2, speed4, savedAndLoaded, finished, schoolPurchased;
             public int score, stars, campaignStars;
             public int[] missionScores, missionStars;
@@ -39,6 +52,7 @@ namespace Wattshift
         readonly List<string> screenshots = new List<string>();
         GameSession session;
         bool running;
+        double profileSeconds = 10;
 
         void Start()
         {
@@ -49,9 +63,16 @@ namespace Wattshift
             int outputArgument = Array.IndexOf(args, "-wattshiftEvidenceOutput");
             if (outputArgument >= 0 && outputArgument + 1 < args.Length) directory = Path.GetFullPath(args[outputArgument + 1]);
             Directory.CreateDirectory(directory);
+            int secondsArgument = Array.IndexOf(args, "-wattshiftProfileSeconds");
+            if (secondsArgument >= 0)
+            {
+                if (secondsArgument + 1 >= args.Length || !double.TryParse(args[secondsArgument + 1], NumberStyles.Float, CultureInfo.InvariantCulture, out profileSeconds) || double.IsNaN(profileSeconds) || double.IsInfinity(profileSeconds))
+                    profileSeconds = 10;
+                profileSeconds = Math.Max(10, Math.Min(120, profileSeconds));
+            }
             report = new SmokeReport { utc = DateTime.UtcNow.ToString("O"), unity = Application.unityVersion,
                 os = SystemInfo.operatingSystem, gpu = SystemInfo.graphicsDeviceName, graphicsApi = SystemInfo.graphicsDeviceType.ToString(),
-                width = Screen.width, height = Screen.height, output = directory };
+                width = Screen.width, height = Screen.height, output = directory, developmentBuild = Debug.isDebugBuild, requestedProfileSeconds = profileSeconds };
             Application.logMessageReceived += Log;
             running = true;
             StartCoroutine(Guard(Array.IndexOf(args,"-wattshiftRestoreSmoke")>=0 ? RestoreCampaign() : Walkthrough()));
@@ -84,7 +105,11 @@ namespace Wattshift
                 throw new InvalidOperationException("Previous process active result did not restore.");
             report.savedAndLoaded=true;report.finished=true;report.campaignStars=session.TotalStars;report.score=session.Score;report.stars=session.Stars;
             report.finalHour=session.GameHour;report.finalEnergyKWh=session.Snapshot.AccumulatedEnergyKWh;
-            InspectReferences();yield return Capture("09-restored-campaign");
+            InspectReferences();
+            report.settingsRestoredInFreshProcess = CampaignAudio.Instance != null && CampaignAudio.Instance.Muted
+                && Math.Abs(CampaignAudio.Instance.Volume - .37f) < .001f && QualityController.Instance != null && QualityController.Instance.Tier == 1;
+            if (!report.settingsRestoredInFreshProcess) throw new InvalidOperationException("Audio mute/volume and quality did not restore from isolated PlayerPrefs in fresh process.");
+            yield return Capture("09-restored-campaign");
         }
 
         IEnumerator Walkthrough()
@@ -96,13 +121,14 @@ namespace Wattshift
             session = GameSession.Instance;
             if (session == null || !session.Ready || GameplayHud.Instance == null || ProblemMarkers.Instance == null)
                 throw new InvalidOperationException("Required scene gameplay or marker components were not initialized.");
+            report.sceneReadyLoadSeconds = Time.realtimeSinceStartupAsDouble;
             InspectReferences();
             yield return Capture("01-boot-menu");
             session.BeginMission(0); session.SkipTutorial(); if (!session.Paused) session.TogglePause();
             yield return null; yield return Capture("02-problem-markers");
             session.TogglePause();session.Tick(180);session.TogglePause(); // Measure at20:00 with real street lights active.
             session.OpenProblem("school");
-            if (CityOverlay.Instance != null) CityOverlay.Instance.SetExpandedCard(true);
+            GameplayHud.Instance.ShowSolutions();
             yield return new WaitForSecondsRealtime(.6f);
             yield return Capture("03-expanded-school");
             var samples = new List<TierSample>(3);
@@ -111,12 +137,20 @@ namespace Wattshift
                 if (QualityController.Instance == null) throw new InvalidOperationException("QualityController missing.");
                 QualityController.Instance.Tier = tier;
                 yield return new WaitForSecondsRealtime(1);
-                var sample = new TierSample { tier = new[] { "Low", "Medium", "High" }[tier] };
-                yield return Measure(sample);
+                var sample = new TierSample { tier = new[] { "Low", "Medium", "High" }[tier], mode = "Paused 20:00; markers and expanded school card" };
+                yield return Measure(sample, profileSeconds);
                 samples.Add(sample); report.quality = samples.ToArray();
                 yield return Capture("04-quality-" + sample.tier.ToLowerInvariant());
             }
-            session.BeginMission(0); // Independent early-decision route after the paused night benchmark.
+            // Real Update-driven simulation: no synthetic Tick inside this active-play measurement.
+            session.SetSpeed(4);
+            if (session.Paused) session.TogglePause();
+            report.activeHigh = new TierSample { tier = "High", mode = "Active clock 4x; same night scene, markers and expanded school card; 10 seconds" };
+            yield return Measure(report.activeHigh, 10);
+            if (!session.Paused) session.TogglePause();
+            if (report.activeHigh.endHour <= report.activeHigh.startHour)
+                throw new InvalidOperationException("Active sample clock did not advance (inspect focus samples and pause state).");
+            session.BeginMission(0); // Independent early-decision route after the paused and active benchmarks.
             session.SetSpeed(1); report.speed1 = session.SpeedMultiplier == 1;
             session.SetSpeed(2); report.speed2 = session.SpeedMultiplier == 2;
             session.SetSpeed(4); report.speed4 = session.SpeedMultiplier == 4;
@@ -153,40 +187,83 @@ namespace Wattshift
             report.missionScores[2]=session.Score;report.missionStars[2]=session.Stars;report.campaignStars=session.TotalStars;session.Save();session.Load();
             if(session.LastActionFailed||session.TotalStars<3)throw new InvalidOperationException("Campaign restore failed in native player.");
             yield return Capture("08-clinic-results");
+            // A second -wattshiftRestoreSmoke process must verify these through component Awake.
+            // Session.Load alone does not reconstruct audio/quality components or prove persistence.
+            if (CampaignAudio.Instance == null || QualityController.Instance == null) throw new InvalidOperationException("Audio/quality settings components missing.");
+            CampaignAudio.Instance.Volume = .37f; CampaignAudio.Instance.Muted = true; QualityController.Instance.Tier = 1;
+            PlayerPrefs.Save(); report.settingsWrittenForFreshProcess = true;
         }
 
-        IEnumerator Measure(TierSample sample)
+        IEnumerator Measure(TierSample sample, double seconds)
         {
             var frames = new List<double>(8192);
-            var drawSamples=new List<long>(2048);var batchSamples=new List<long>(2048);
+            var drawSamples = new List<long>(8192); var batchSamples = new List<long>(8192);
             ProfilerRecorder draws = default, batches = default;
-            try { draws = ProfilerRecorder.StartNew(ProfilerCategory.Render, "Draw Calls Count", 1); } catch (Exception) { }
-            try { batches = ProfilerRecorder.StartNew(ProfilerCategory.Render, "Batches Count", 1); } catch (Exception) { }
-            double start = Time.realtimeSinceStartupAsDouble, previous = start;
-            int firstRenderedFrame = Time.renderedFrameCount;
-            while (Time.realtimeSinceStartupAsDouble - start < 10)
+            try
             {
+                try { draws = ProfilerRecorder.StartNew(ProfilerCategory.Render, "Draw Calls Count", 1); } catch (Exception) { }
+                try { batches = ProfilerRecorder.StartNew(ProfilerCategory.Render, "Batches Count", 1); } catch (Exception) { }
+                // Align both endpoints to rendered-frame completion; exclude profiler setup and screenshots.
                 yield return new WaitForEndOfFrame();
-                double now = Time.realtimeSinceStartupAsDouble;
-                frames.Add((now - previous) * 1000); previous = now;
-                if(draws.Valid && draws.Count>0 && draws.LastValue>0)drawSamples.Add(draws.LastValue);
-                if(batches.Valid && batches.Count>0 && batches.LastValue>0)batchSamples.Add(batches.LastValue);
+                double start = Time.realtimeSinceStartupAsDouble, previous = start;
+                int firstRenderedFrame = Time.renderedFrameCount;
+                sample.startHour = session.GameHour;
+                var endOfFrame = new WaitForEndOfFrame();
+                while (Time.realtimeSinceStartupAsDouble - start < seconds)
+                {
+                    yield return endOfFrame;
+                    double now = Time.realtimeSinceStartupAsDouble;
+                    double interval = (now - previous) * 1000; previous = now;
+                    frames.Add(interval);
+                    if (Application.isFocused) sample.focusedSamples++;
+                    if (interval > 33) sample.framesAbove33Ms++;
+                    if (interval > 50) sample.framesAbove50Ms++;
+                    if (interval > 100) sample.framesAbove100Ms++;
+                    if (draws.Valid && draws.Count > 0 && draws.LastValue > 0) drawSamples.Add(draws.LastValue);
+                    if (batches.Valid && batches.Count > 0 && batches.LastValue > 0) batchSamples.Add(batches.LastValue);
+                }
+                sample.endHour = session.GameHour;
+                sample.observedSeconds = Time.realtimeSinceStartupAsDouble - start;
+                sample.renderedFrames = Time.renderedFrameCount - firstRenderedFrame;
+                sample.intervalSamples = frames.Count;
+                frames.Sort();
+                if (frames.Count == 0 || sample.renderedFrames == 0) throw new InvalidOperationException("No rendered frames in measurement.");
+                double total = 0, worst = 0;
+                int worstCount = Math.Max(1, (int)Math.Ceiling(frames.Count * .01));
+                for (int i = 0; i < frames.Count; i++) { total += frames[i]; if (i >= frames.Count - worstCount) worst += frames[i]; }
+                sample.meanFrameMs = total / frames.Count;
+                sample.onePercentLowFps = 1000 / (worst / worstCount);
+                sample.medianFrameMs = Percentile(frames, .5);
+                sample.p95FrameMs = Percentile(frames, .95);
+                sample.p99FrameMs = Percentile(frames, .99);
+                sample.maxFrameMs = frames[frames.Count - 1];
+                sample.observedFps = 1000 / sample.meanFrameMs;
+                sample.focusedSampleFraction = (double)sample.focusedSamples / frames.Count;
+                sample.allocatedBytes = Profiler.GetTotalAllocatedMemoryLong(); sample.reservedBytes = Profiler.GetTotalReservedMemoryLong();
+                sample.unityMemoryStatus = sample.allocatedBytes > 0 && sample.reservedBytes > 0 ? "Unity allocator snapshot at sample end; excludes full process/GPU memory" : "unavailable: zero/nonpositive Unity allocator counter is invalid";
+                sample.processMemoryStatus = "unavailable on this platform";
+#if UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN || UNITY_STANDALONE_LINUX || UNITY_EDITOR
+                try
+                {
+                    using (var process = System.Diagnostics.Process.GetCurrentProcess())
+                    {
+                        process.Refresh(); long rss = process.WorkingSet64;
+                        if (rss > 0) { sample.processWorkingSetBytes = rss; sample.processMemoryStatus = "Process.WorkingSet64 at sample end (OS process resident working set; not GPU memory)"; }
+                        else sample.processMemoryStatus = "unavailable: nonpositive Process.WorkingSet64 is invalid";
+                    }
+                }
+                catch (Exception exception) { sample.processMemoryStatus = "unavailable: " + exception.GetType().Name; }
+#endif
+                drawSamples.Sort(); batchSamples.Sort();
+                sample.drawCallsStatus = drawSamples.Count > 0 ? "median positive rendered samples: " + drawSamples.Count : "unavailable: no positive render sample; zero is invalid (Release counters may be stripped)";
+                sample.batchesStatus = batchSamples.Count > 0 ? "median positive rendered samples: " + batchSamples.Count : "unavailable: no positive render sample; zero is invalid (Release counters may be stripped)";
+                sample.drawCalls = drawSamples.Count > 0 ? drawSamples[drawSamples.Count / 2] : -1;
+                sample.batches = batchSamples.Count > 0 ? batchSamples[batchSamples.Count / 2] : -1;
             }
-            sample.observedSeconds = Time.realtimeSinceStartupAsDouble - start;
-            sample.renderedFrames = Time.renderedFrameCount - firstRenderedFrame;
-            frames.Sort();
-            if (frames.Count == 0 || sample.renderedFrames == 0) throw new InvalidOperationException("No rendered frames in measurement.");
-            sample.medianFrameMs = frames[frames.Count / 2];
-            sample.p95FrameMs = frames[Math.Min(frames.Count - 1, (int)Math.Ceiling(frames.Count * .95) - 1)];
-            sample.observedFps = sample.renderedFrames / sample.observedSeconds;
-            sample.allocatedBytes = Profiler.GetTotalAllocatedMemoryLong(); sample.reservedBytes = Profiler.GetTotalReservedMemoryLong();
-            drawSamples.Sort();batchSamples.Sort();
-            sample.drawCallsStatus=drawSamples.Count>0 ? "median nonzero rendered samples: "+drawSamples.Count : "unavailable: no positive render sample";
-            sample.batchesStatus=batchSamples.Count>0 ? "median nonzero rendered samples: "+batchSamples.Count : "unavailable: no positive render sample";
-            sample.drawCalls=drawSamples.Count>0 ? drawSamples[drawSamples.Count/2] : -1;
-            sample.batches=batchSamples.Count>0 ? batchSamples[batchSamples.Count/2] : -1;
-            draws.Dispose(); batches.Dispose();
+            finally { draws.Dispose(); batches.Dispose(); }
         }
+
+        static double Percentile(List<double> sorted, double fraction) => sorted[Math.Max(0, Math.Min(sorted.Count - 1, (int)Math.Ceiling(sorted.Count * fraction) - 1))];
 
         IEnumerator Capture(string name)
         {
@@ -207,16 +284,27 @@ namespace Wattshift
             var missing = new List<string>();
             var renderers = FindObjectsByType<MeshRenderer>(FindObjectsInactive.Include, FindObjectsSortMode.None);
             report.meshRenderers = renderers.Length;
+            report.activeObjects = FindObjectsByType<Transform>(FindObjectsSortMode.None).Length;
+            var lights = FindObjectsByType<Light>(FindObjectsSortMode.None);
+            foreach (var light in lights) if (light.isActiveAndEnabled) { report.activeLights++; if (light.shadows != LightShadows.None) report.shadowCastingLights++; }
+            var materialIds = new HashSet<int>(); var meshIds = new HashSet<int>();
+            report.audioSources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None).Length;
+            report.loadedAudioClips = Resources.FindObjectsOfTypeAll<AudioClip>().Length;
+            report.qualityTier = QualityController.Instance != null ? QualityController.Instance.Tier : -1;
+            if (CampaignAudio.Instance != null) { report.audioMuted = CampaignAudio.Instance.Muted; report.audioVolume = CampaignAudio.Instance.Volume; }
             foreach (var renderer in renderers)
             {
                 var filter = renderer.GetComponent<MeshFilter>();
                 if (filter == null || filter.sharedMesh == null) { report.missingMeshes++; missing.Add(renderer.name + ": mesh missing"); }
+                if (filter != null && filter.sharedMesh != null) meshIds.Add(filter.sharedMesh.GetInstanceID());
                 Material[] materials = renderer.sharedMaterials;
+                foreach (var material in materials) if (material != null) materialIds.Add(material.GetInstanceID());
                 if (materials.Length == 0) { report.missingMaterials++; missing.Add(renderer.name + ": no material slots"); }
                 foreach (Material material in materials)
                     if (material == null || material.shader == null || material.shader.name == "Hidden/InternalErrorShader")
                     { report.missingMaterials++; missing.Add(renderer.name + ": missing material/shader"); }
             }
+            report.uniqueMaterials = materialIds.Count; report.uniqueMeshes = meshIds.Count;
             report.missingReferences = missing.ToArray();
         }
 

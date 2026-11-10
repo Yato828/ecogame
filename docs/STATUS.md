@@ -1,3 +1,15 @@
+# Current status — Gameplay Rescue
+
+New default player flow: 17 data-driven situations (5/5/4 + 3 final), one source/choice/safety template, Iskra introduction, retry explanations, chapter stars, mistake-based final tips, real source-model feedback. Existing seven upgrades run through the original simulation; no budget/time/scanner barrier in the player UI. Scene, models, materials, lighting assets and packages unchanged.
+
+Progress uses the existing schema-3 CampaignSaveService with an additive Tasks field and separate wattshift-player-campaign.json. Legacy v3/v4 campaign files remain untouched. Open chapters and stars derive from saved completed IDs/errors; tutorial replay temporarily isolates progress. G5 work present before this request was preserved in /private/tmp/wattshift-before-gameplay-rescue (tracked.patch + untracked.tar.gz). The incompatible NUnit attribute was removed; no reset or source deletion.
+
+Validation: Unity 6000.3.27f1, URP 17.3.0, isolated Editor project /private/tmp/WATTSHIFT_Validation. PASS: 103/103 Edit Mode and 18/18 Play Mode. Final results: docs/evidence/rescue/editmode.xml and playmode.xml; actual Game View captures alongside them. Includes retained legacy simulation/UX/camera tests and new full campaign/save/UI tests. Raw logs and first failed passes stay local/ignored. No new platform builds requested or produced for this rescue. Physical touch devices, audible playback and child usability/session duration NOT TESTED. Web/Windows still BLOCKED by missing build modules. G5 release acceptance remains incomplete; no G6 work.
+
+Open Assets/_WATTSHIFT/Scenes/CitySlice.unity and enter Play Mode. Choose Начать → school ! → a solution → read explanation → Дальше. Source tasks first ask for the unnecessary load. Wrong answers explain the better choice without blocking retry. No waiting for a clock. After all four sections, advice reflects mistakes. The 20–25 minute play-time target is unverified; no filler or artificial delays were added.
+
+## Historical G4 baseline (superseded player interface)
+
 # WATTSHIFT status
 
 Updated: 2026-11-09, Europe/Minsk.

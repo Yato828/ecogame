@@ -1,3 +1,5 @@
+> Gameplay Rescue supersedes the legacy timed player loop below: one map, 17 situations in three chapters and a three-question final. Data: Assets/_WATTSHIFT/Resources/CityTasks.json. Three interaction variants share one card; seven original upgrades still apply actual simulation effects. Default UI shows actions/progress, without energy units, budget or clocks. Wrong choices explain and allow retry; completed IDs, mistakes, source discoveries and tutorial state persist separately from legacy campaign saves. Chapter stars are derived from completed tasks and the number of tasks with mistakes (0 → 3; 1–2 → 2; 3+ → 1). No claim of measured play duration.
+
 # WATTSHIFT — Game Design v 0.1
 
 ## Pitch

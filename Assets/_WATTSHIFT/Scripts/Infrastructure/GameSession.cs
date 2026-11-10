@@ -11,7 +11,7 @@ namespace Wattshift
 
     /// <summary>Campaign/scene adapter. Time and decisions feed the existing deterministic simulation.</summary>
     [DefaultExecutionOrder(-100)]
-    public sealed class GameSession : MonoBehaviour
+    public sealed partial class GameSession : MonoBehaviour
     {
         public static GameSession Instance { get; private set; }
         public MissionDefinition Mission;
@@ -49,7 +49,13 @@ namespace Wattshift
         public event Action<string> Feedback;
 
         CampaignProgress progress;
-        CampaignSaveService saveService;
+        CampaignSaveService saveService, normalSaveService;
+        CampaignProgress normalProgress;
+        bool normalTutorialDone;
+        bool storageFailed;
+        public string SaveStatus => BrowserPersistence.Pending ? "Запись в браузер синхронизируется…" : storageFailed ? "Браузер не подтвердил запись. Повтори сохранение перед закрытием вкладки." : "";
+        public bool IsDemo { get; private set; }
+        public string CurrentSavePath => AdventureMode ? taskSaveService?.FilePath : saveService?.FilePath;
         BuildingEnergyView[] views;
         CityBuilding[] cityBuildings;
         CityOverlay selection;
@@ -86,15 +92,17 @@ namespace Wattshift
                 if(File.Exists(oldPath) && !CampaignUpgradeMigration.TryMigrate(oldPath,saveService,LegacyMissions,Missions,out string migrationMessage))
                 { LastActionFailed=true;LastMessage="Предыдущий прогресс не перенесён. Старый файл сохранён. "+migrationMessage; }
             }
+            InitializeTasks(directory);
             CreateSimulation(0);
         }
 
         void Start()
         {
+            BrowserPersistence.Initialize();BrowserPersistence.Completed+=BrowserSyncFinished;BrowserPersistence.StateChanged+=StorageChanged;
             selection = CityOverlay.Instance;
             if (selection != null) selection.SelectionChanged += OnSelection;
             if (Atmosphere != null) Atmosphere.Bind(cityBuildings, views);
-            if (saveService != null && saveService.Exists)
+            if (!AdventureMode && saveService != null && saveService.Exists)
             {
                 if (saveService.Load(out CampaignSave saved, out string message)
                     && ValidateSave(saved, out _, out CampaignProgress restored, out _)) progress = restored;
@@ -119,6 +127,7 @@ namespace Wattshift
         public void BeginMission(int index)
         {
             if (!IsMissionUnlocked(index)) { Inform("Сначала завершите предыдущую смену.", "error"); return; }
+            AdventureMode = false;
             CreateSimulation(index); Phase = GamePhase.Playing; Paused = false;
             LastMessage = "Исследуйте район. Можно поставить время на паузу и обдумать решение.";
             selection?.Select(null); FireEvents(Mission.StartHour - .00001, Mission.StartHour); Refresh(); Persist();
@@ -148,6 +157,7 @@ namespace Wattshift
 
         public void InspectBuilding(string id)
         {
+            if (AdventureMode) return;
             if (Phase != GamePhase.Playing || (!Mission.UseDecisionRating && !ScannerEnabled)) { Inform("Сначала включите энергетический сканер.", "error"); return; }
             if (!Mission.RequiredBuildingIds.Contains(id)) { Inform("Здесь нет проблемы текущего задания.", "event"); return; }
             if (GameHour + .000001 < Mission.InvestigationAvailableHour) { Inform("Пока нагрузка соответствует работе объекта. Дождитесь события смены.", "event"); return; }
@@ -224,16 +234,46 @@ namespace Wattshift
             if (building == null) return;
             selection?.Select(building);
             Camera.main?.GetComponent<IsoCameraController>()?.FocusOn(building.GetComponent<Collider>().bounds.center);
-            InspectBuilding(id);
+            if (!AdventureMode) InspectBuilding(id);
         }
-        public void SkipTutorial() { tutorialDone = true; if (tutorialKey != null) { PlayerPrefs.SetInt(tutorialKey,1); PlayerPrefs.Save(); } Changed?.Invoke(); }
-        public void RepeatTutorial() { tutorialDone = false; PlayerPrefs.SetInt(tutorialKey,0); BeginMission(0); }
+        public void SkipTutorial() { tutorialDone = true; if (!IsDemo && tutorialKey != null) { PlayerPrefs.SetInt(tutorialKey,1); PlayerPrefs.Save(); } Changed?.Invoke(); }
+        public void RepeatTutorial() { if (AdventureMode) { RepeatTaskTutorial(); return; } tutorialDone = false; if(!IsDemo) PlayerPrefs.SetInt(tutorialKey,0); BeginMission(0); }
         public void PerformTutorialAction()
         {
             if (!TutorialActive) return;
             if (!IsInvestigated("school")) OpenProblem("school");
             else if (Snapshot.PurchaseCount == 0) { CityOverlay.Instance?.SetExpandedCard(true); GameplayHud.Instance?.ShowSolutions(); }
             else FinishShiftEarly();
+        }
+
+        public void BeginDemo()
+        {
+            if(IsDemo)ReturnToCampaign();
+            if(Phase!=GamePhase.Menu)Persist();
+            normalSaveService=saveService;normalProgress=progress;normalTutorialDone=tutorialDone;
+            IsDemo=true;tutorialDone=false;progress=new CampaignProgress(Missions);
+            saveService=new CampaignSaveService(Path.Combine(Application.temporaryCachePath,"WattshiftDemo",Guid.NewGuid().ToString("N"),"demo.json"));
+            BeginMission(0);
+        }
+        public void ReturnToCampaign()
+        {
+            if(!IsDemo){ReturnToMenu();return;}
+            IsDemo=false;saveService=normalSaveService;progress=normalProgress;tutorialDone=normalTutorialDone;
+            normalSaveService=null;normalProgress=null;
+            CreateSimulation(0);Phase=GamePhase.Menu;Paused=true;selection?.Select(null);Refresh();
+        }
+        public void RequestQuit()
+        {
+            if(IsDemo)ReturnToCampaign();else if(Phase!=GamePhase.Menu)Persist();
+            PersistentSettings.FlushNow();BrowserPersistence.Request();
+#if !UNITY_WEBGL
+            Application.Quit();
+#endif
+        }
+        void StorageChanged(){Changed?.Invoke();}
+        void BrowserSyncFinished(bool success)
+        {
+            storageFailed=!success;if(!success)Feedback?.Invoke("error");Changed?.Invoke();
         }
 
         void Update()
@@ -250,7 +290,7 @@ namespace Wattshift
 
         public void Tick(double realSeconds)
         {
-            if (!Ready || Phase != GamePhase.Playing || Paused || !Mission.UseTimeline || realSeconds <= 0 || double.IsNaN(realSeconds) || double.IsInfinity(realSeconds)) return;
+            if (AdventureMode || !Ready || Phase != GamePhase.Playing || Paused || !Mission.UseTimeline || realSeconds <= 0 || double.IsNaN(realSeconds) || double.IsInfinity(realSeconds)) return;
             using (TickMarker.Auto())
             {
                 double before = GameHour;
@@ -291,11 +331,12 @@ namespace Wattshift
         void Inform(string message, string feedback) { LastActionFailed = feedback == "error"; LastMessage = message; Feedback?.Invoke(feedback); Refresh(); }
         void OnSelection(CityBuilding selected) { if (selected != null) Feedback?.Invoke("select"); }
         CampaignSave Export() => new CampaignSave { MissionIndex = MissionIndex, City = Simulation.ExportState(), Records = progress.Export(), InvestigatedIds = InvestigatedBuildingIds, ScannerEnabled = ScannerEnabled, Results = Phase == GamePhase.Results, SpeedMultiplier = SpeedMultiplier };
-        void Persist() { if (Ready && saveService != null && !saveService.Save(Export(), out string error)) { LastActionFailed = true; LastMessage += " " + error; } }
-        public void Save() { if (!Ready) return; LastActionFailed = !saveService.Save(Export(), out string message); LastMessage = !LastActionFailed ? "Смена и кампания сохранены." : message; Refresh(); }
+        void Persist() { if (AdventureMode) { SaveTasks(); return; } if (Ready && saveService != null && !saveService.Save(Export(), out string error)) { LastActionFailed = true; LastMessage += " " + error; } }
+        public void Save() { if (AdventureMode) { SaveTasks(); Refresh(); return; } if (!Ready) return; LastActionFailed = !saveService.Save(Export(), out string message); LastMessage = !LastActionFailed ? (BrowserPersistence.Pending ? SaveStatus : "Смена и кампания сохранены.") : message; Refresh(); }
 
         public void Load()
         {
+            if (AdventureMode) { BeginAdventure(); return; }
             if (saveService == null || !saveService.Load(out CampaignSave saved, out string message)) { Inform("Сохранение не прочитано. Проверьте наличие и версию файла.", "error"); return; }
             if (!ValidateSave(saved, out var candidate, out var restoredProgress, out string error)) { Inform("Сохранение не применено: " + error, "error"); return; }
             Simulation.Changed -= Refresh; Simulation = candidate; Simulation.Changed += Refresh;
@@ -337,10 +378,12 @@ namespace Wattshift
             if (!string.IsNullOrEmpty(EditorTestSaveDirectory)) return;
 #endif
             if (!focused && Phase == GamePhase.Playing)
-            { Paused = true; pendingRealTime = 0; LastMessage = "Смена на паузе после потери фокуса. Продолжите, когда будете готовы."; Persist(); Refresh(); }
+            { if (AdventureMode) { SaveTasks(); return; } Paused = true; pendingRealTime = 0; LastMessage = "Смена на паузе после потери фокуса. Продолжите, когда будете готовы."; Persist(); Refresh(); }
         }
         void OnDestroy()
         {
+            if (taskMission != null) Destroy(taskMission);
+            BrowserPersistence.Completed-=BrowserSyncFinished;BrowserPersistence.StateChanged-=StorageChanged;
             if (Simulation != null) Simulation.Changed -= Refresh;
             if (selection != null) selection.SelectionChanged -= OnSelection;
             if (Instance == this) Instance = null;

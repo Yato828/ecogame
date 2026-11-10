@@ -23,6 +23,7 @@ namespace Wattshift.Tests
             CameraControlsTests.SetViewport(); UnityEditor.ShaderUtil.allowAsyncCompilation=false;
             saves=Path.Combine(Path.GetTempPath(),"WattshiftG4-"+Guid.NewGuid().ToString("N"));GameSession.EditorTestSaveDirectory=saves;
             InputSystem.settings.editorInputBehaviorInPlayMode=InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
+            GameSession.EditorLegacyGameplay = true;
             SceneManager.LoadScene("CitySlice");yield return null;yield return null;
             session=GameSession.Instance;session.enabled=false;hud=GameplayHud.Instance;overlay=CityOverlay.Instance;
             mouse=InputSystem.AddDevice<Mouse>("G4 UX verification");
@@ -33,7 +34,7 @@ namespace Wattshift.Tests
         [UnityTearDown] public IEnumerator Teardown()
         {
             foreach(var device in isolatedHardware)if(device.added)InputSystem.EnableDevice(device);isolatedHardware.Clear();
-            if(mouse!=null)InputSystem.RemoveDevice(mouse);GameSession.EditorTestSaveDirectory=null;
+            if(mouse!=null)InputSystem.RemoveDevice(mouse);GameSession.EditorTestSaveDirectory=null;GameSession.EditorLegacyGameplay=false;
             CameraControlsTests.SetViewport();if(Directory.Exists(saves))Directory.Delete(saves,true);yield return null;
         }
         IEnumerator Click(Button button)

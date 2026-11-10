@@ -224,6 +224,7 @@ namespace Wattshift
             previousHeight = Screen.height;
             previousSafeArea = Screen.safeArea;
             bool portrait = Screen.width < Screen.height;
+            bool compactHeader = portrait || Screen.height < 600;
             settings.scale = UserExperienceSettings.EffectiveScale;
             float scale = Mathf.Max(settings.scale, 0.1f);
             Rect safe = Screen.safeArea;
@@ -238,23 +239,23 @@ namespace Wattshift
             context.style.width = portrait ? availableWidth - 24 : Mathf.Min(expandedCard ? 540 : 350, Mathf.Max(280, availableWidth - 390));
             context.style.bottom = portrait ? 12 : 24;
             context.style.top = new StyleLength(StyleKeyword.Auto);
-            context.style.maxHeight = portrait ? (expandedCard ? availableHeight - 24 : availableHeight * .44f) : availableHeight * .75f;
-            context.style.height = expandedCard ? (portrait ? availableHeight - 24 : availableHeight * .75f) : Mathf.Min(portrait ? 208 : 260, availableHeight * .44f);
-            context.style.paddingLeft = context.style.paddingRight = portrait ? 16 : 24;
-            context.style.paddingTop = context.style.paddingBottom = portrait ? 16 : 22;
-            contextBar.style.height = portrait ? 0 : new StyleLength(StyleKeyword.Auto);
+            context.style.maxHeight = portrait ? (expandedCard ? availableHeight - 24 : availableHeight * .44f) : availableHeight * (compactHeader ? .90f : .75f);
+            context.style.height = expandedCard ? (portrait ? availableHeight - 24 : availableHeight * (compactHeader ? .90f : .75f)) : Mathf.Min(portrait ? 208 : 260, availableHeight * .44f);
+            context.style.paddingLeft = context.style.paddingRight = compactHeader ? 16 : 24;
+            context.style.paddingTop = context.style.paddingBottom = compactHeader ? 12 : 22;
+            contextBar.style.height = compactHeader ? 0 : new StyleLength(StyleKeyword.Auto);
             contextEyebrow.style.display = portrait ? DisplayStyle.None : DisplayStyle.Flex;
-            closeButton.style.position = portrait ? Position.Absolute : Position.Relative;
-            closeButton.style.top = portrait ? new StyleLength(0f) : new StyleLength(StyleKeyword.Auto);
-            closeButton.style.right = portrait ? new StyleLength(0f) : new StyleLength(StyleKeyword.Auto);
-            closeButton.style.marginTop = portrait ? 0 : -10;
-            closeButton.style.marginRight = portrait ? 0 : -12;
-            title.style.fontSize = portrait ? 22 : 27;
-            title.style.paddingRight = portrait ? 46 : 0;
-            category.style.fontSize = portrait ? 10 : 12;
-            category.style.marginTop = portrait ? 0 : 8;
-            protection.style.fontSize = portrait ? 10 : 11;
-            protection.style.marginTop = portrait ? 8 : 15;
+            closeButton.style.position = compactHeader ? Position.Absolute : Position.Relative;
+            closeButton.style.top = compactHeader ? new StyleLength(0f) : new StyleLength(StyleKeyword.Auto);
+            closeButton.style.right = compactHeader ? new StyleLength(0f) : new StyleLength(StyleKeyword.Auto);
+            closeButton.style.marginTop = compactHeader ? 0 : -10;
+            closeButton.style.marginRight = compactHeader ? 0 : -12;
+            title.style.fontSize = compactHeader ? 22 : 27;
+            title.style.paddingRight = compactHeader ? 46 : 0;
+            category.style.fontSize = compactHeader ? 10 : 12;
+            category.style.marginTop = compactHeader ? 0 : 8;
+            protection.style.fontSize = compactHeader ? 10 : 11;
+            protection.style.marginTop = compactHeader ? 8 : 15;
             description.style.fontSize = portrait ? 12 : 14;
             description.style.display = GameplayMode || contextCompact ? DisplayStyle.None : DisplayStyle.Flex;
             description.style.marginTop = portrait ? 8 : 14;
@@ -273,7 +274,7 @@ namespace Wattshift
             closeButton.style.width = closeButton.style.height = closeSize;
             category.style.display = contextCompact ? DisplayStyle.None : DisplayStyle.Flex;
             protection.style.display = contextCompact ? DisplayStyle.None : DisplayStyle.Flex;
-            contextEyebrow.style.display = portrait || contextCompact ? DisplayStyle.None : DisplayStyle.Flex;
+            contextEyebrow.style.display = compactHeader || contextCompact ? DisplayStyle.None : DisplayStyle.Flex;
         }
 
         static string CompactDescription(string text)

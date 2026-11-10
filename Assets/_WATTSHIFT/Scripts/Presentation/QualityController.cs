@@ -22,7 +22,7 @@ namespace Wattshift.Presentation
             set
             {
                 tier = Mathf.Clamp(value, 0, 2);
-                if (key != null) PlayerPrefs.SetInt(key, tier);
+                if (key != null) { PlayerPrefs.SetInt(key, tier); PersistentSettings.Request(); }
                 Apply();
             }
         }
